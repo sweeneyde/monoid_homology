@@ -1,0 +1,4 @@
+**/__pycache__/
+venv312/
+venv/
+**.sage.py

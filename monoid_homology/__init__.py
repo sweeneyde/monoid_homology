@@ -1,4 +1,4 @@
-from .crs import CanonicalRewritingSystem, CRS
+from .crs import CompleteRewritingSystem, CRS
 from .from_table import (
     op_from_index,
     all_gens_crs,

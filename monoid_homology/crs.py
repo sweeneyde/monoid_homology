@@ -13,7 +13,7 @@ form "L->R" (e.g. "xyz->xz"). These take the form a
 finite collection of pairs of strings (L, R),
 and we will write uLv --> uRv for any strings u and v.
 
-A rewriting system is called "Canonical" if is
+A rewriting system is called "Complete" if is
 
     (1) Noetherian: No infinite chains w0 --> w1 --> w2 --> ...
 
@@ -51,7 +51,7 @@ This program requires SageMath to compute homology. To use:
 from itertools import permutations
 from collections import defaultdict, Counter
 
-class CanonicalRewritingSystem:
+class CompleteRewritingSystem:
     __slots__ = ("alphabet", "rules", "max_rewrites",
                  "prefix_to_rules", "essentials", "_successor_words",
                  "_essrep", "_classifications", "_chain_complex",
@@ -373,4 +373,4 @@ class CanonicalRewritingSystem:
         print()
 
 
-CRS = CanonicalRewritingSystem
+CRS = CompleteRewritingSystem
