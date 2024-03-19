@@ -1,7 +1,7 @@
 from .crs import CompleteRewritingSystem, CRS
 from .from_table import (
-    op_from_index,
-    all_gens_crs,
+    all_ops,
+    op_from_id,
     find_best_gens_crs,
-    best_gens_crs_from_index,
 )
+from .knuth_bendix import kb_normalize

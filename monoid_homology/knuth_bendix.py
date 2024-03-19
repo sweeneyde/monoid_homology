@@ -8,7 +8,7 @@ iff they are equal according to the output list.
 
 Example:
 
-    >>> normalize([('xxx', ''), ('yyy', ''), ('xyxyxy', '')])
+    >>> kb_normalize([('xxx', ''), ('yyy', ''), ('xyxyxy', '')])
     [('xxx', ''), ('yyy', ''), ('yyxx', 'xyxy'), ('yxyx', 'xxyy')]
 
 The output list is normalized so that applying
@@ -45,7 +45,7 @@ def shortlex_ordered(a: str, b: str):
     else:
         return (b, a)
 
-def normalize(rules, iteration_limit=20, verbose=False):
+def kb_normalize(rules, iteration_limit=20, verbose=False):
     # copy to verify at the end
     rules0 = [(left, right) for left, right in rules]
 

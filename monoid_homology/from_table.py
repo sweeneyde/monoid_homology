@@ -2,12 +2,12 @@
 Manipulating finite semigroups by their multiplication table.
 """
 
-from itertools import chain, combinations
+from itertools import combinations
 from functools import cache
 from pathlib import Path
 import string
 
-from .knuth_bendix import normalize
+from .knuth_bendix import kb_normalize
 from .crs import CRS
 
 DATA_DIR = Path(__file__).parent.parent / "finite_semigroup_data"
@@ -23,7 +23,10 @@ def all_op_strings(num_elts):
 def string_to_op(s):
     return [list(map(int, row)) for row in s.rstrip().split(";")]
 
-def op_from_index(num_elts, index):
+def all_ops(num_elts):
+    return map(string_to_op, all_op_strings(num_elts))
+
+def op_from_id(num_elts, index):
     if index == 0:
         raise ValueError("GAP smallsemi package uses 1-based indexing")
     return string_to_op(all_op_strings(num_elts)[index - 1])
@@ -87,9 +90,15 @@ def all_gens_crs(op):
     pairs = relation_str_pairs(op, rep, alphabet, gens)
     return CRS(alphabet, pairs)
 
-def nonempty_powerset(iterable):
-    s = list(iterable)
-    return chain.from_iterable(combinations(s, r) for r in range(1, len(s)+1))
+def crs_from_gens(op, gens):
+    rep = representation_by_generators(op, gens)
+    if rep is None:
+        return None
+    # alphabet = ''.join(SYMBOLS[g] for g in gens)
+    alphabet = SYMBOLS[:len(gens)]
+    pairs = relation_str_pairs(op, rep, alphabet, gens)
+    pairs = kb_normalize(pairs) # this should terminate?
+    return CRS(alphabet, pairs)
 
 def find_best_gens_crs(op, maxdim, verbose=False):
     """
@@ -100,14 +109,10 @@ def find_best_gens_crs(op, maxdim, verbose=False):
     
     cost_best_crs, best_crs = None, None
     for num_gens in range(1, n + 1):
-        alphabet = SYMBOLS[:num_gens]
         for gens in combinations(range(n), num_gens):
-            rep = representation_by_generators(op, gens)
-            if rep is None:
+            crs = crs_from_gens(op, gens)
+            if crs is None:
                 continue
-            pairs = relation_str_pairs(op, rep, alphabet, gens)
-            pairs = normalize(pairs) # this should terminate?
-            crs = CRS(alphabet, pairs)
             lengths = crs.essential_counts(maxdim + 1)
             if verbose:
                 print(gens, lengths)
@@ -116,9 +121,5 @@ def find_best_gens_crs(op, maxdim, verbose=False):
             if best_crs is None or cost < cost_best_crs:
                 cost_best_crs, best_crs = cost, crs
     if verbose:
-        print("Best:", best_crs.essential_counts(maxdim + 1))
+        print("Best:", gens, best_crs.essential_counts(maxdim + 1))
     return best_crs
-
-def best_gens_crs_from_index(num_elts, index, maxdim, verbose=False):
-    op = op_from_index(num_elts, index)
-    return find_best_gens_crs(op, maxdim, verbose=verbose)
