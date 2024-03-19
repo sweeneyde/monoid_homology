@@ -26,8 +26,8 @@ def test_crs_homology():
     assert rect22.sympy_rational_homology_ranks(4) == [1, 0, 1, 0, 0]
 
     rect33 = CRS("xyz", [(a+a, a) for a in "xyz"] +
-                        [(a+b+a, a) for (a,b) in "xy xz yx yz zx zy".split()] +
-                        [(a+b+c, a+c) for (a,b,c) in "xyz xzy yxz yzx zxy zyx".split()])
+                        [(a+b+a, a) for (a, b) in "xy xz yx yz zx zy".split()] +
+                        [(a+b+c, a+c) for (a, b, c) in "xyz xzy yxz yzx zxy zyx".split()])
     assert rect33.sympy_rational_homology_ranks(3) == [1, 0, 4, 0]
 
 
@@ -47,11 +47,11 @@ def test_crs_essentials():
         }
     }.items():
         assert set(rect22.essentials[dim]) == ess_set
-    
+
     Z = CRS("xy", [("xy", ""), ("yx", "")])
     Z.compute_essentials(3)
     for dim, ess_set in {
-        0 : {()},
+        0: {()},
         1: {("x",), ("y",)},
         2: {("x", "y"), ("y", "x")},
         3: {("x", "y", "x"), ("y", "x", "y")},

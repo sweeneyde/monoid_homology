@@ -122,5 +122,3 @@ def find_best_gens_crs(op, maxdim, verbose=False):
 def best_gens_crs_from_index(num_elts, index, maxdim, verbose=False):
     op = op_from_index(num_elts, index)
     return find_best_gens_crs(op, maxdim, verbose=verbose)
-
-

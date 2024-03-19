@@ -168,9 +168,8 @@ def normalize(rules, iteration_limit=20, verbose=False):
             if pair not in rule_set:
                 rule_set.add(pair)
                 rule_list.append(pair)
-    
+
     assert set(rule_list) == rule_set
     for left0, right0 in rules0:
         assert reduced(left0, rule_list) == reduced(right0, rule_list)
     return rule_list
-

@@ -45,7 +45,7 @@ This program requires SageMath to compute homology. To use:
 
 [1] Kenneth S. Brown. "The geometry of rewriting systems: A proof of the Anick-Groves-Squier theorem."
     In: Algorithms and classification in combinatorial group theory (Berkeley, CA, 1989), 137-163,
-    Math. Sci. Res. Inst. Publ., 23, Springer, New York, 1992. MR1230632 (94g:20041), Zbl 0764.20016. 
+    Math. Sci. Res. Inst. Publ., 23, Springer, New York, 1992. MR1230632 (94g:20041), Zbl 0764.20016.
 """
 
 from itertools import permutations
@@ -119,7 +119,7 @@ class CanonicalRewritingSystem:
             a_bc = self.reduce(a + bc)
             if ab_c != a_bc:
                 raise ValueError(f"Critical pair {(a,b,c)} did not resolve")
-                
+
         self.essentials = {0: [()],
                            1: [(a,) for a in alphabet],
                            2: [(left[0], left[1:]) for left, right in rules]}
@@ -230,7 +230,7 @@ class CanonicalRewritingSystem:
                         return ("REDUNDANT", (collapsible, i+1))
                 assert False
         return ("ESSENTIAL", None)
-    
+
     def classify(self, cell):
         cache = self._classifications
         if cell in cache:
@@ -313,7 +313,7 @@ class CanonicalRewritingSystem:
             matrices[dim] = M
         self._chain_complex = matrices
         return matrices
-    
+
     def SAGE_chain_complex(self, up_to_dimension):
         # local imports so the rest can be run in vanilla Python without SAGE
         from sage.matrix.constructor import Matrix
@@ -337,7 +337,7 @@ class CanonicalRewritingSystem:
 
         matrices = self.chain_complex(up_to_dimension + 1)
         boundary_ranks = {dim: Matrix(matrices[dim]).rank()
-                         for dim in range(1, up_to_dimension + 2)}
+                          for dim in range(1, up_to_dimension + 2)}
         return [
             (len(self.essentials[dim])
                 - boundary_ranks.get(dim, 0) # only count cycles
@@ -357,7 +357,7 @@ class CanonicalRewritingSystem:
                                  verbose=verbose,
                                  algorithm=algorithm)
                 for dim in range(0, up_to_dimension + 1)}
-    
+
     def homology_list(self, up_to_dimension, **kwargs):
         h = self.homology(up_to_dimension, **kwargs)
         return [h[i] for i in range(1, up_to_dimension + 1)]
@@ -371,5 +371,6 @@ class CanonicalRewritingSystem:
         for dim, H_i in self.homology(up_to_dimension, **kwargs).items():
             print(f"H_{dim} = {H_i}")
         print()
+
 
 CRS = CanonicalRewritingSystem
