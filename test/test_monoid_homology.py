@@ -15,6 +15,10 @@ from monoid_homology.from_table import (
     crs_from_gens,
 )
 
+from monoid_homology.knuth_bendix import (
+    kb_complete
+)
+
 def test_crs_homology():
     # Uses Sympy because it's hard to set up CI for SAGE.
 
@@ -132,17 +136,17 @@ def all_gens_crs():
 def test_crs_from_gens():
     z3_op = [[(i+j)%3 for i in range(3)] for j in range(3)]
     # 0 doesn't generate Z/3Z.
-    assert crs_from_gens(z3_op, [0]) is None
+    assert list(crs_from_gens(z3_op, [0], extra=0)) == []
 
-    z3_1 = crs_from_gens(z3_op, [1])
-    assert z3_1.alphabet == "A"
-    assert set(z3_1.rules) == {("AAAA", "A")}
+    [z3_1] = crs_from_gens(z3_op, [1], extra=0)
+    assert z3_1.alphabet == "B"
+    assert set(z3_1.rules) == {("BBBB", "B")}
     z3_1.compute_essentials(3)
-    assert set(z3_1.essentials[1]) == {("A",)}
-    assert set(z3_1.essentials[2]) == {("A", "AAA")}
-    assert set(z3_1.essentials[3]) == {("A", "AAA", "A")}
+    assert set(z3_1.essentials[1]) == {("B",)}
+    assert set(z3_1.essentials[2]) == {("B", "BBB")}
+    assert set(z3_1.essentials[3]) == {("B", "BBB", "B")}
 
-    z3_01 = crs_from_gens(z3_op, [0, 1])
+    [z3_01] = crs_from_gens(z3_op, [0, 1], extra=0)
     assert z3_01.alphabet == "AB"
     assert set(z3_01.rules) == {("BBB", "A"), ("AB", "B"), ("BA", "B"), ("AA", "A")}
     z3_01.compute_essentials(3)
@@ -152,6 +156,7 @@ def test_crs_from_gens():
                                         ("A", "B", "BB"), ("A", "B", "A"),
                                         ("B", "BB", "B"), ("B", "BB", "A"),
                                         ("B", "A", "B"), ("B", "A", "A")}
+
 
 def test_all_gen_sets_give_same_ranks():
     table_ranks = [
@@ -164,10 +169,27 @@ def test_all_gen_sets_give_same_ranks():
     ]
     for (n, i), ranks in table_ranks:
         op = op_from_id(n, i)
-        for num_gens in range(1, n + 1):
+        for num_gens in range(0, n + 1):
             for gens in combinations(range(n), num_gens):
-                crs = crs_from_gens(op, gens)
-                if crs is not None:
+                for crs in crs_from_gens(op, gens, extra=0):
                     assert crs.sympy_rational_homology_ranks(3) == ranks
         assert find_best_gens_crs(op, 3).sympy_rational_homology_ranks(3) == ranks
+
+def test_kb_eliminate_redundant_generators():
+    # Make sure to normalize so no single-letters are reducible.
+
+    # Direct test
+    assert kb_normalize("AB", [("B", "A")]) == ("A", [])
+
+    # Make sure that "B" gets deleted in this odd situation
+    rules = [
+        ('AA', 'A'), ('AB', 'A'), ('AC', 'A'),
+        ('BA', 'A'), ('BB', 'A'), ('BC', 'B'),
+        ('CA', 'A'), ('CB', 'B'), ('CC', 'A')
+    ]
+    assert kb_complete(rules[:]) == [('AA', 'A'), ('AC', 'A'), ('CA', 'A'), ('CC', 'A'), ('B', 'A')]
+    assert kb_normalize('ABC', rules[:]) == ('AC', [('AA', 'A'), ('AC', 'A'), ('CA', 'A'), ('CC', 'A')])
+
+    # The example that caught the bug
+    find_best_gens_crs([[0, 0, 0], [0, 0, 1], [0, 1, 0]], maxdim=4, extra=2)
 

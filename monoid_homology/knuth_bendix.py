@@ -45,7 +45,7 @@ def shortlex_ordered(a: str, b: str):
     else:
         return (b, a)
 
-def kb_normalize(rules, iteration_limit=20, verbose=False):
+def kb_complete(rules, *, iteration_limit=20, verbose=False):
     # copy to verify at the end
     rules0 = [(left, right) for left, right in rules]
 
@@ -173,3 +173,16 @@ def kb_normalize(rules, iteration_limit=20, verbose=False):
     for left0, right0 in rules0:
         assert reduced(left0, rule_list) == reduced(right0, rule_list)
     return rule_list
+
+
+def kb_normalize(alphabet, rules0, **kwargs):
+    rules = kb_complete(rules0, **kwargs)
+    # remove single-letter left-hand sides.
+    normal_rules = []
+    for rule in rules:
+        if len(rule[0]) == 1:
+            print(rules0)
+            alphabet = alphabet.replace(rule[0][0], '')
+        else:
+            normal_rules.append(rule)
+    return (alphabet, normal_rules)

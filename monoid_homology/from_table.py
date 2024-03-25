@@ -2,7 +2,7 @@
 Manipulating finite semigroups by their multiplication table.
 """
 
-from itertools import combinations
+from itertools import combinations, permutations
 from functools import cache
 from pathlib import Path
 import string
@@ -17,13 +17,19 @@ SYMBOLS = string.ascii_uppercase + string.ascii_lowercase + string.digits
 
 @cache
 def all_op_strings(num_elts):
-    with open(DATA_DIR / f"{int(num_elts)}elt_semis.txt", "r") as f:
-        return f.readlines()
+    filename = DATA_DIR / f"{int(num_elts)}elt_semis.txt"
+    # print(f"Loading from {filename}...", end='')
+    with open(filename, "r") as f:
+        lines = f.readlines()
+    # print("done")
+    return lines
 
 def string_to_op(s):
     return [list(map(int, row)) for row in s.rstrip().split(";")]
 
 def all_ops(num_elts):
+    if num_elts == 0:
+        return ([],)
     return map(string_to_op, all_op_strings(num_elts))
 
 def op_from_id(num_elts, index):
@@ -90,36 +96,63 @@ def all_gens_crs(op):
     pairs = relation_str_pairs(op, rep, alphabet, gens)
     return CRS(alphabet, pairs)
 
-def crs_from_gens(op, gens):
+import random
+
+def sample_permutations(arr):
+    n2 = len(arr) // 2
+    early, late = arr[:n2], arr[n2:]
+    yield early + late
+    yield early + late[::-1]
+    yield early[::-1] + late
+    yield early[::-1] + late[::-1]
+    yield late + early
+    yield late + early[::-1]
+    yield late[::-1] + early
+    yield late[::-1] + early[::-1]
+    for _ in range(10):
+        arr1 = list(arr)
+        random.shuffle(arr1)
+        yield tuple(arr1)
+
+
+def crs_from_gens(op, gens, extra):
     rep = representation_by_generators(op, gens)
     if rep is None:
-        return None
-    # alphabet = ''.join(SYMBOLS[g] for g in gens)
-    alphabet = SYMBOLS[:len(gens)]
-    pairs = relation_str_pairs(op, rep, alphabet, gens)
-    pairs = kb_normalize(pairs) # this should terminate?
-    return CRS(alphabet, pairs)
+        return
+    alphabet = ''.join(SYMBOLS[g] for g in gens)
+    if extra >= 1 and len(gens) < len(op):
+        if extra >= 2:
+            perms = permutations(alphabet)
+        else:
+            perms = set(sample_permutations(alphabet))
+    else:
+        perms = [alphabet]
 
-def find_best_gens_crs(op, maxdim, verbose=False):
+    for ordering in map(''.join, perms):
+        pairs = relation_str_pairs(op, rep, ordering, gens)
+        alphabet, pairs = kb_normalize(ordering, pairs) # this should terminate?
+        yield CRS(alphabet, pairs)
+
+
+def find_best_gens_crs(op, maxdim, verbose=False, extra=0):
     """
     Brute search to find the set of generators
     that make for the smallest essential chain complex from the CRS.
     """
     n = len(op)
-    
+
     cost_best_crs, best_crs = None, None
-    for num_gens in range(1, n + 1):
+    for num_gens in range(0, n + 1):
         for gens in combinations(range(n), num_gens):
-            crs = crs_from_gens(op, gens)
-            if crs is None:
-                continue
-            lengths = crs.essential_counts(maxdim + 1)
-            if verbose:
-                print(gens, lengths)
-            # total size of boundary matrices
-            cost = sum(a*b for a, b in zip(lengths, lengths[1:]))
-            if best_crs is None or cost < cost_best_crs:
-                cost_best_crs, best_crs = cost, crs
+            for crs in crs_from_gens(op, gens, extra):
+                lengths = crs.essential_counts(maxdim + 1)
+                if verbose:
+                    print(gens, lengths)
+                # total size of boundary matrices
+                cost = sum(a*b for a, b in zip(lengths, lengths[1:]))
+                if best_crs is None or cost < cost_best_crs:
+                    cost_best_crs, best_crs = cost, crs
     if verbose:
-        print("Best:", gens, best_crs.essential_counts(maxdim + 1))
+        print("Best:", best_crs.alphabet, best_crs.essential_counts(maxdim + 1))
     return best_crs
+
