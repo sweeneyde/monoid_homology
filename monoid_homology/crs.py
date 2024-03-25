@@ -51,11 +51,25 @@ This program requires SageMath to compute homology. To use:
 from itertools import permutations
 from collections import defaultdict, Counter
 
+
+# _cache_stats = {"essrep_hits": 0, "essrep_misses": 0,
+#                 "classification_hits": 0, "classification_misses": 0,
+#                 "essrep_hits": 0, "essrep_misses": 0,
+#                 "reduce_hits": 0, "reduce_misses": 0,
+#                 "successor_hits": 0, "successor_misses": 0}
+
+# import os
+# import psutil
+# python_process = psutil.Process(os.getpid())
+# def mem():
+#     use = python_process.memory_info()[0] / (2.0**32)
+#     return f"{use:.2f}GB"
+
 class CompleteRewritingSystem:
     __slots__ = ("alphabet", "rules", "max_rewrites",
                  "prefix_to_rules", "essentials", "_successor_words",
                  "_essrep", "_classifications", "_chain_complex",
-                 "_essential_counts")
+                 "_essential_counts", "_reduction_cache")
 
     def __init__(self, alphabet, rules, max_rewrites=1000):
         self.alphabet = ''.join(alphabet)
@@ -85,6 +99,14 @@ class CompleteRewritingSystem:
             if left1 in left2:
                 raise ValueError(f"left side {left2!r} "
                                  f"contains left side {left1!r}")
+        # caches
+        self._successor_words = {}
+        self._essrep = {}
+        self._classifications = {}
+        self._chain_complex = None
+        self._essential_counts = ()
+        self._reduction_cache = {}
+
         for a in alphabet:
             if self.reducible(a):
                 raise ValueError(f"Single-letter {a!r} was reducible")
@@ -115,8 +137,8 @@ class CompleteRewritingSystem:
 
         # Assert convergent
         for (a, b, c, ab, bc) in criticals:
-            ab_c = self.reduce(ab + c)
-            a_bc = self.reduce(a + bc)
+            ab_c = self._reduce(ab + c)
+            a_bc = self._reduce(a + bc)
             if ab_c != a_bc:
                 raise ValueError(f"Critical pair {(a,b,c)} did not resolve")
 
@@ -124,24 +146,23 @@ class CompleteRewritingSystem:
                            1: [(a,) for a in alphabet],
                            2: [(left[0], left[1:]) for left, right in rules]}
 
-        # caches
-        self._successor_words = {}
-        self._essrep = {}
-        self._classifications = {}
-        self._chain_complex = None
-        self._essential_counts = ()
+
+    def __repr__(self):
+        return f"CRS({self.alphabet!r}, {self.rules!r})"
 
     def __str__(self):
         rule_strings = [f"{left}->{right}" for left, right in self.rules]
         return f"Monoid( {self.alphabet} : {', '.join(rule_strings)} )"
 
     def reducible(self, word):
-        return any(left in word for left, right in self.rules)
+        return self.reduce(word) != word
+        # any(left in word for left, right in self.rules)
 
     def irreducible(self, word):
-        return all(left not in word for left, right in self.rules)
+        return self.reduce(word) == word
+        # return all(left not in word for left, right in self.rules)
 
-    def reduce(self, word):
+    def _reduce(self, word):
         word0 = word
         for _ in range(self.max_rewrites + 1):
             old = word
@@ -152,13 +173,27 @@ class CompleteRewritingSystem:
         raise RuntimeError(f"No fixed point was found for {word0}"
                            f"after {self.max_rewrites} iterations")
 
+    def reduce(self, word):
+        cache = self._reduction_cache
+        if (res := cache.get(word)) is not None:
+            # _cache_stats["reduce_hits"] += 1
+            return res
+        else:
+            # _cache_stats["reduce_misses"] += 1
+            res = self._reduce(word)
+            cache[word] = res
+            return res
+
     def op(self, word1, word2):
         return self.reduce(word1 + word2)
 
     def successor_words(self, last):
         cache = self._successor_words
         if last in cache:
+            # _cache_stats["successor_hits"] += 1
             return cache[last]
+        # _cache_stats["successor_misses"] += 1
+
         result = []
         for i in range(len(last)):
             suffix = last[i:]
@@ -208,7 +243,7 @@ class CompleteRewritingSystem:
 
     def _classify_internal(self, cell):
         # TODO: make this recursive?
-        assert all(self.irreducible(w) for w in cell)
+        # assert all(self.irreducible(w) for w in cell)
         if len(cell) == 0:
             return ("ESSENTIAL", None)
         if "" in cell:
@@ -234,8 +269,10 @@ class CompleteRewritingSystem:
     def classify(self, cell):
         cache = self._classifications
         if cell in cache:
+            # _cache_stats["classification_hits"] += 1
             return cache[cell]
         else:
+            # _cache_stats["classification_misses"] += 1
             result = self._classify_internal(cell)
             cache[cell] = result
             return result
@@ -283,11 +320,14 @@ class CompleteRewritingSystem:
     def essential_representation(self, cell, sign=+1):
         cache = self._essrep
         if (cell, sign) in cache:
+            # _cache_stats["essrep_hits"] += 1
             return cache[cell, sign]
         else:
+            # _cache_stats["essrep_misses"] += 1
             result = self._essential_representation_internal(cell, sign)
             cache[cell, sign] = result
             return result
+        # return self._essential_representation_internal(cell, sign)
 
     def chain_complex(self, up_to_dimension):
         if (_cc := self._chain_complex) is not None:
@@ -314,19 +354,39 @@ class CompleteRewritingSystem:
         self._chain_complex = matrices
         return matrices
 
-    def SAGE_chain_complex(self, up_to_dimension):
+    def SAGE_chain_complex(self, up_to_dimension, check=True, verbose=False):
         # local imports so the rest can be run in vanilla Python without SAGE
         from sage.matrix.constructor import Matrix
         from sage.homology.chain_complex import ChainComplex
+        from sage.rings.integer_ring import ZZ
 
-        matrices = self.chain_complex(up_to_dimension)
-        data = {
-            dim: Matrix(matrices[dim],
-                        nrows=len(self.essentials[dim-1]),
-                        ncols=len(self.essentials[dim]))
-            for dim in range(1, up_to_dimension + 1)
-        }
-        return ChainComplex(data, degree_of_differential=-1)
+        if verbose:
+            print(f"Computing essentials...")
+        self.compute_essentials(up_to_dimension)
+        if verbose:
+            print(f"Indexing...")
+        cell_to_index = {}
+        for dim, ess_list in self.essentials.items():
+            for i, cell in enumerate(ess_list):
+                cell_to_index[cell] = i
+        matrices = {}
+        for dim in range(1, up_to_dimension + 1):
+            if verbose:
+                print(f"Working on dimension {dim}...")
+            m = len(self.essentials[dim - 1])
+            n = len(self.essentials[dim])
+            M = Matrix(ZZ, m, n, sparse=True)
+            ess = self.essentials[dim]
+            if verbose:
+                print(f"Allocated matrix...")
+                from tqdm import tqdm
+                ess = tqdm(ess, smoothing=0.0001, dynamic_ncols=True)
+            for cell in ess:
+                celli = cell_to_index[cell]
+                for coeff, face in self.boundary(cell):
+                    M[cell_to_index[face], celli] += coeff
+            matrices[dim] = M
+        return ChainComplex(matrices, degree_of_differential=-1, check=check)
 
     def sympy_rational_homology_ranks(self, up_to_dimension):
         # SAGE is more efficient because it delegates to PARI,
@@ -349,8 +409,9 @@ class CompleteRewritingSystem:
                  base_ring=None,
                  generators=False,
                  verbose=False,
-                 algorithm='auto'):
-        cc = self.SAGE_chain_complex(up_to_dimension + 1)
+                 algorithm='auto',
+                 check=False):
+        cc = self.SAGE_chain_complex(up_to_dimension + 1, check=check, verbose=verbose)
         return {dim: cc.homology(deg=dim,
                                  base_ring=base_ring,
                                  generators=generators,
@@ -366,11 +427,11 @@ class CompleteRewritingSystem:
         print(self)
         self.compute_essentials(up_to_dimension + 1)
         print("essential cell counts:", [len(ess_list) for ess_list in self.essentials.values()])
-        self.chain_complex(up_to_dimension + 1)
-        print("computed boundaries.")
-        for dim, H_i in self.homology(up_to_dimension, **kwargs).items():
+        cc = self.SAGE_chain_complex(up_to_dimension + 1, check=False)
+        print(f"Made SAGE chain complex.")
+        for dim in range(up_to_dimension + 1):
+            H_i = cc.homology(dim, **kwargs)
             print(f"H_{dim} = {H_i}")
         print()
-
 
 CRS = CompleteRewritingSystem

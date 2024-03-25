@@ -181,7 +181,6 @@ def kb_normalize(alphabet, rules0, **kwargs):
     normal_rules = []
     for rule in rules:
         if len(rule[0]) == 1:
-            print(rules0)
             alphabet = alphabet.replace(rule[0][0], '')
         else:
             normal_rules.append(rule)
