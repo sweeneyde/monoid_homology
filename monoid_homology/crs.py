@@ -49,7 +49,8 @@ This program requires SageMath to compute homology. To use:
 """
 
 from itertools import permutations
-from collections import defaultdict, Counter
+from collections import defaultdict, Counter, deque
+from math import log, exp
 
 
 # _cache_stats = {"essrep_hits": 0, "essrep_misses": 0,
@@ -67,7 +68,7 @@ from collections import defaultdict, Counter
 
 class CompleteRewritingSystem:
     __slots__ = ("alphabet", "rules", "max_rewrites",
-                 "prefix_to_rules", "essentials", "_successor_words",
+                 "prefix_to_rules", "essentials", "successor_words",
                  "_essrep", "_classifications", "_chain_complex",
                  "_essential_counts", "_reduction_cache")
 
@@ -100,7 +101,6 @@ class CompleteRewritingSystem:
                 raise ValueError(f"left side {left2!r} "
                                  f"contains left side {left1!r}")
         # caches
-        self._successor_words = {}
         self._essrep = {}
         self._classifications = {}
         self._chain_complex = None
@@ -146,6 +146,26 @@ class CompleteRewritingSystem:
                            1: [(a,) for a in alphabet],
                            2: [(left[0], left[1:]) for left, right in rules]}
 
+        # Breadth-first search for all words that appear in any essential tuple
+        stack = deque({rest for (_, rest) in self.essentials[2]})
+        successor_words = {}
+        while stack:
+            word = stack.pop()
+            if word in successor_words:
+                continue
+            result = []
+            for i in range(len(word)):
+                suffix = word[i:]
+                # XXX is there a faster/better way than this?
+                for left, right in prefix_to_rules.get(suffix, ()):
+                    assert left.startswith(suffix)
+                    rest = left[len(suffix):]
+                    if self.irreducible((word + rest)[:-1]):
+                        result.append(rest)
+            result = tuple(result)
+            successor_words[word] = result
+            stack.extend(result)
+        self.successor_words = successor_words
 
     def __repr__(self):
         return f"CRS({self.alphabet!r}, {self.rules!r})"
@@ -187,26 +207,6 @@ class CompleteRewritingSystem:
     def op(self, word1, word2):
         return self.reduce(word1 + word2)
 
-    def successor_words(self, last):
-        cache = self._successor_words
-        if last in cache:
-            # _cache_stats["successor_hits"] += 1
-            return cache[last]
-        # _cache_stats["successor_misses"] += 1
-
-        result = []
-        for i in range(len(last)):
-            suffix = last[i:]
-            # XXX is there a faster/better way than this?
-            for left, right in self.prefix_to_rules.get(suffix, ()):
-                assert left.startswith(suffix)
-                rest = left[len(suffix):]
-                if self.irreducible((last + rest)[:-1]):
-                    result.append(rest)
-        result = tuple(result)
-        cache[last] = result
-        return result
-
     def compute_essentials(self, up_to_dimension):
         for dim in range(2, up_to_dimension + 1):
             if dim in self.essentials:
@@ -214,7 +214,7 @@ class CompleteRewritingSystem:
             ess = []
             starts = self.essentials[dim-1]
             for start in starts:
-                for word in self.successor_words(start[-1]):
+                for word in self.successor_words[start[-1]]:
                     assert self.classify(start + (word,))[0] == "ESSENTIAL", (start, word)
                     ess.append(start + (word,))
             self.essentials[dim] = ess
@@ -223,23 +223,59 @@ class CompleteRewritingSystem:
         actual = tuple([len(self.essentials[dim]) for dim in range(up_to_dimension + 1)])
         assert actual == expected, (actual, expected)
 
+    def _essential_counts_by_dim_by_last(self, up_to_dimension):
+        result = {0: Counter((None,)),
+                  1: Counter(only for (only,) in self.essentials[1]),
+                  2: Counter(last for (_, last) in self.essentials[2])}
+        if up_to_dimension <= 2:
+            return {k:v for k, v in result.items() if k <= up_to_dimension}
+        # Using multiplication makes this faster than actually generating all of these.
+        for dim in range(3, up_to_dimension + 1):
+            new_by_last = Counter()
+            for last, count in result[dim - 1].items():
+                for word in self.successor_words[last]:
+                    new_by_last[word] += count
+            result[dim] = new_by_last
+        return result         
+
     def essential_counts(self, up_to_dimension):
         if up_to_dimension + 1 <= len(self._essential_counts):
             return self._essential_counts[:up_to_dimension + 1]
-
-        # Using multiplication makes this faster than actually generating all of these.
-        by_dim_by_last = {0: Counter((None,)),
-                          1: Counter(only for (only,) in self.essentials[1]),
-                          2: Counter(last for (_, last) in self.essentials[2])}
-        for dim in range(3, up_to_dimension + 1):
-            new_by_last = Counter()
-            for last, count in by_dim_by_last[dim - 1].items():
-                for word in self.successor_words(last):
-                    new_by_last[word] += count
-            by_dim_by_last[dim] = new_by_last
+        by_dim_by_last = self._essential_counts_by_dim_by_last(up_to_dimension)
         result = tuple([c.total() for c in by_dim_by_last.values()])
         self._essential_counts = result
         return result
+
+    def complexity(self, iterations=5):
+        """How fast does the number of cells grow? What is the base of the exponent?"""
+        dim2 = Counter({last for _, last in self.essentials[2]})
+        starting_total = dim2.total()
+        if starting_total == 0:
+            return 1.0
+        # A sparse square zero-one matrix
+        M = defaultdict(lambda: defaultdict(int))
+        for word, succs in self.successor_words.items():
+            for succ in succs:
+                M[word][succ] += 1
+        # Repeatedly square the (sparse) matrix
+        for _ in range(iterations):
+            square = defaultdict(lambda: defaultdict(int))
+            for word, succ_counts in M.items():
+                for succ, count1 in succ_counts.items():
+                    if succ in M:
+                        for succsucc, count2 in M[succ].items():
+                            square[word][succsucc] += count1 * count2
+            M = square
+        # Matrix-vector product
+        total = 0
+        for word, count1 in dim2.items():
+            for succsucc, count2 in M[word].items():
+                total += count1 * count2
+        if starting_total == 0:
+            return 1.0
+        if total == 0:
+            return 0.0
+        return exp((log(total) - log(starting_total)) / 2 ** iterations)
 
     def _classify_internal(self, cell):
         # TODO: make this recursive?
