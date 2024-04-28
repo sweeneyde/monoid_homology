@@ -190,7 +190,7 @@ class CompleteRewritingSystem:
                 word = word.replace(left, right)
             if word == old:
                 return word
-        raise RuntimeError(f"No fixed point was found for {word0}"
+        raise RuntimeError(f"No fixed point was found for {word0} "
                            f"after {self.max_rewrites} iterations")
 
     def reduce(self, word):

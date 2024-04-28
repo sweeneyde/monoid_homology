@@ -19,6 +19,8 @@ from monoid_homology.knuth_bendix import (
     kb_complete
 )
 
+import pytest
+
 def test_crs_homology():
     # Uses Sympy because it's hard to set up CI for SAGE.
 
@@ -193,3 +195,9 @@ def test_kb_eliminate_redundant_generators():
     # The example that caught the bug
     find_best_gens_crs([[0, 0, 0], [0, 0, 1], [0, 1, 0]], maxdim=4, extra=2)
 
+def test_non_noetherian():
+    crs = CRS("abc", [('cca', 'aca'), ('ba', 'bbc'), ('bca', 'cac')], max_rewrites=10_000)
+    culprit = "bcbcbcca"
+    msg = f"No fixed point was found for {culprit} after 10000 iterations"
+    with pytest.raises(RuntimeError, match=msg):
+        crs.reduce(culprit)
