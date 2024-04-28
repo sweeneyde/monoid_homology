@@ -196,8 +196,17 @@ def test_kb_eliminate_redundant_generators():
     find_best_gens_crs([[0, 0, 0], [0, 0, 1], [0, 1, 0]], maxdim=4, extra=2)
 
 def test_non_noetherian():
-    crs = CRS("abc", [('cca', 'aca'), ('ba', 'bbc'), ('bca', 'cac')], max_rewrites=10_000)
-    culprit = "bcbcbcca"
+    crs = CRS("ABC", [("ABB", "ABA"), ("AC", "BCC")], max_rewrites=10_000)
+    culprit = "ABBC"
+    # ABBC
+    # ABAC
+    # ABBCC
+    # ABACC
+    # ABBCCC
+    # ABACCC
+    # ABBCCCC
+    # ABACCCC
+    # ...
     msg = f"No fixed point was found for {culprit} after 10000 iterations"
     with pytest.raises(RuntimeError, match=msg):
         crs.reduce(culprit)
