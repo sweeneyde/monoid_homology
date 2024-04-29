@@ -1,5 +1,10 @@
 # Monoid Homology
 
+This repository computes the homology of [monoids](https://en.wikipedia.org/wiki/Monoid) in SAGE.
+The homology of a monoid is the homology of its [nerve](https://en.wikipedia.org/wiki/Nerve_(category_theory)) (classifying space).
+[A result of Ken Brown](https://doi.org/10.1007/978-1-4613-9730-4_6)
+allows this to be carried out for certain finite monoid presentations, even if the resulting monoid is infinite.
+
 ## Example Usage
 
 After cloning this repository, open a SAGE console and write
