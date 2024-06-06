@@ -32,11 +32,23 @@ def all_ops(num_elts):
         return ([],)
     return map(string_to_op, all_op_strings(num_elts))
 
+_8elt_ops = None
+
 def op_from_id(num_elts, index):
     if index == 0:
         raise ValueError("GAP smallsemi package uses 1-based indexing")
-    return string_to_op(all_op_strings(num_elts)[index - 1])
-
+    if num_elts == 8:
+        global _8elt_ops
+        if _8elt_ops is None:
+            _8elt_ops_local = {}
+            with open(DATA_DIR / f"8elt_semi_subset.txt") as f:
+                for line in f:
+                    ix, opstring = line.split()
+                    _8elt_ops_local[int(ix)] = opstring
+            _8elt_ops = _8elt_ops_local
+        return string_to_op(_8elt_ops[index])
+    else:
+        return string_to_op(all_op_strings(num_elts)[index - 1])
 
 def representation_by_generators(op, gens):
     """Given an operation table and a set of generators,
@@ -99,6 +111,7 @@ def all_gens_crs(op):
 import random
 
 def sample_permutations(arr):
+    # return arr, arr[::-1]
     n2 = len(arr) // 2
     early, late = arr[:n2], arr[n2:]
     yield early + late
@@ -115,10 +128,7 @@ def sample_permutations(arr):
         yield tuple(arr1)
 
 
-def crs_from_gens(op, gens, extra):
-    rep = representation_by_generators(op, gens)
-    if rep is None:
-        return
+def crs_from_representation(op, gens, rep, extra):
     alphabet = ''.join(SYMBOLS[g] for g in gens)
     if extra >= 1 and len(gens) < len(op):
         if extra >= 2:
@@ -134,24 +144,46 @@ def crs_from_gens(op, gens, extra):
         yield CRS(alphabet, pairs)
 
 
+def crs_from_gens(op, gens, extra):
+    rep = representation_by_generators(op, gens)
+    if rep is None:
+        return
+    yield from crs_from_representation(op, gens, rep, extra)
+    if extra >= 1:
+        op_transpose = list(zip(*op, strict=True))
+        rep_transpose = representation_by_generators(op_transpose, gens)
+        assert rep_transpose is not None
+        yield from crs_from_representation(op_transpose, gens, rep_transpose, extra)
+
+
 def find_best_gens_crs(op, maxdim, verbose=False, extra=0):
     """
     Brute search to find the set of generators
     that make for the smallest essential chain complex from the CRS.
     """
     n = len(op)
-
+    # num_new_best = 0
     cost_best_crs, best_crs = None, None
-    for num_gens in range(0, n + 1):
+    for num_gens in range(n + 1):
         for gens in combinations(range(n), num_gens):
             for crs in crs_from_gens(op, gens, extra):
                 lengths = crs.essential_counts(maxdim + 1)
-                if verbose:
-                    print(gens, lengths)
                 # total size of boundary matrices
                 cost = sum(a*b for a, b in zip(lengths, lengths[1:]))
                 if best_crs is None or cost < cost_best_crs:
                     cost_best_crs, best_crs = cost, crs
+                    if verbose:
+                        print(gens, lengths, repr(crs))
+
+                    # num_new_best += 1
+                    if cost_best_crs < 100_000:
+                        # print("good:", lengths)
+                        return best_crs
+                    # if num_new_best >= 5 and cost_best_crs <= 100_000:
+                    #     return best_crs
+                    # if num_new_best >= 100:
+                    #     return best_crs
+
     if verbose:
         print("Best:", best_crs.alphabet, best_crs.essential_counts(maxdim + 1))
     return best_crs
