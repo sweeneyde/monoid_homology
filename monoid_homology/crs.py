@@ -392,10 +392,7 @@ class CompleteRewritingSystem:
 
     def SAGE_chain_complex(self, up_to_dimension, check=True, verbose=False, sparse=True):
         # local imports so the rest can be run in vanilla Python without SAGE
-        import sage.all
-        from sage.matrix.constructor import Matrix
-        from sage.homology.chain_complex import ChainComplex
-        from sage.rings.integer_ring import ZZ
+        from sage.all import ZZ, Matrix, ChainComplex
 
         if verbose:
             print(f"Computing essentials...")
