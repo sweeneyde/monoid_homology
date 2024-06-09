@@ -390,8 +390,9 @@ class CompleteRewritingSystem:
         self._chain_complex = matrices
         return matrices
 
-    def SAGE_chain_complex(self, up_to_dimension, check=True, verbose=False):
+    def SAGE_chain_complex(self, up_to_dimension, check=True, verbose=False, sparse=True):
         # local imports so the rest can be run in vanilla Python without SAGE
+        import sage.all
         from sage.matrix.constructor import Matrix
         from sage.homology.chain_complex import ChainComplex
         from sage.rings.integer_ring import ZZ
@@ -411,7 +412,7 @@ class CompleteRewritingSystem:
                 print(f"Working on dimension {dim}...")
             m = len(self.essentials[dim - 1])
             n = len(self.essentials[dim])
-            M = Matrix(ZZ, m, n, sparse=True)
+            M = Matrix(ZZ, m, n, sparse=sparse)
             ess = self.essentials[dim]
             if verbose:
                 print(f"Allocated matrix...")
