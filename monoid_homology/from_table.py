@@ -14,7 +14,6 @@ DATA_DIR = Path(__file__).parent.parent / "finite_semigroup_data"
 
 SYMBOLS = string.ascii_uppercase + string.ascii_lowercase + string.digits
 
-
 @cache
 def all_op_strings(num_elts):
     filename = DATA_DIR / f"{int(num_elts)}elt_semis.txt"
@@ -27,28 +26,38 @@ def all_op_strings(num_elts):
 def string_to_op(s):
     return [list(map(int, row)) for row in s.rstrip().split(";")]
 
-def all_ops(num_elts):
-    if num_elts == 0:
-        return ([],)
-    return map(string_to_op, all_op_strings(num_elts))
+def all_ix_opstring_pairs(num_elts):
+    if num_elts == 8:
+        import lzma
+        with lzma.open(DATA_DIR / f"8elt_nonzeros_compressed.lzma", "rt", encoding="ascii") as f:
+            for line in f:
+                ix, opstring = line.split()
+                yield int(ix), opstring
+    else:
+        yield from enumerate(all_op_strings(num_elts), 1)
 
-_8elt_ops = None
+def all_ix_op_pairs(num_elts):
+    for ix, opstring in all_ix_opstring_pairs(num_elts):
+        yield ix, string_to_op(opstring)
+
+# def all_ops(num_elts):
+#     return map(string_to_op, all_op_strings(num_elts))
 
 def op_from_id(num_elts, index):
-    if index == 0:
-        raise ValueError("GAP smallsemi package uses 1-based indexing")
-    if num_elts == 8:
-        global _8elt_ops
-        if _8elt_ops is None:
-            _8elt_ops_local = {}
-            with open(DATA_DIR / f"8elt_semi_subset.txt") as f:
-                for line in f:
-                    ix, opstring = line.split()
-                    _8elt_ops_local[int(ix)] = opstring
-            _8elt_ops = _8elt_ops_local
-        return string_to_op(_8elt_ops[index])
+    return string_to_op(all_op_strings(num_elts)[index - 1])
+
+def ix_op_pairs_from_ids(num_elts, index_set):
+    index_set = set(index_set)
+    if num_elts < 8:
+        for ix in sorted(index_set):
+            yield op_from_id(num_elts, ix)
     else:
-        return string_to_op(all_op_strings(num_elts)[index - 1])
+        for ix, opstring in all_ix_opstring_pairs(8):
+            if ix in index_set:
+                yield ix, string_to_op(opstring)
+                index_set.remove(ix)
+        if index_set:
+            raise AssertionError(f"Didn't find indexes {index_set}")
 
 def representation_by_generators(op, gens):
     """Given an operation table and a set of generators,
@@ -164,7 +173,7 @@ def find_best_gens_crs(op, maxdim, verbose=False, extra=0):
     n = len(op)
     # num_new_best = 0
     cost_best_crs, best_crs = None, None
-    for num_gens in range(n + 1):
+    for num_gens in list(range(min(n, 9))) + [n]:
         for gens in combinations(range(n), num_gens):
             for crs in crs_from_gens(op, gens, extra):
                 lengths = crs.essential_counts(maxdim + 1)
