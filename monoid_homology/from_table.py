@@ -26,18 +26,24 @@ def all_op_strings(num_elts):
 def string_to_op(s):
     return [list(map(int, row)) for row in s.rstrip().split(";")]
 
-def all_ix_opstring_pairs(num_elts):
+def all_ix_opstring_pairs(num_elts, use_tqdm=False):
+    if use_tqdm:
+        from tqdm import tqdm as progressbar
+    else:
+        progressbar = lambda it, total: it
+    total = (None, 1, 4, 18, 126, 1_160, 15_973, 836_021, 1_573_467)[num_elts]
+
     if num_elts == 8:
         import lzma
         with lzma.open(DATA_DIR / f"8elt_nonzeros_compressed.lzma", "rt", encoding="ascii") as f:
-            for line in f:
+            for line in progressbar(f, total=total):
                 ix, opstring = line.split()
                 yield int(ix), opstring
     else:
-        yield from enumerate(all_op_strings(num_elts), 1)
+        yield from enumerate(progressbar(all_op_strings(num_elts), total=total), 1)
 
-def all_ix_op_pairs(num_elts):
-    for ix, opstring in all_ix_opstring_pairs(num_elts):
+def all_ix_op_pairs(num_elts, use_tqdm=False):
+    for ix, opstring in all_ix_opstring_pairs(num_elts, use_tqdm):
         yield ix, string_to_op(opstring)
 
 # def all_ops(num_elts):
@@ -50,7 +56,7 @@ def ix_op_pairs_from_ids(num_elts, index_set):
     index_set = set(index_set)
     if num_elts < 8:
         for ix in sorted(index_set):
-            yield op_from_id(num_elts, ix)
+            yield ix, op_from_id(num_elts, ix)
     else:
         for ix, opstring in all_ix_opstring_pairs(8):
             if ix in index_set:
