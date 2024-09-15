@@ -277,6 +277,29 @@ class CompleteRewritingSystem:
             return 0.0
         return exp((log(total) - log(starting_total)) / 2 ** iterations)
 
+    def elements(self, limit=1000):
+        alphabet = self.alphabet
+        q = deque([''])
+        seen = set(q)
+        done = set()
+        while q:
+            x = q.popleft()
+            if x in done:
+                continue
+            yield x
+            done.add(x)
+            for a in alphabet:
+                y = self._reduce(x + a)
+                if y not in seen:
+                    q.append(y)
+                    seen.add(y)
+                    if len(seen) > limit:
+                        raise AssertionError(str(seen))
+
+    def multiplication_table(self, limit=1000):
+        from structure_utils import table_from_opfunc_and_set
+        return table_from_opfunc_and_set(self.op, self.elements(limit=limit))
+
     def _classify_internal(self, cell):
         # TODO: make this recursive?
         # assert all(self.irreducible(w) for w in cell)
@@ -390,10 +413,11 @@ class CompleteRewritingSystem:
         self._chain_complex = matrices
         return matrices
 
-    def SAGE_chain_complex(self, up_to_dimension, check=True, verbose=False, sparse=True):
+    def SAGE_chain_complex(self, up_to_dimension, check=True, verbose=False, sparse=True, base_ring=None):
         # local imports so the rest can be run in vanilla Python without SAGE
         from sage.all import ZZ, Matrix, ChainComplex
-
+        if base_ring is None:
+            base_ring = ZZ
         if verbose:
             print(f"Computing essentials...")
         self.compute_essentials(up_to_dimension)
@@ -409,7 +433,7 @@ class CompleteRewritingSystem:
                 print(f"Working on dimension {dim}...")
             m = len(self.essentials[dim - 1])
             n = len(self.essentials[dim])
-            M = Matrix(ZZ, m, n, sparse=sparse)
+            M = Matrix(base_ring, m, n, sparse=sparse)
             ess = self.essentials[dim]
             if verbose:
                 print(f"Allocated matrix...")
@@ -420,7 +444,7 @@ class CompleteRewritingSystem:
                 for coeff, face in self.boundary(cell):
                     M[cell_to_index[face], celli] += coeff
             matrices[dim] = M
-        return ChainComplex(matrices, degree_of_differential=-1, check=check)
+        return ChainComplex(matrices, degree_of_differential=-1, check=check, base_ring=base_ring)
 
     def sympy_rational_homology_ranks(self, up_to_dimension):
         # SAGE is more efficient because it delegates to PARI,
@@ -430,7 +454,7 @@ class CompleteRewritingSystem:
         from sympy.matrices import Matrix
 
         matrices = self.chain_complex(up_to_dimension + 1)
-        boundary_ranks = {dim: Matrix(matrices[dim]).rank()
+        boundary_ranks = {dim: Matrix(matrices[dim]).rank() if self.essentials[dim] and self.essentials[dim - 1] else 0
                           for dim in range(1, up_to_dimension + 2)}
         return [
             (len(self.essentials[dim])
