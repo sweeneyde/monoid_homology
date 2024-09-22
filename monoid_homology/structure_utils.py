@@ -17,6 +17,13 @@ def product_op(op1, op2):
         return (op1[x1][x2], op2[y1][y2])
     return table_from_opfunc_and_set(opfunc, opset)
 
+def adjoin_1(op):
+    op1 = [list(row) for row in op]
+    for i, row in enumerate(op1):
+        row.append(i)
+    op1.append(list(range(len(op) + 1)))
+    return op1
+
 def _get_all_product(op):
     p = 0
     for x in range(1, len(op)):
