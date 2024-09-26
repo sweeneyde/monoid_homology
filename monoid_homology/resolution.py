@@ -25,7 +25,7 @@ def make_identity(n):
         M[i][i] = 1
     return M
 
-def partial_smithify(A, num_cols, *, need_S=False, need_T=False, need_Sinv=False, need_Tinv=False):
+def partial_smithify(A, num_cols, *, need_S=False, need_T=False):
     """
     Given a matrix A, find a matrix D of the same shape
     where D is nonzero only on its main diagonal,
@@ -46,83 +46,116 @@ def partial_smithify(A, num_cols, *, need_S=False, need_T=False, need_Sinv=False
 
     if need_S:
         S = make_identity(m)
-    if need_Sinv:
-        Sinv = make_identity(m)
     if need_T:
         T = make_identity(n)
-    if need_Tinv:
-        Tinv = make_identity(n)
+
+    def row_op(i1, i2, z):
+        Di1, Di2 = D[i1], D[i2]
+        for jj in rn:
+            Di2[jj] += z*Di1[jj]
+        if need_S:
+            Si1, Si2 = S[i1], S[i2]
+            for jj in rm:
+                Si2[jj] += z*Si1[jj]
+
+    def col_op(j1, j2, z):
+        for ii in rm:
+            Dii = D[ii]
+            Dii[j2] += z*Dii[j1]
+        if need_T:
+            for ii in rn:
+                Tii = T[ii]
+                Tii[j2] += z*Tii[j1]
+
+    def row_swap(i1, i2):
+        Di1, Di2 = D[i1], D[i2]
+        Di1[:], Di2[:] = Di2[:], Di1[:]
+        if need_S:
+            Si1, Si2 = S[i1], S[i2]
+            Si1[:], Si2[:] = Si2[:], Si1[:]
+
+    def col_swap(j1, j2):
+        for Dii in D:
+            Dii[j1], Dii[j2] = Dii[j2], Dii[j1]
+        if need_T:
+            for Tii in T:
+                Tii[j1], Tii[j2] = Tii[j2], Tii[j1]
 
     def generalized_row_op(i1, i2, x, y, z, w):
-        assert x * w - y * z == 1
-        for jj in range(n):
-            aa = D[i1][jj]
-            bb = D[i2][jj]
-            D[i1][jj] = x*aa + y*bb
-            D[i2][jj] = z*aa + w*bb
+        Di1, Di2 = D[i1], D[i2]
+        for jj in rn:
+            aa = Di1[jj]
+            bb = Di2[jj]
+            Di1[jj] = x*aa + y*bb
+            Di2[jj] = z*aa + w*bb
         if need_S:
-            for jj in range(m):
-                aa = S[i1][jj]
-                bb = S[i2][jj]
-                S[i1][jj] = x*aa + y*bb
-                S[i2][jj] = z*aa + w*bb
-        if need_Sinv:
-            for jj in range(m):
-                aa = Sinv[jj][i1]
-                bb = Sinv[jj][i2]
-                Sinv[jj][i1] = w*aa - z*bb
-                Sinv[jj][i2] = x*bb - y*aa
+            Si1, Si2 = S[i1], S[i2]
+            for jj in rm:
+                aa = Si1[jj]
+                bb = Si2[jj]
+                Si1[jj] = x*aa + y*bb
+                Si2[jj] = z*aa + w*bb
 
     def generalized_col_op(j1, j2, x, y, z, w):
-        for ii in range(m):
-            aa = D[ii][j1]
-            bb = D[ii][j2]
-            D[ii][j1] = x * aa + y * bb
-            D[ii][j2] = z * aa + w * bb
+        for Dii in D:
+            aa = Dii[j1]
+            bb = Dii[j2]
+            Dii[j1] = x * aa + y * bb
+            Dii[j2] = z * aa + w * bb
         if need_T:
-            for ii in range(n):
-                aa = T[ii][j1]
-                bb = T[ii][j2]
-                T[ii][j1] = x*aa + y*bb
-                T[ii][j2] = z*aa + w*bb
-        if need_Tinv:
-            for ii in range(n):
-                aa = Tinv[j1][ii]
-                bb = Tinv[j2][ii]
-                Tinv[j1][ii] = w*aa - z*bb
-                Tinv[j2][ii] = x*bb - y*aa
+            for Tii in T:
+                aa = Tii[j1]
+                bb = Tii[j2]
+                Tii[j1] = x * aa + y * bb
+                Tii[j2] = z * aa + w * bb
 
     def improve_with_row_ops(i1, i2, j):
         a = D[i1][j]
         b = D[i2][j]
         if b == 0:
             return
-        elif a != 0 and b % a == 0:
-            q = b // a
-            generalized_row_op(i1, i2, 1, 0, -q, 1)
-            assert D[i1][j] == a
-            assert D[i2][j] == 0
+        elif a == 0:
+            row_swap(i1, i2)
+            # assert D[i1][j] == b
+            # assert D[i2][j] == 0
+        elif b % a == 0:
+            row_op(i1, i2, -b//a)
+            # assert D[i1][j] == a
+            # assert D[i2][j] == 0
+        elif a % b == 0:
+            row_swap(i1, i2)
+            row_op(i1, i2, -a//b)
+            # assert D[i1][j] == b
+            # assert D[i2][j] == 0
         else:
             x, y, g = xgcd(a, b)
             generalized_row_op(i1, i2, x, y, -b//g, a//g);
-            assert D[i1][j] == g
-            assert D[i2][j] == 0
+            # assert D[i1][j] == g
+            # assert D[i2][j] == 0
 
     def improve_with_col_ops(j1, j2, i):
         a = D[i][j1]
         b = D[i][j2]
         if b == 0:
             return
-        elif a != 0 and b % a == 0:
-            q = b // a
-            generalized_col_op(j1, j2, 1, 0, -q, 1)
-            assert D[i][j1] == a
-            assert D[i][j2] == 0
+        elif a == 0:
+            col_swap(j1, j2)
+            # assert D[i][j1] == b
+            # assert D[i][j2] == 0
+        elif b % a == 0:
+            col_op(j1, j2, -b // a)
+            # assert D[i][j1] == a
+            # assert D[i][j2] == 0
+        elif a % b == 0:
+            col_swap(j1, j2)
+            col_op(j1, j2, -a // b)
+            # assert D[i][j1] == b
+            # assert D[i][j2] == 0
         else:
             x, y, g = xgcd(a, b)
             generalized_col_op(j1, j2, x, y, -b//g, a//g)
-            assert D[i][j1] == g
-            assert D[i][j2] == 0
+            # assert D[i][j1] == g
+            # assert D[i][j2] == 0
 
     # make diagonal
     for k in range(min(m, n)):
@@ -140,12 +173,8 @@ def partial_smithify(A, num_cols, *, need_S=False, need_T=False, need_Sinv=False
     result = {"D": D}
     if need_S:
         result["S"] = S
-    if need_Sinv:
-        result["Sinv"] = Sinv
     if need_T:
         result["T"] = T
-    if need_Tinv:
-        result["Tinv"] = Tinv
     return result
 
 def get_kernel_basis(A, num_cols):
@@ -195,7 +224,7 @@ def which_are_in_integer_span(basis, vector_size, queries):
 
     result = set()
     for index, y in queries:
-        nonzero_y_indexes = [i for i, entry in enumerate(y) if entry]
+        nonzero_y_indexes = [i for i in range(len(y)) if y[i]]
         for row, d in zip(S, ed):
             Sy_entry = 0
             for i in nonzero_y_indexes:
@@ -231,10 +260,19 @@ def compressed_basis(spanners):
         a, b = Mi1[j], Mi2[j]
         if b == 0:
             pass
-        elif a != 0 and b % a == 0:
+        elif a == 0:
+            Mi1[:], Mi2[:] = Mi2[:], Mi1[:]
+        elif b % a == 0:
             q = b // a
             for jj in range(n):
                 Mi2[jj] -= q * Mi1[jj]
+        elif a % b == 0:
+            Mi1[:], Mi2[:] = Mi2[:], Mi1[:]
+            q = a // b
+            for jj in range(n):
+                Mi2[jj] -= q * Mi1[jj]
+            assert M[i1][j] == b
+            assert M[i2][j] == 0
         else:
             x, y, g = xgcd(a, b)
             ag = a//g

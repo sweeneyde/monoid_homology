@@ -4,6 +4,7 @@ from monoid_homology.resolution import (
     get_kernel_basis,
     which_are_in_integer_span,
     compressed_basis,
+    xgcd,
 )
 from monoid_homology import (
     adjoin_1,
@@ -31,12 +32,35 @@ def test_right_mul_matrix_to_Z_matrix():
         [0, 0, 0, 0, +1],
     ]
 
+def determinant(A):
+    n = len(A)
+    for row in A:
+        assert len(row) == n
+    def generalized_row_op(i1, i2, x, y, z, w):
+        Ai1, Ai2 = A[i1], A[i2]
+        for jj in range(n):
+            aa = Ai1[jj]
+            bb = Ai2[jj]
+            Ai1[jj] = x*aa + y*bb
+            Ai2[jj] = z*aa + w*bb
+    for k in range(n):
+        for i in range(k + 1, n):
+            a = A[k][k]
+            b = A[i][k]
+            if b == 0:
+                continue
+            elif a != 0 and b % a == 0:
+                generalized_row_op(k, i, 1, 0, -b//a, 1)
+            else:
+                x, y, g = xgcd(a, b)
+                generalized_row_op(k, i, x, y, -b//g, a//g)
+    d = 1
+    for k in range(n):
+        d *= A[k][k]
+    return d
+
 def test_smith():
     import random
-    ids = [
-        [[int(i==j) for j in range(n)] for i in range(n)]
-        for n in (0,1,2,3,4)
-    ]
     def matmul(A, nA, B, nB):
         for row in A:
             assert len(row) == nA
@@ -48,35 +72,28 @@ def test_smith():
             for i in range(len(A))
         ]
 
-    for m in (0,1,2,3,4):
-        for n in (0,1,2,3,4):
+    for m in (0,1,2,3,4,5):
+        for n in (0,1,2,3,4,5):
             for _ in range(3):
                 A = [[random.randint(-10, 10) for _ in range(n)]
                      for _ in range(m)]
-                smith_A = partial_smithify(A, num_cols=n,
-                                           need_S=True, need_Sinv=True,
-                                           need_T=True, need_Tinv=True)
+                smith_A = partial_smithify(A, num_cols=n, need_S=True, need_T=True)
                 D = smith_A["D"]
-                S, Sinv = smith_A["S"], smith_A["Sinv"]
-                T, Tinv = smith_A["T"], smith_A["Tinv"]
+                S = smith_A["S"]
+                T = smith_A["T"]
 
                 assert len(D) == len(A) == m
                 assert all(len(row)==n for row in D)
-                assert len(S) == len(Sinv) == m
+                assert len(S) == m
                 assert all(len(row) == m for row in S)
-                assert all(len(row) == m for row in Sinv)
-                assert len(T) == len(Tinv) == n
+                assert len(T) == n
                 assert all(len(row) == n for row in T)
-                assert all(len(row) == n for row in Tinv)
-
-                assert matmul(S, m, Sinv, m) == ids[m]
-                assert matmul(Sinv, m, S, m) == ids[m]
-                assert matmul(T, n, Tinv, n) == ids[n]
-                assert matmul(Tinv, n, T, n) == ids[n]
 
                 assert matmul(S, m, matmul(A, n, T, n), n) == D
-                assert matmul(Sinv, m, matmul(D, n, Tinv, n), n) == A
+                assert abs(determinant(S)) == 1
+                assert abs(determinant(T)) == 1
 
+                # assert diagonal
                 for i, row in enumerate(D):
                     for j, x in enumerate(row):
                         if x != 0:
@@ -106,7 +123,7 @@ def test_kernel_basis():
                              [+1,+1, 0]], 3) == [[1, -1, 1]]
     assert get_kernel_basis([[ 0,-1,-3],
                              [-2, 0,+3],
-                             [+2,+1, 0]], 3) == [[3, -6, 2]]
+                             [+2,+1, 0]], 3) == [[-3, 6, -2]]
 
 def test_which_are_in_integer_span():
     queries = [(55,[5]),(44,[4]),(33,[3]),(22,[2]),(11,[1]),(0,[0])]
@@ -139,7 +156,7 @@ def test_which_are_in_integer_span():
 def test_compressed_basis():
     assert compressed_basis([[161, 161], [100, 100]]) == [[1, 1]]
     assert compressed_basis([[1, 0], [0, 1]]) == [[1, 0], [0, 1]]
-    assert compressed_basis([[1, 2], [3, 5]]) == [[1, 2], [0, 1]]
+    assert compressed_basis([[1, 2], [3, 5]]) == [[1, 2], [0, -1]]
     assert compressed_basis([[0, 1], [1, 0]]) == [[1, 0], [0, 1]]
     assert compressed_basis([[1, 1, 1], [0, 0, 2], [0, 0, 3]]) == [[1, 1, 1], [0, 0, 1]]
     assert compressed_basis([]) == []
