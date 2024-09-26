@@ -167,6 +167,8 @@ def get_kernel_basis(A, num_cols):
 def which_are_in_integer_span(basis, vector_size, queries):
     for col in basis:
         assert len(col) == vector_size
+    for index, vector in queries:
+        assert len(vector) == vector_size
     if len(queries) == 0:
         return []
     M = [
@@ -191,25 +193,21 @@ def which_are_in_integer_span(basis, vector_size, queries):
     assert len(ed) == m
     assert len(S) == m
 
-    result = []
-    for y in queries:
+    result = set()
+    for index, y in queries:
         nonzero_y_indexes = [i for i, entry in enumerate(y) if entry]
-        result_i = True
         for row, d in zip(S, ed):
             Sy_entry = 0
             for i in nonzero_y_indexes:
                 Sy_entry += row[i]*y[i]
-            # assert Sy_entry == sum(map(operator.mul, row, y))
             if d == 0:
                 if Sy_entry != 0:
-                    result_i = False
                     break
             else:
                 if Sy_entry % d != 0:
-                    result_i = False
                     break
-        result.append(result_i)
-
+        else: # no break
+            result.add(index)
     return result
 
 def compressed_basis(spanners):
@@ -393,6 +391,10 @@ class FiniteMonoidRingProjectiveResolution:
         return matrix, row_length
 
     def cover(self, output_gens, kernel_basis):
+        if len(kernel_basis) == 0:
+            input_gens = []
+            right_mul_matrix = [[] for _ in range(len(output_gens))]
+            return input_gens, right_mul_matrix
 
         output_index_pairs = [(i, ii) for i, gen in enumerate(output_gens) for ii in range(len(self.e_to_Lclass[gen]))]
         output_index_pair_to_index = {x: i for i, x in enumerate(output_index_pairs)}
@@ -431,57 +433,69 @@ class FiniteMonoidRingProjectiveResolution:
 
         ZS_spans = [get_ZS_span(vec) for vec in kernel_basis]
 
+        kindex_to_e = []
+        for vec in kernel_basis:
+            usable_es = [e for e in self.e_to_Lclass if left_multiply_vector(e, vec) == vec]
+            e = min(usable_es, key=lambda e: len(self.e_to_Lclass[e]))
+            kindex_to_e.append(e)
+
+        base_inclusions = []
+        for kindex in range(len(kernel_basis)):
+            included = which_are_in_integer_span(ZS_spans[kindex], N, list(enumerate(kernel_basis)))
+            assert kindex in included
+            base_inclusions.append(included)
+
+        kindexes_in_covering_order = sorted(
+            range(len(kernel_basis)),
+            key=lambda kindex: len(base_inclusions[kindex]),
+            reverse=True
+        )
+
         already_covered_kindexes = set()
-        already_covered = [] # in the Z-basis
+        already_covered  = []
         input_gens = []
         right_mul_columns = []
 
         while True:
-            if len(kernel_basis) == 0:
-                break
-            inclusions = [
-                [None] * len(kernel_basis)
-                for _ in range(len(kernel_basis))
-            ]
-            not_already_covered_kindexes = set(range(len(kernel_basis))) - already_covered_kindexes
-            for kindex1, row in enumerate(inclusions):
-                for kindex2 in already_covered_kindexes:
-                    row[kindex2] = True
-                row[kindex1] = True
-                not_covered_kindexes = sorted(not_already_covered_kindexes - {kindex1})
-                not_already_covered_vecs = [kernel_basis[kindex2] for kindex2 in not_covered_kindexes]
-                which = which_are_in_integer_span(already_covered + ZS_spans[kindex1], N, not_already_covered_vecs)
-                for included, kindex2 in zip(which, not_covered_kindexes):
-                    row[kindex2] = included
-                assert None not in row
-
-            # inclusions = [
-            #     which_are_in_integer_span(already_covered + ZS_spans[kindex], N, kernel_basis)
-            #     for kindex in range(len(kernel_basis))
-            # ]
-            inclusion_counts = [sum(row) for row in inclusions]
-            max_inclusion_count = max(inclusion_counts)
-            kindex_e_pairs = []
-            for kindex, kernel_basis_vec in enumerate(kernel_basis):
-                if inclusion_counts[kindex] != max_inclusion_count:
+            inclusions = {kindex: base_inclusions[kindex] | already_covered_kindexes
+                          for kindex in range(len(kernel_basis))
+                          if kindex not in already_covered_kindexes}
+            kindex_num_added_num_covered = []
+            for kindex1 in kindexes_in_covering_order:
+                if kindex1 in already_covered_kindexes:
                     continue
-                # Now see if we can replace
-                #       image <--(k)--- ZS
-                # with something smaller but with the same image, like
-                #       image <--(k)--- Zse
-                # This requires that ZSk == ZSek, so k == ek
-                for e in self.e_to_Lclass:
-                    if left_multiply_vector(e, kernel_basis_vec) == kernel_basis_vec:
-                        kindex_e_pairs.append((kindex, e))
-            kindex, e = min(kindex_e_pairs, key=lambda kindex_e: len(self.e_to_Lclass[kindex_e[1]]))
+                new_span = already_covered + ZS_spans[kindex1]
+                to_be_included = inclusions[kindex1]
+                in_question = [kindex2 for kindex2 in range(len(kernel_basis)) if kindex2 not in to_be_included]
+                which = which_are_in_integer_span(new_span, N, [(kindex2, kernel_basis[kindex2]) for kindex2 in in_question])
+                to_be_included.update(which)
+                num_added = len(self.e_to_Lclass[kindex_to_e[kindex1]])
+                num_covered = len(to_be_included) - len(already_covered_kindexes)
+                assert num_added >= 1
+                assert num_covered >= 1
+                if num_added == num_covered:
+                    # Used a Z-module of this rank to kill a Z-module of this rank:
+                    # this is optimal; don't bother doing anything else
+                    kindex = kindex1
+                    num_added = num_added
+                    num_covered = num_covered
+                    break
+                kindex_num_added_num_covered.append((kindex1, num_added, num_covered))
+            else: # no break
+                # try to maximize the "efficiency": meaning the number of kernel basis elements
+                # covered per new Z-rank added
+                kindex, num_added, num_covered = max(
+                    kindex_num_added_num_covered,
+                    key=lambda k_na_nc: k_na_nc[2]/k_na_nc[1]
+                )
+            # print(f"Adding {kernel_basis[kindex]}. Cost: {num_added}. Covered {num_covered}.")
 
-            already_covered_kindexes.update([i for i in range(len(kernel_basis)) if inclusions[kindex][i]])
-            input_gens.append(e)
-            already_covered += ZS_spans[kindex]
-            already_covered = compressed_basis(already_covered)
+            # picked the best one, now throw it in.
+            already_covered_kindexes.update(inclusions[kindex])
+            input_gens.append(kindex_to_e[kindex])
+            already_covered = compressed_basis(already_covered + ZS_spans[kindex])
 
             right_mul_column = [[] for _ in output_gens]
-            # The multiplier is k
             for index, coeff in enumerate(kernel_basis[kindex]):
                 if coeff:
                     i, ii = output_index_pairs[index]
@@ -490,7 +504,7 @@ class FiniteMonoidRingProjectiveResolution:
                     right_mul_column[i].append((coeff, m))
             right_mul_columns.append(right_mul_column)
 
-            if all(inclusions[kindex]):
+            if len(inclusions[kindex]) == len(kernel_basis):
                 # covered everything!
                 break
 

@@ -109,31 +109,32 @@ def test_kernel_basis():
                              [+2,+1, 0]], 3) == [[3, -6, 2]]
 
 def test_which_are_in_integer_span():
-    queries = [[5],[4],[3],[2],[1],[0]]
+    queries = [(55,[5]),(44,[4]),(33,[3]),(22,[2]),(11,[1]),(0,[0])]
     which = which_are_in_integer_span
-    assert which([[0]], 1, queries) == [False, False, False, False, False, True]
-    assert which([[1]], 1, queries) == [True, True, True, True, True, True]
-    assert which([[2]], 1, queries) == [False, True, False, True, False, True]
-    assert which([[3]], 1, queries) == [False, False, True, False, False, True]
-    assert which([[5]], 1, queries) == [True, False, False, False, False, True]
-    assert which([[10], [12]], 1, queries) == [False, True, False, True, False, True]
+    assert which([[0]], 1, queries) == {0}
+    assert which([[1]], 1, queries) == {0, 11, 22, 33, 44, 55}
+    assert which([[2]], 1, queries) == {0, 22, 44}
+    assert which([[3]], 1, queries) == {0, 33}
+    assert which([[5]], 1, queries) == {0, 55}
+    assert which([[10], [12]], 1, queries) == {0, 22, 44}
 
-    assert which([[60], [150], [100]], 1, [[0],[5],[10],[15],[20],[25],[30]]) == [True, False, True, False, True, False, True]
+    fives = [(0,[0]),(5,[5]),(10,[10]),(15,[15]),(20,[20]),(25,[25]),(30,[30])]
+    assert which([[60], [150], [100]], 1, fives) == {0, 10, 20, 30}
 
-    vec2 = [[i, j] for i in range(-5, 10) for j in range(-5, 10)]
+    vec2 = [((x,y), [x, y]) for x in range(-5, 10) for y in range(-5, 10)]
     assert which([[1,0],
-                  [0,1]], 2, vec2) == [True] * len(vec2)
+                  [0,1]], 2, vec2) == {(x, y) for (x, y), _ in vec2}
     assert which([[2,2],
-                  [3,3]], 2, vec2) == [v[0]==v[1] for v in vec2]
+                  [3,3]], 2, vec2) == {(x, y) for (x, y), _ in vec2 if x == y}
     assert which([[2,3],
-                  [0,1]], 2, vec2) == [v[0] % 2 == 0 for v in vec2]
+                  [0,1]], 2, vec2) == {(x, y) for (x, y), _ in vec2 if x % 2 == 0}
     assert which([[2,3],
-                  [0,5]], 2, vec2) == [v[0] % 2 == 0 and v[1] % 5 == (v[0]//2*3) % 5 for v in vec2]
+                  [0,5]], 2, vec2) == {(x, y) for (x, y), _ in vec2 if x % 2 == 0 and y % 5 == (x//2*3) % 5}
     assert which([[0,2],
                   [0,3],
-                  [0,5],], 2, vec2) == [v[0] == 0 for v in vec2]
+                  [0,5],], 2, vec2) == {(x, y) for (x, y), _ in vec2 if x == 0}
     assert which([[-1,1],
-                  [0,5],], 2, vec2) == [(v[0] + v[1]) % 5 == 0 for v in vec2]
+                  [0,5],], 2, vec2) == {(x, y) for (x, y), _ in vec2 if (x + y) % 5 == 0}
 
 def test_compressed_basis():
     assert compressed_basis([[161, 161], [100, 100]]) == [[1, 1]]
