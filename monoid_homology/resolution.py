@@ -534,7 +534,7 @@ class FiniteMonoidRingProjectiveResolution:
             )
             num_added = len(self.e_to_Lclass[kindex_to_e[kindex]])
             num_covered = len(inclusions[kindex]) - len(already_covered_kindexes)
-            efficiency = num_covered / num_added - 0.0001
+            efficiency = num_covered / num_added
 
             add_summand(kindex)
             if len(already_covered_kindexes) == len(kernel_basis):
@@ -552,10 +552,14 @@ class FiniteMonoidRingProjectiveResolution:
                 # means that we could actually cover more, so it's probably a good thing to include.
                 num_covered_approx = len(to_be_included - already_covered_kindexes)
                 num_added = len(self.e_to_Lclass[kindex_to_e[kindex]])
-                if num_covered_approx / num_added >= efficiency:
-                    # print("got one for cheap.")
+                if num_covered_approx / num_added >= efficiency - 0.00001:
                     add_summand(kindex)
 
+            # Now catch up kerenel_basis
+            in_question = [kindex2 for kindex2 in range(len(kernel_basis)) if kindex2 not in already_covered_kindexes]
+            queries = [(kindex2, kernel_basis[kindex2], nonzero_kernel_basis_indices[kindex2]) for kindex2 in in_question]
+            which = which_are_in_integer_span(new_span, N, queries)
+            already_covered_kindexes.update(which)
             if len(already_covered_kindexes) == len(kernel_basis):
                 # covered everything!
                 break
