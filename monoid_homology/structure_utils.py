@@ -24,6 +24,13 @@ def adjoin_1(op):
     op1.append(list(range(len(op) + 1)))
     return op1
 
+def maybe_adjoin_1(op):
+    rn = range(len(op))
+    for e in rn:
+        if all(op[e][x] == x == op[x][e] for x in rn):
+            return op
+    return adjoin_1(op)
+
 def _get_all_product(op):
     p = 0
     for x in range(1, len(op)):

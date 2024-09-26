@@ -11,12 +11,14 @@ from .structure_utils import (
     table_from_opfunc_and_set,
     product_op,
     adjoin_1,
+    maybe_adjoin_1,
     get_kernel_height_width_G,
     restrict_to_subset,
     thin_equivalent,
     op_has_ptorsion,
 )
 from .resolution import (
-    FiniteMonoidRingProjectiveResolution
+    FiniteMonoidRingProjectiveResolution,
+    find_good_resolution,
 )
 from .knuth_bendix import kb_normalize

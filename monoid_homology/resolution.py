@@ -504,3 +504,27 @@ class FiniteMonoidRingProjectiveResolution:
         assert len(right_mul_matrix) == len(output_gens)
 
         return input_gens, right_mul_matrix
+
+def find_good_resolution(op0, peek_dim=4):
+    """Choose a few different versions of a monoid operation,
+    and compute some projective resolutions up to `peek_dim`.
+    Return the smallest one.
+    """
+    n = len(op0)
+    n_1 = n - 1
+    rn = range(n)
+    ops = [
+        [[op0[i][j] for j in rn] for i in rn],
+        [[op0[j][i] for j in rn] for i in rn],
+        [[n_1 - op0[n_1 - i][n_1 - j] for j in rn] for i in rn],
+        [[n_1 - op0[n_1 - j][n_1 - i] for j in rn] for i in rn],
+    ]
+    resolutions = [FiniteMonoidRingProjectiveResolution(op) for op in ops]
+    while len(resolutions[0].module_list) - 1 < peek_dim:
+        for res in resolutions:
+            res.extend_once()
+            if len(res.module_list[-1]) == 0:
+                print("short circuit: finite resolution!")
+                return res
+    print([len(res.module_list[-1]) for res in resolutions])
+    return min(resolutions, key=lambda res: len(res.module_list[-1]))
