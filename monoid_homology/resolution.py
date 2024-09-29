@@ -1,4 +1,5 @@
 import operator
+from bisect import bisect
 
 def xgcd(a, b):
     # Maintain the invariants:
@@ -25,6 +26,15 @@ def make_identity(n):
         M[i][i] = 1
     return M
 
+def sort_rows(matrix):
+    def sortkey(row):
+        for i, x in enumerate(row):
+            if x:
+                return i, abs(x)
+        return (len(row),)
+    matrix.sort(key=sortkey)
+
+
 def partial_smithify(A, num_cols, *, need_S=False, need_T=False):
     """
     Given a matrix A, find a matrix D of the same shape
@@ -46,6 +56,9 @@ def partial_smithify(A, num_cols, *, need_S=False, need_T=False):
 
     if need_S:
         S = make_identity(m)
+    else:
+        sort_rows(D)
+
     if need_T:
         T = make_identity(n)
 
@@ -157,8 +170,14 @@ def partial_smithify(A, num_cols, *, need_S=False, need_T=False):
             # assert D[i][j1] == g
             # assert D[i][j2] == 0
 
+    if min(m, n) > 100:
+        from tqdm import tqdm
+        range_mn = tqdm(range(min(m,n)), desc=f"SNF", dynamic_ncols=True, smoothing=0.0, ascii=True, miniters=0)
+    else:
+        range_mn = range(min(m,n))
+
     # make diagonal
-    for k in range(min(m, n)):
+    for k in range_mn:
         while True:
             for i in range(k+1, m):
                 improve_with_row_ops(k, i, k)
@@ -190,107 +209,173 @@ def get_kernel_basis(A, num_cols):
         [T[i][j] for i in range(n)]
         for j in ker_D_indices
     ]
-    columns.sort(key=lambda col: [abs(x) for x in col], reverse=True)
+    sort_rows(columns)
     return columns
 
-def which_are_in_integer_span(basis, vector_size, queries):
-    # for col in basis:
-    #     assert len(col) == vector_size
-    # for index, vector in queries:
-    #     assert len(vector) == vector_size
-    if len(queries) == 0:
-        return []
-    M = [
-        [basis[j][i] for j in range(len(basis))]
-        for i in range(vector_size)
-    ]
-    m = len(M)
-    n = len(basis)
+class FreeAbelianSubmodule:
+    __slots__ = ["N",
+                 "basis",
+                 "pivot_location_in_column",
+                 "pivot_location_in_row",
+                 ]
 
-    # y in span(basis)
-    # iff  y in im(M)
-    # iff  y in im(Sinv D Tinv)
-    # iff  y in im(Sinv D)
-    # iff  y = Sinv D x  for some x
-    # iff  S y = D x     for some x
-    # iff  S y in im(D)
+    def __init__(self, ambient_dimension, vectors):
+        N = ambient_dimension
+        assert set(map(len, vectors)) <= {N}
+        basis = list(map(list, vectors))
+        basis.sort(key=lambda row: [abs(x) for x in row], reverse=True)
+        M = len(basis)
 
-    smith_M = partial_smithify(M, n, need_S=True)
-    D = smith_M["D"]
-    S = smith_M["S"]
-    ed = [D[k][k] if k < n else 0 for k in range(m)]
-    assert len(ed) == m
-    assert len(S) == m
+        pivot_location_in_column = [None] * N
+        pivot_location_in_row = [None] * M
 
-    result = set()
-    for index, y, nonzero_y_indexes in queries:
-        for row, d in zip(S, ed):
-            Sy_entry = 0
-            for i in nonzero_y_indexes:
-                Sy_entry += row[i]*y[i]
-            if d == 0:
-                if Sy_entry != 0:
+        if not basis:
+            self.N = N
+            self.basis = basis
+            self.pivot_location_in_column = pivot_location_in_column
+            self.pivot_location_in_row = pivot_location_in_row
+            return
+
+        # Put in row echelon form with row operations
+        i1 = 0
+        basis_i1 = basis[i1]
+        for j in range(N):
+            # for i2 in range(i1 + 1, M):
+            #     basis_i2 = basis[i2]
+            for basis_i2 in basis[i1+1:]:
+                # Do row operations to make basis_i2[j] == 0
+                a = basis_i1[j]
+                b = basis_i2[j]
+                if b == 0:
+                    pass
+                elif a == 0:
+                    basis_i1[:], basis_i2[:] = basis_i2[:], basis_i1[:]
+                elif b % a == 0:
+                    q = b // a
+                    for jj in range(j, N):
+                        basis_i2[jj] -= q * basis_i1[jj]
+                elif a % b == 0:
+                    basis_i1[:], basis_i2[:] = basis_i2[:], basis_i1[:]
+                    q = a // b
+                    for jj in range(j, N):
+                        basis_i2[jj] -= q * basis_i1[jj]
+                else:
+                    x, y, g = xgcd(a, b)
+                    ag = a//g
+                    mbg = -b//g
+                    for jj in range(j, N):
+                        aa = basis_i1[jj]
+                        bb = basis_i2[jj]
+                        basis_i1[jj] = x*aa + y*bb
+                        basis_i2[jj] = mbg*aa + ag*bb
+                assert basis_i2[j] == 0
+
+            if basis_i1[j] != 0:
+                # We have a nonzero entry in this column, so it's a pivot.
+                pivot_location_in_column[j] = i1
+                pivot_location_in_row[i1] = j
+                i1 += 1
+                if i1 == M:
                     break
-            else:
-                if Sy_entry % d != 0:
-                    break
-        else: # no break
-            result.add(index)
-    return result
+                basis_i1 = basis[i1]
 
-def compressed_basis(spanners):
-    """
-    Given a list of vectors, produce
-    a hopefully shorter list of vectors with
-    the same span.
-    """
-    # use "row_ops"
-    M = [list(row) for row in spanners]
-    M.sort(key=lambda row: [abs(x) for x in row], reverse=True)
-    if not M:
-        return M
-    n = len(M[0])
-    m = len(M)
-    for row in M:
-        assert len(row) == n
+        del basis[i1:]
+        del pivot_location_in_row[i1:]
+        assert None not in pivot_location_in_row
+        self.N = N
+        self.basis = basis
+        self.pivot_location_in_column = pivot_location_in_column
+        self.pivot_location_in_row = pivot_location_in_row
+        # self.assert_consistent()
 
-    def improve_with_row_ops(i1, i2, j):
-        Mi1, Mi2 = M[i1], M[i2]
-        a, b = Mi1[j], Mi2[j]
-        if b == 0:
-            pass
-        elif a == 0:
-            Mi1[:], Mi2[:] = Mi2[:], Mi1[:]
-        elif b % a == 0:
-            q = b // a
-            for jj in range(n):
-                Mi2[jj] -= q * Mi1[jj]
-        elif a % b == 0:
-            Mi1[:], Mi2[:] = Mi2[:], Mi1[:]
-            q = a // b
-            for jj in range(n):
-                Mi2[jj] -= q * Mi1[jj]
-        else:
-            x, y, g = xgcd(a, b)
-            ag = a//g
-            mbg = -b//g
-            for jj in range(n):
-                aa = Mi1[jj]
-                bb = Mi2[jj]
-                Mi1[jj] = x*aa + y*bb
-                Mi2[jj] = mbg*aa + ag*bb
-        assert Mi2[j] == 0
+    def assert_consistent(self):
+        basis = self.basis
+        for i, j in enumerate(self.pivot_location_in_row):
+            assert basis[i][j] != 0
+            for jj in range(j):
+                assert basis[i][jj] == 0
+        for j, i in enumerate(self.pivot_location_in_column):
+            if i is not None:
+                assert basis[i][j] != 0, (basis, i, j)
+                for ii in range(i+1, len(self.basis)):
+                    assert basis[ii][j] == 0
 
-    i1 = 0
-    for j in range(n):
-        for i2 in range(i1 + 1, m):
-            improve_with_row_ops(i1, i2, j)
-        if M[i1][j] != 0:
-            i1 += 1
-            if i1 == m:
-                break
+    def __contains__(self, vec0):
+        vec = vec0
+        col_piv = self.pivot_location_in_column
+        N = self.N
+        basis = self.basis
+        for j in range(N):
+            if vec[j] != 0:
+                p = col_piv[j]
+                if p is None:
+                    # can't zero this vec entry out
+                    # without disrupting previous parts
+                    return False
+                a = basis[p][j]
+                b = vec[j]
+                if b % a != 0:
+                    # This pivot can't zero this entry
+                    return False
+                else:
+                    if vec is vec0:
+                        vec = vec.copy()
+                    q = b // a
+                    row = basis[p]
+                    assert set(vec[:j]) <= {0}
+                    for jj in range(j, N):
+                        vec[jj] -= q * row[jj]
+        return True
 
-    return [row for row in M if any(row)]
+    def add(self, vec):
+        col_piv = self.pivot_location_in_column
+        row_piv = self.pivot_location_in_row
+        N = self.N
+        basis = self.basis
+        assert len(vec) == N
+        # vec = vec.copy()
+        for j in range(N):
+            if vec[j] != 0:
+                p = col_piv[j]
+                if p is None:
+                    # This vector gets inserted so that its first entry is a pivot.
+                    where = bisect(row_piv, j)
+                    basis.insert(where, vec)
+                    row_piv.insert(where, j)
+                    col_piv[j] = where
+                    for ii in range(where + 1, len(basis)):
+                        # assert col_piv[row_piv[ii]] == ii - 1
+                        col_piv[row_piv[ii]] = ii
+                    # self.assert_consistent()
+                    return
+                row = basis[p]
+                a = row[j]
+                b = vec[j]
+                # assert a != 0
+                # assert b != 0
+                if b % a == 0:
+                    q = b // a
+                    for jj in range(j, N):
+                        vec[jj] -= q * row[jj]
+                elif a % b == 0:
+                    row[:], vec[:] = vec[:], row[:]
+                    q = a // b
+                    for jj in range(j, N):
+                        vec[jj] -= q * row[jj]
+                else:
+                    x, y, g = xgcd(a, b)
+                    ag = a//g
+                    mbg = -b//g
+                    for jj in range(j, N):
+                        aa = row[jj]
+                        bb = vec[jj]
+                        row[jj] = x*aa + y*bb
+                        vec[jj] = mbg*aa + ag*bb
+                assert vec[j] == 0
+        # making it to the end means that vec has been zeroed out.
+        # nothing more needs to be done.
+        assert not any(vec)
+        # self.assert_consistent()
 
 class FiniteMonoidRingProjectiveResolution:
     __slots__ = ["op", "identity", "e_to_Lclass", "module_list", "right_mul_matrices"]
@@ -327,7 +412,7 @@ class FiniteMonoidRingProjectiveResolution:
                                  base_ring=base_ring,
                                  generators=generators,
                                  verbose=verbose,
-                                 algorithm=algorithm)
+                                 algorithm='auto')
                 for dim in range(0, up_to_dimension + 1)}
 
     def homology_list(self, up_to_dimension, **kwargs):
@@ -393,6 +478,7 @@ class FiniteMonoidRingProjectiveResolution:
             second_to_last_gens, last_gens = self.module_list[-2:]
             Z_matrix, width = self.right_mul_matrix_to_Z_matrix(last_gens, second_to_last_gens, self.right_mul_matrices[-1])
         kernel_basis = get_kernel_basis(Z_matrix, width)
+        del Z_matrix
         input_gens, right_mul_matrix = self.cover(last_gens, kernel_basis)
         self.module_list.append(input_gens)
         self.right_mul_matrices.append(right_mul_matrix)
@@ -457,114 +543,37 @@ class FiniteMonoidRingProjectiveResolution:
         ]
 
         def left_multiply_vector(s, vec):
-            result = [0 for _ in vec]
+            result = [0] * len(vec)
             for out_index, x in zip(left_multiply_index_table[s], vec):
                 result[out_index] += x
             return result
 
-        def get_ZS_span(vec):
-            span = set()
-            for s in range(len(self.op)):
-                svec = left_multiply_vector(s, vec)
-                span.add(tuple(svec))
-            return compressed_basis(span)
-
-        ZS_spans = [get_ZS_span(vec) for vec in kernel_basis]
-
-        kindex_to_e = []
-        for vec in kernel_basis:
-            usable_es = [e for e in self.e_to_Lclass if left_multiply_vector(e, vec) == vec]
-            e = min(usable_es, key=lambda e: len(self.e_to_Lclass[e]))
-            kindex_to_e.append(e)
-        nonzero_kernel_basis_indices = [
-            [i for i, x in enumerate(k) if x]
-            for k in kernel_basis
-        ]
-
-        base_inclusions = []
-        for kindex in range(len(kernel_basis)):
-            queries = [
-                (kindex, k, nonzero_kernel_basis_indices[kindex])
-                for kindex, k in enumerate(kernel_basis)
-            ]
-            included = which_are_in_integer_span(ZS_spans[kindex], N, queries)
-            assert kindex in included
-            base_inclusions.append(included)
-
-        kindexes_in_covering_order = sorted(
-            range(len(kernel_basis)),
-            key=lambda kindex: len(base_inclusions[kindex]),
-            reverse=True
-        )
-
-        already_covered_kindexes = set()
-        already_covered  = []
         input_gens = []
         right_mul_columns = []
+        covered = FreeAbelianSubmodule(N, [])
 
-        def add_summand(kindex):
-            already_covered_kindexes.update(inclusions[kindex])
-            already_covered.extend(ZS_spans[kindex])
-            input_gens.append(kindex_to_e[kindex])
-            right_mul_column = [[] for _ in output_gens]
-            for index, coeff in enumerate(kernel_basis[kindex]):
-                if coeff:
-                    i, ii = output_index_pairs[index]
-                    Lclass = self.e_to_Lclass[output_gens[i]]
-                    m = Lclass[ii]
-                    right_mul_column[i].append((coeff, m))
-            right_mul_columns.append(right_mul_column)
-
-        while True:
-            inclusions = {kindex: base_inclusions[kindex] | already_covered_kindexes
-                          for kindex in kindexes_in_covering_order
-                          if kindex not in already_covered_kindexes}
-            for kindex, to_be_included in inclusions.items():
-                new_span = already_covered + ZS_spans[kindex]
-                in_question = [kindex2 for kindex2 in range(len(kernel_basis)) if kindex2 not in to_be_included]
-                queries = [(kindex2, kernel_basis[kindex2], nonzero_kernel_basis_indices[kindex2]) for kindex2 in in_question]
-                which = which_are_in_integer_span(new_span, N, queries)
-                to_be_included.update(which)
-
-            # try to maximize the "efficiency": the number of kernel basis elements
-            # covered per new Z-rank added
-            kindex = max(
-                inclusions.keys(),
-                key=lambda kindex: len(inclusions[kindex]) / len(self.e_to_Lclass[kindex_to_e[kindex]])
-            )
-            num_added = len(self.e_to_Lclass[kindex_to_e[kindex]])
-            num_covered = len(inclusions[kindex]) - len(already_covered_kindexes)
-            efficiency = num_covered / num_added
-
-            add_summand(kindex)
-            if len(already_covered_kindexes) == len(kernel_basis):
-                # covered everything!
-                break
-
-            for kindex, to_be_included in inclusions.items():
-                # Attempt at a "lower bound" on num_covered.
-                # Adding this kindex will result in at least `to_be_included`
-                # being covered. The uncertainty is that it could already
-                # have been covered by a previous addition, though then
-                # that previously-added vector's efficiency was greater than expected,
-                # so the average efficiency is still valid.
-                # On the other hand, interacting with the existing cover
-                # means that we could actually cover more, so it's probably a good thing to include.
-                num_covered_approx = len(to_be_included - already_covered_kindexes)
-                num_added = len(self.e_to_Lclass[kindex_to_e[kindex]])
-                if num_covered_approx / num_added >= efficiency - 0.00001:
-                    add_summand(kindex)
-
-            # Now catch up kerenel_basis
-            in_question = [kindex2 for kindex2 in range(len(kernel_basis)) if kindex2 not in already_covered_kindexes]
-            queries = [(kindex2, kernel_basis[kindex2], nonzero_kernel_basis_indices[kindex2]) for kindex2 in in_question]
-            which = which_are_in_integer_span(new_span, N, queries)
-            already_covered_kindexes.update(which)
-            if len(already_covered_kindexes) == len(kernel_basis):
-                # covered everything!
-                break
-
-            already_covered = compressed_basis(already_covered)
+        if len(kernel_basis) > 100:
+            from tqdm import tqdm
+            kernel_basis = tqdm(kernel_basis, desc=f"dim{len(self.module_list)}", dynamic_ncols=True, smoothing=0.0, ascii=True, miniters=0)
+        for vec in kernel_basis:
+            if vec not in covered:
+                e = self.identity
+                for s in range(len(self.op)):
+                    svec = left_multiply_vector(s, vec)
+                    covered.add(svec)
+                    if s in self.e_to_Lclass and svec == vec:
+                        if len(self.e_to_Lclass[s]) < len(self.e_to_Lclass[e]):
+                            e = s
+                input_gens.append(e)
+                right_mul_column = [[] for _ in output_gens]
+                for index, coeff in enumerate(vec):
+                    if coeff:
+                        i, ii = output_index_pairs[index]
+                        Lclass = self.e_to_Lclass[output_gens[i]]
+                        m = Lclass[ii]
+                        right_mul_column[i].append((coeff, m))
+                right_mul_columns.append(right_mul_column)
+        del covered
 
         assert len(right_mul_columns) == len(input_gens)
         for col in right_mul_columns:
