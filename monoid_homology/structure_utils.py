@@ -141,6 +141,26 @@ def get_kernel_structure(op):
     sandwich = {(y, x) : op[y][x] for y in Y for x in X}
     return X, G, Y, sandwich
 
+def get_kernel_R_and_L_classes(op):
+    R, L = _get_kernel_RL(op)
+    G = R & L
+    X = [g for g in L if op[g][g] == g]
+    Y = [g for g in R if op[g][g] == g]
+    R_classes = [
+        [op[x][r] for r in R]
+        for x in X
+    ]
+    L_classes = [
+        [op[l][y] for l in L]
+        for y in Y
+    ]
+    kernel_size = len(X)*len(Y)*len(G)
+    assert sum(map(len, R_classes)) == kernel_size
+    assert sum(map(len, L_classes)) == kernel_size
+    assert len(set.union(*map(set, R_classes))) == kernel_size
+    assert len(set.union(*map(set, L_classes))) == kernel_size
+    return R_classes, L_classes
+
 def group_completion(op):
     X, G, Y, sandwich = get_kernel_structure(op)
     G_to_result, result_op = group_quotient(op, G, set(sandwich.values()))
@@ -161,3 +181,33 @@ def op_has_ptorsion(op, p):
             return True
     return False
 
+def is_regular(op):
+    rn = range(len(op))
+    for a in rn:
+        for x in rn:
+            if op[op[a][x]][a] == a:
+                break
+        else:
+            # No break: `a` has no pseudoinverse
+            return False
+    # Every `a` had a pseudoinverse
+    return True
+
+def _one_swap(op, s1, s2):
+    s = lambda x: {s1:s2, s2:s1}.get(x, x)
+    n = len(op)
+    new_op = [[None]*n for _ in range(n)]
+    for i in range(n):
+        for j in range(n):
+            new_op[i][j] = s(op[s(i)][s(j)])
+    return new_op
+
+def transpose_op(op):
+    return list(map(list, zip(*op)))
+
+def swaps(op, *ss, T=False):
+    for s1, s2 in ss:
+        op = _one_swap(op, s1, s2)
+    if T:
+        op = transpose_op(op)
+    return op

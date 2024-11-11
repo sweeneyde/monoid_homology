@@ -16,6 +16,8 @@ from .structure_utils import (
     restrict_to_subset,
     thin_equivalent,
     op_has_ptorsion,
+    swaps,
+    is_regular,
 )
 from .resolution import (
     FiniteMonoidRingProjectiveResolution,
