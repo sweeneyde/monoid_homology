@@ -9,6 +9,13 @@ from monoid_homology import (
     find_good_resolution,
     maybe_adjoin_1,
 )
+from monoid_homology.by_min_ideal import (
+    get_min_names,
+    iterate_from_size_and_min_name,
+    subset_from_size_and_min_name,
+    one_op_from_size_and_min_name,
+    get_count_from_size_and_min_name,
+)
 
 @lru_cache(maxsize=1)
 def data_from_gz(n, filename):
@@ -26,12 +33,12 @@ def data_from_gz(n, filename):
 
 def iterate_from_gz(n, filename):
     data = data_from_gz(n, str(filename))
-    num = len(data[0][0])
+    num = len(data[0])
     rn = range(n)
     range_num = range(num)
     for index in range_num:
         yield index, [
-            [int(data[i*n + j][index:index+1])
+            [int(data[i*n + j][index:index+1], 16)
              for j in rn
             ]
             for i in rn
@@ -42,7 +49,7 @@ def subset_from_gz(n, filename, indexes):
     rn = range(n)
     for index in sorted(indexes):
         yield index, [
-            [int(data[i*n + j][index:index+1])
+            [int(data[i*n + j][index:index+1], 16)
              for j in rn
             ]
             for i in rn
@@ -58,31 +65,28 @@ PARENT_FOLDER = Path("/mnt/c/Users/Owner/Desktop/monoid_homology/data_by_min_ide
 
 
 def main_initialize():
-    import multiprocessing as mp
-    import tqdm
-
-    mp.set_start_method("spawn")
     with mp.Pool(CORES) as pool:
-        for n in (10,):
-            folder = PARENT_FOLDER / f"order{n}"
-            assert folder.is_dir()
-            for subfolder in folder.iterdir():
-                if subfolder.is_dir():
-                    readme = (subfolder / "README.md").read_text()
-                    total = int(readme.partition(" semigroups")[0].partition("Found ")[2])
-                    print("working on", str(subfolder))
-                    groupings = defaultdict(list)
-                    it = iterate_from_gz(n, subfolder / "tables.dat.gz")
-                    it = pool.imap_unordered(get_homology, it, chunksize=100)
-                    it = tqdm.tqdm(it, smoothing=0.0, miniters=1, dynamic_ncols=True, total=total)
-                    for ix, hl in it:
-                        groupings[hl].append(ix)
-                    for arr in groupings.values():
+        folder = PARENT_FOLDER / f"order{ORDER}"
+        assert folder.is_dir()
+        for subfolder in folder.iterdir():
+            if subfolder.is_dir():
+                readme = (subfolder / "README.md").read_text()
+                total = int(readme.partition(" semigroups")[0].partition("Found ")[2])
+                print("working on", str(subfolder))
+                groupings = defaultdict(list)
+                it = iterate_from_gz(ORDER, subfolder / "tables.dat.gz")
+                it = pool.imap_unordered(get_homology, it, chunksize=100)
+                it = tqdm.tqdm(it, smoothing=0.0, miniters=1, dynamic_ncols=True, total=total)
+                for ix, hl in it:
+                    if hl not in groupings:
+                        print("New:", hl)
+                    groupings[hl].append(ix)
+                for arr in groupings.values():
+                    arr.sort()
+                with open(subfolder / "groupings.txt", "w") as fout:
+                    for label, arr in groupings.items():
                         arr.sort()
-                    with open(subfolder / "groupings.txt", "w") as fout:
-                        for label, arr in groupings.items():
-                            arr.sort()
-                            print(label, ":", ",".join(map(str,arr)), file=fout)
+                        print(label, ":", ",".join(map(str,arr)), file=fout)
 
 import contextlib
 
@@ -112,6 +116,8 @@ def main_refine(n, min_ideal_name, homology_kind):
         it = tqdm.tqdm(it, smoothing=0.0, miniters=1, dynamic_ncols=True, total=len(ix_set))
         groupings = defaultdict(list)
         for ix, hl in it:
+            if VERBOSE:
+                print(ix, hl)
             if hl not in groupings:
                 print("New split:", hl)
             groupings[hl].append(ix)
@@ -177,7 +183,57 @@ def main_refine(n, min_ideal_name, homology_kind):
     new_file.rename(old_file)
     print("done")
 
-        
+def populate_readmes():
+    for folder in PARENT_FOLDER.iterdir():
+        if not folder.is_dir():
+            continue
+        for subfolder in folder.iterdir():
+            if not subfolder.is_dir():
+                continue
+            label_to_count = {}
+            with open(subfolder / "groupings.txt") as f:
+                for line in f:
+                    label, rest = line.split(" : ")
+                    rest = rest.strip().strip(",")
+                    assert set(rest) <= set("0123456789,")
+                    count = rest.count(",") + 1
+                    label_to_count[label] = count
+            with open(subfolder / "README.md") as f:
+                first_line = next(f)
+            total = int(first_line.partition(" semigroups")[0].partition("Found ")[2])
+            assert total == sum(label_to_count.values())
+            with open(subfolder / "README.md", "w") as f:
+                f.write(first_line)
+                f.write("\n\n")
+                print(*(["Count"] + [f"$$H_{{{i}}}$$" for i in range(1, 11)]), sep=" | ", file=f)
+                print(*(["--"] + ["--" for i in range(1, 11)]), sep=" | ", file=f)
+                for label, count in sorted(label_to_count.items()):
+                    for simple in ["Z"] + [f"C{i}" for i in reversed(range(2, 20))]:
+                        for copies in reversed(range(2, 20)):
+                            label = label.replace(" x ".join([simple] * copies), f"{simple}^{copies}")
+                    tex_entries = []
+                    for entry in label.strip("[]").split(", "):
+                        if entry == "0":
+                            tex_entries.append("$$\cdot$$")
+                            continue
+                        parts = []
+                        for part in entry.split(" x "):
+                            base = part.partition("^")[0]
+                            if base.startswith("C"):
+                                base = f"C_{{{base[1:]}}}"
+                            else:
+                                assert base == "Z", (base, part)
+                                base = "\\mathbb{Z}"
+                            if "^" in part:
+                                parts.append(f"{base}^{{{part.partition('^')[2]}}}")
+                            else:
+                                parts.append(base)
+                        tex_entries.append("$$" + " \\times ".join(parts) + "$$")
+                    while len(tex_entries) < 10:
+                        tex_entries.append("$$?$$")
+                    print(*([count] + tex_entries), sep=" | ", file=f)
+            print(f"Wrote to {subfolder / 'README.md'}")
+
 
 
 MAXDIM = 5
@@ -187,12 +243,18 @@ VERBOSE = False
 # CHUNKSIZE=1
 
 if __name__ == "__main__":
+    populate_readmes()
+    quit()
 
     import multiprocessing as mp
     import tqdm
     mp.set_start_method("spawn")
+    ORDER = 13
 
-    # [(ix, op)] = subset_from_gz(9, "/mnt/c/Users/Owner/Desktop/monoid_homology/data_by_min_ideal/order9/min_2_2_1/tables.dat.gz", [128818])
+    # main_initialize()
+    # quit()
+
+    # [(ix, op)] = subset_from_gz(9, "/mnt/c/Users/cOwner/Desktop/monoid_homology/data_by_min_ideal/order9/min_2_2_1/tables.dat.gz", [128818])
     # print(";".join("".join(map(str, row)) for row in op))
     # res = find_good_resolution(maybe_adjoin_1(op), peek_dim=5)
     # print(res.homology_list(10))
@@ -201,62 +263,27 @@ if __name__ == "__main__":
     # quit()
 
     for min_ideal_name in [
+        # "min_2_2_1",
         "min_2_2_C2_sandwich0",
-        "min_2_2_C2_sandwich1",
-        "min_2_3_1",
-        "min_2_4_1",
-        "min_2_5_1",
-        "min_3_3_1",
-        "min_2_2_1",
+        # "min_2_2_C2_sandwich1",
+        # "min_2_3_1",
+        # "min_2_4_1",
+        # "min_2_5_1",
+        # "min_3_3_1",
+        # "min_2_2_1",
     ]:
-        print(f"{min_ideal_name=}")
-        # min_ideal_name = "min_2_2_1"
-
-        # main_refine(9, min_ideal_name, '[0, 0, 0, 0, 0, 0')
-        # quit()
-
         avoid_for_now = [
-            "[0, Z, Z x Z x Z x Z]",
-            "[0, Z, Z x Z x Z, Z^6]",
-            "[0, Z, Z x Z x Z, Z^7]",
-            "[0, Z, Z x Z x Z, Z^8]",
-            # '[0, Z, Z^5',
-            # "[0, 0, Z x Z x Z, Z^6, Z^12",
-
-            # "[0, 0, Z x Z, Z x Z x Z x Z x C2 x C2, Z^8 x C2 x C2 x C2 x C2",
-            # "[0, 0, Z x Z, Z x Z x Z x Z, Z^10",
-            # "[0, 0, Z x Z, Z x Z x Z x Z, Z^12",
-            # "[0, 0, Z x Z, Z x Z, Z^10",
-            # "[0, 0, Z x Z, Z^6, Z^14",
-            # "[0, 0, Z x Z, Z^6, Z^18",
-            # "[0, 0, Z, Z x Z x Z x Z, Z^16",
-            # "[0, 0, Z, Z x Z x Z, Z^10",
-
-            # "[C2, Z, Z x Z x C2, Z x Z x Z x Z",
-            # "[0, Z, Z x Z x C2, Z x Z x Z x Z",
-            # "[0, Z x Z x Z, Z^6, Z^12",
-            # "[0, Z x Z, Z x Z x Z, Z^6",
-            # "[0, 0, 0, Z x Z",
-            # "[0, Z x Z, Z^6, Z^18]",
-            # "[0, Z x Z, Z^8, Z^32]",
-            # "[0, Z, Z x Z x Z, Z^12]",
-            # "[0, Z x Z, Z x Z x Z x Z x C2 x C2, Z^8 x C2^8, Z^16 x C2^30]",
-            # "[0, Z x Z, Z x Z x Z x Z, Z^8, Z^16",
-            # "[0, Z x Z, Z^6, Z^16, Z^42]",
-            # "[0, Z, Z x Z x C2, Z x Z x Z x Z x C2 x C2 x C2 x C2, Z^8 x C2^15]",
-            # "[0, Z, Z x Z x C2, Z^5 x C2 x C2 x C2, Z^13 x C2^8]",
-            # "[0, Z, Z x Z x Z, Z^6, Z^12, Z^24",
-            # "[0, Z, Z x Z x Z, Z^9, Z^24]",
-            # "[0, Z, Z x Z x Z, Z^9, Z^27]",
-            # "[0, Z, Z x Z, Z x Z x Z x Z, Z^8, Z^16]"
-            # "[0, Z, Z x Z, Z^5, Z^13, Z^34]",
-            # "[0, Z, Z x Z, Z^5, Z^13]",
-            # "[0, Z, Z x Z, Z^6, Z^18]",
-            # "[0, Z, Z x C2, Z x Z x C2 x C2 x C2, Z x Z x Z x Z x C2^11, Z^8 x C2^35]",
+            "[C2, 0, C2 x C2 x C2]",
+            "[C2, 0, C2 x C2]",
+            "[C2, C2, C2]",
+            "[C2, 0, C2]",
+            "[C2, Z, Z x Z x Z x Z x C2]",
+            "[C2, Z, Z^5 x C2]",
+            "[C2, 0, C2 x C2 x C2 x C2, 0]",
         ]
 
         labels = []
-        with open(rf"/mnt/c/Users/Owner/Desktop/monoid_homology/data_by_min_ideal/order10/{min_ideal_name}/groupings.txt") as f:
+        with open(rf"/mnt/c/Users/Owner/Desktop/monoid_homology/data_by_min_ideal/order{ORDER}/{min_ideal_name}/groupings.txt") as f:
             for line in f:
                 label = line[:line.index(" : ")]
                 # labels.append(label)
@@ -269,9 +296,8 @@ if __name__ == "__main__":
         for label in labels:
             print(label)
 
-
         for label in labels:
             if len(label.split(",")) >= MAXDIM:
                 print(f"{label} already long enough")
                 continue
-            main_refine(10, min_ideal_name, label)
+            main_refine(ORDER, min_ideal_name, label)
