@@ -2,3 +2,4 @@
 venv312/
 venv/
 **.sage.py
+**.out
