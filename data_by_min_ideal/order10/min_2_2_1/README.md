@@ -1,448 +1,448 @@
 # Found 6152811 semigroups of order 10 with minimal ideal `2_2_1`
 
 
-Count | $$H_{1}$$ | $$H_{2}$$ | $$H_{3}$$ | $$H_{4}$$ | $$H_{5}$$ | $$H_{6}$$ | $$H_{7}$$ | $$H_{8}$$ | $$H_{9}$$ | $$H_{10}$$
+Count | 𝐻₁ | 𝐻₂ | 𝐻₃ | 𝐻₄ | 𝐻₅ | 𝐻₆ | 𝐻₇ | 𝐻₈ | 𝐻₉ | 𝐻₁₀
 -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | --
-3141549 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-19 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$
-1659 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-484 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$
-137 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$
-209 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$\cdot$$ | $$C_{2}^{4}$$
-16 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{4}$$ | $$C_{2}^{9}$$
-433 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$
-16 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{4}$$
-8 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-501 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$
-178 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-304 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-2511 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-827 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$
-847 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-931 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-238 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$
-2676 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$
-25829 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-627 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$
-3062 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$
-4 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2233 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-8466 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-33 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{3}$$
-5 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{3}$$
-982 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$
-285 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$
-6 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-592 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-60 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$
-204 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-797 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2157 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2721 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6808 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-13222 | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\cdot$$ | $$C_{2}^{4}$$ | $$\cdot$$ | $$C_{2}^{4}$$ | $$\cdot$$ | $$C_{2}^{4}$$ | $$\cdot$$ | $$C_{2}^{4}$$ | $$\cdot$$
-14 | $$\cdot$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$\cdot$$
-18 | $$\cdot$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$C_{2}^{3}$$ | $$C_{2}^{6}$$ | $$C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-312 | $$\cdot$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$
-6 | $$\cdot$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{6}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-70 | $$\cdot$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{10}$$ | $$C_{2}^{20}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-124 | $$\cdot$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-42 | $$\cdot$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-8 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-6 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-220 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-89 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-4581 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$
-10 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{5}$$
-4 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{3}$$
-5 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$
-120 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{10}$$ | $$C_{2}^{30}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-194 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-380 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{5}$$ | $$C_{2}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{7}$$ | $$C_{2}^{20}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-10 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-30 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-222 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1823 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{3}$$ | $$?$$ | $$?$$
-139 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$
-5 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-6 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$
-2 | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1 | $$\cdot$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$
-5 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$
-2 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-23 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$
-40 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$
-4 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}$$ | $$\mathbb{Z} \times C_{2}^{4}$$ | $$C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$\mathbb{Z} \times C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{5}$$ | $$\mathbb{Z} \times C_{2}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-28 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$
-85 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-33 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\cdot$$ | $$\mathbb{Z}^{16}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$C_{2}^{4}$$ | $$\cdot$$ | $$C_{2}^{4}$$ | $$\cdot$$ | $$C_{2}^{4}$$ | $$\cdot$$ | $$C_{2}^{4}$$
-94 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{4}$$
-1602 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-62 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\cdot$$ | $$\mathbb{Z}^{18}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-401 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\cdot$$ | $$\mathbb{Z}^{6}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-250 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\cdot$$ | $$\mathbb{Z}^{9}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-30 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$C_{2}^{3}$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$\cdot$$ | $$C_{2}^{3}$$
-8 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$C_{2}^{3}$$ | $$\mathbb{Z}^{9}$$ | $$C_{2}^{21}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-5 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$
-2 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$C_{3}^{3}$$ | $$\cdot$$ | $$C_{3}^{3}$$ | $$\cdot$$ | $$C_{3}^{3}$$ | $$\cdot$$ | $$C_{3}^{3}$$
-18 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3} \times C_{2}^{3}$$ | $$\mathbb{Z}^{3} \times C_{2}^{3}$$ | $$\mathbb{Z}^{3} \times C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-10 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3} \times C_{2}^{3}$$ | $$\mathbb{Z}^{3} \times C_{2}^{6}$$ | $$\mathbb{Z}^{3} \times C_{2}^{15}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-738 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3}$$
-326 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{12}$$ | $$\mathbb{Z}^{21}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-260 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$
-219 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{12}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-170 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{9}$$ | $$\mathbb{Z}^{12}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-18799 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-398 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{8}$$ | $$\cdot$$
-4467 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2158 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$
-84 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{12}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1364 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{6}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-436 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{8}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-8 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{2}$$ | $$C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-688 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$
-2 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-90 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$C_{2}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-8 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-60 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-12 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-16 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{2}$$ | $$\mathbb{Z}^{8}$$ | $$C_{2}^{18}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-38 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$
-12 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}$$ | $$\mathbb{Z}^{4}$$ | $$C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-22 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{3}^{2}$$ | $$\cdot$$ | $$C_{3}^{2}$$ | $$\cdot$$ | $$C_{3}^{2}$$ | $$\cdot$$ | $$C_{3}^{2}$$
-6 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{3}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$C_{3}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{4}^{2}$$ | $$\cdot$$ | $$C_{4}^{2}$$ | $$\cdot$$ | $$C_{4}^{2}$$ | $$\cdot$$ | $$C_{4}^{2}$$
-13 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$\mathbb{Z} \times C_{2}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-42 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-102 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{4}$$ | $$\mathbb{Z}^{2} \times C_{2}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-190 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-36 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{6} \times C_{2}^{4}$$ | $$\mathbb{Z}^{10} \times C_{2}^{18}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-62 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{6} \times C_{2}^{2}$$ | $$\mathbb{Z}^{10} \times C_{2}^{12}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-12 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{3}$$ | $$\mathbb{Z}^{2} \times C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-28 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{3}^{2}$$ | $$\mathbb{Z}^{2} \times C_{3}^{4}$$ | $$\mathbb{Z}^{2} \times C_{3}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-14 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{3}^{2}$$ | $$\mathbb{Z}^{2} \times C_{3}^{2}$$ | $$\mathbb{Z}^{2} \times C_{3}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-57 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{2}$$ | $$\mathbb{Z}^{6} \times C_{2}^{6}$$ | $$\mathbb{Z}^{8} \times C_{2}^{16}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-70 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{2}$$ | $$\mathbb{Z}^{8} \times C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-13 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{2}$$ | $$\mathbb{Z}^{8} \times C_{2}^{8}$$ | $$\mathbb{Z}^{16} \times C_{2}^{30}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-615 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-727 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{12}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1827 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1605 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{8}$$ | $$\mathbb{Z}^{16}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-758 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1187 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{12}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-824 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-994 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-11152 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$
-604 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2300 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-213 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-566 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-77 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{5}$$ | $$\mathbb{Z}^{8}$$ | $$\mathbb{Z}^{12}$$
-132 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}$$
-963 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$
-467 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{5}$$ | $$\mathbb{Z}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-537 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{14}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-331 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{18}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-197785 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-5 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$
-977 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\cdot$$
-3191 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$
-83 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}^{2}$$
-1027 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$
-20 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{4}$$
-8 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$
-89 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-513 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-12499 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-627 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-53566 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$
-173 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$C_{2}^{3}$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}^{7}$$
-2156 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{5}$$ | $$\mathbb{Z}^{8}$$
-3430 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$
-36 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$
-6 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$
-5 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{4}$$ | $$C_{2}^{6}$$ | $$C_{2}^{6}$$ | $$C_{2}^{8}$$
-141 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{2}$$ | $$C_{2}^{4}$$ | $$C_{2}^{3}$$ | $$C_{2}^{5}$$
-20 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-70 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{3}$$ | $$C_{2}^{6}$$
-9385 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$
-194 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$C_{2}^{6}$$
-49 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-76 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-4 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-15 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-20 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}^{3}$$ | $$C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-20 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-154 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-22 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2223 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-310 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-4 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}^{2}$$ | $$C_{3}$$ | $$C_{3}^{3}$$ | $$C_{3}^{3}$$ | $$C_{3}^{6}$$
-400 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$
-3 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$C_{3}$$ | $$C_{3}^{3}$$ | $$C_{3}^{5}$$ | $$C_{3}^{11}$$ | $$C_{3}^{21}$$ | $$C_{3}^{43}$$
-10 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\mathbb{Z}^{2}$$ | $$C_{3}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-56 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\mathbb{Z}$$ | $$C_{3}^{3}$$ | $$\mathbb{Z} \times C_{3}$$ | $$C_{3}^{7}$$ | $$\mathbb{Z} \times C_{3}^{5}$$ | $$C_{3}^{16}$$
-13 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{4}$$ | $$\cdot$$ | $$C_{4}$$ | $$\cdot$$ | $$C_{4}$$ | $$\cdot$$ | $$C_{4}$$
-4 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{4}$$ | $$\mathbb{Z}$$ | $$C_{4}^{3}$$ | $$\mathbb{Z} \times C_{4}$$ | $$C_{4}^{7}$$ | $$\mathbb{Z} \times C_{4}^{5}$$ | $$C_{4}^{16}$$
-1 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{5}$$ | $$\cdot$$ | $$C_{5}$$ | $$\cdot$$ | $$C_{5}$$ | $$\cdot$$ | $$C_{5}$$
-4 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{6}$$ | $$\cdot$$ | $$C_{6}$$ | $$\cdot$$ | $$C_{6}$$ | $$\cdot$$ | $$C_{6}$$
-24 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{4}$$ | $$\mathbb{Z} \times C_{2}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-8 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$\mathbb{Z} \times C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{5}$$ | $$\mathbb{Z} \times C_{2}^{15}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-206 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$\mathbb{Z} \times C_{2}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1725 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-18 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-50 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3014 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-110 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-13 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{3}$$ | $$\mathbb{Z}^{4} \times C_{2}^{11}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-18 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-21 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-289 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-50 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-529 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-46 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-139 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-63 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{2}$$ | $$\mathbb{Z}^{5} \times C_{2}^{9}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-104 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}$$ | $$\mathbb{Z}^{5} \times C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-48 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{3}$$ | $$\mathbb{Z} \times C_{3}^{2}$$ | $$\mathbb{Z} \times C_{3}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-97 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{3}$$ | $$\mathbb{Z} \times C_{3}$$ | $$\mathbb{Z} \times C_{3}^{2}$$ | $$\mathbb{Z} \times C_{3}^{2}$$ | $$\mathbb{Z} \times C_{3}^{3}$$ | $$\mathbb{Z} \times C_{3}^{3}$$ | $$\mathbb{Z} \times C_{3}^{4}$$
-18 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{3}$$ | $$\mathbb{Z}^{2} \times C_{3}^{2}$$ | $$\mathbb{Z}^{3} \times C_{3}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-38 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{3}$$ | $$\mathbb{Z}^{2} \times C_{3}$$ | $$\mathbb{Z}^{3} \times C_{3}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{4}$$ | $$\mathbb{Z} \times C_{4}^{2}$$ | $$\mathbb{Z} \times C_{4}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-9 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{4}$$ | $$\mathbb{Z} \times C_{4}$$ | $$\mathbb{Z} \times C_{4}^{2}$$ | $$\mathbb{Z} \times C_{4}^{2}$$ | $$\mathbb{Z} \times C_{4}^{3}$$ | $$\mathbb{Z} \times C_{4}^{3}$$ | $$\mathbb{Z} \times C_{4}^{4}$$
-43 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{4}$$ | $$\mathbb{Z}^{4} \times C_{2}^{13}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-394 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{3}$$ | $$\mathbb{Z}^{4} \times C_{2}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-239 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-115 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{4}$$ | $$\mathbb{Z}^{8} \times C_{2}^{15}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-200 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{3}$$ | $$\mathbb{Z}^{8} \times C_{2}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-494 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{2}$$ | $$\mathbb{Z}^{8} \times C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-36 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{5} \times C_{2}^{4}$$ | $$\mathbb{Z}^{12} \times C_{2}^{17}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-200 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{5} \times C_{2}^{2}$$ | $$\mathbb{Z}^{12} \times C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-26 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{3}$$ | $$\mathbb{Z}^{3} \times C_{3}^{3}$$ | $$\mathbb{Z}^{4} \times C_{3}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-5 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{3}$$ | $$\mathbb{Z}^{4} \times C_{3}^{4}$$ | $$\mathbb{Z}^{8} \times C_{3}^{15}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-37 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{3}$$ | $$\mathbb{Z}^{4} \times C_{3}^{2}$$ | $$\mathbb{Z}^{8} \times C_{3}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-126 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3} \times C_{2}$$ | $$\mathbb{Z}^{7} \times C_{2}^{4}$$ | $$\mathbb{Z}^{15} \times C_{2}^{13}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-46 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3} \times C_{2}$$ | $$\mathbb{Z}^{7} \times C_{2}^{5}$$ | $$\mathbb{Z}^{15} \times C_{2}^{20}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-120 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3} \times C_{2}$$ | $$\mathbb{Z}^{9} \times C_{2}^{3}$$ | $$\mathbb{Z}^{27} \times C_{2}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-7 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3} \times C_{2}$$ | $$\mathbb{Z}^{9} \times C_{2}^{6}$$ | $$\mathbb{Z}^{27} \times C_{2}^{31}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-231 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{12}$$ | $$\mathbb{Z}^{32}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-458 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{13}$$ | $$\mathbb{Z}^{40}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-270 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{16}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-860 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1092 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2873 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{7}$$ | $$\mathbb{Z}^{15}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-7442 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1844 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{9}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-965 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-4 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-33 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-7 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-26571 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-15194 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2591 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6066 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1952 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2999 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-203 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$
-87 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$
-56 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{5}$$ | $$\mathbb{Z} \times C_{2}^{10}$$ | $$\mathbb{Z} \times C_{2}^{21}$$ | $$\mathbb{Z} \times C_{2}^{42}$$
-13 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$\mathbb{Z} \times C_{2}^{3}$$
-24 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-713 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-5159 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-39807 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-106176 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-12 | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{5}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-10 | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-24 | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{3}$$ | $$\cdot$$ | $$C_{2}^{4}$$ | $$\cdot$$ | $$C_{2}^{5}$$
-3 | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$
-26 | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-21309 | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$
-4 | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{4} \times C_{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{8} \times C_{2}$$
-3 | $$\cdot$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{5}$$ | $$C_{2}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1 | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-330 | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$
-1 | $$\cdot$$ | $$C_{2}$$ | $$C_{3}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{3}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$
-1 | $$\cdot$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-879239 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-46 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$C_{3}$$ | $$C_{3}^{2}$$ | $$C_{3}^{2}$$
-20 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1788 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-445 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-3259 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$?$$ | $$?$$
-6 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$?$$ | $$?$$
-1079 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$?$$ | $$?$$
-175 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$?$$ | $$?$$
-205 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$?$$ | $$?$$
-2958 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$
-4 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-44 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{2}$$
-5 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$C_{2}$$ | $$C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-4 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1679 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-325 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2118 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-8 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-480 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-175 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-13205 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1759 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-192 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-12 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$C_{3}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-40 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-694 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3902 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-483 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3683 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$ | $$\cdot$$
-18 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{4}$$
-1139 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{2}$$ | $$\cdot$$ | $$\mathbb{Z}^{4}$$ | $$\cdot$$ | $$\mathbb{Z}^{8}$$
-50357 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$
-89 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{5}$$
-44 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$
-15 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-85 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$
-12 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-888 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-10 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$
-32 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\mathbb{Z}$$ | $$C_{3}^{3}$$ | $$\mathbb{Z} \times C_{3}$$ | $$C_{3}^{7}$$ | $$\mathbb{Z} \times C_{3}^{5}$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{4}$$ | $$\mathbb{Z}$$ | $$C_{4}^{3}$$ | $$\mathbb{Z} \times C_{4}$$ | $$C_{4}^{7}$$ | $$\mathbb{Z} \times C_{4}^{5}$$
-173 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-10 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-13 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-287 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-4118 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-17984 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-159 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\cdot$$ | $$\mathbb{Z}^{6}$$ | $$\cdot$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-153 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{2}$$ | $$C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-10 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}^{3}$$ | $$C_{2}^{6}$$ | $$C_{2}^{7}$$
-41435 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$
-2 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{6}$$ | $$\cdot$$ | $$C_{2}$$ | $$\cdot$$ | $$C_{6}$$ | $$\cdot$$
-170 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\cdot$$ | $$\mathbb{Z} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-4 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-83 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}$$ | $$C_{2}^{2}$$ | $$C_{2}$$ | $$C_{2}^{3}$$ | $$C_{2}$$ | $$C_{2}^{4}$$
-4 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-17 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}^{4}$$ | $$C_{2}^{9}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-20 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}^{3}$$ | $$C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-20 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-14 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-187 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-90 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-18 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1399 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-82 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}^{2}$$ | $$C_{2}$$ | $$\mathbb{Z}^{4}$$ | $$C_{2}$$ | $$\mathbb{Z}^{8}$$
-332 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-40 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-91 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1530 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$ | $$C_{3}$$ | $$\cdot$$
-10 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\mathbb{Z}^{2}$$ | $$C_{3}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-45 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\mathbb{Z}$$ | $$C_{3}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-21 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{3}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{3}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-163 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{4}$$ | $$\cdot$$ | $$C_{4}$$ | $$\cdot$$ | $$C_{4}$$ | $$\cdot$$ | $$C_{4}$$ | $$\cdot$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{4}$$ | $$\mathbb{Z}$$ | $$C_{4}^{3}$$ | $$\mathbb{Z} \times C_{4}$$ | $$C_{4}^{7}$$ | $$\mathbb{Z} \times C_{4}^{5}$$ | $$C_{4}^{16}$$ | $$\mathbb{Z} \times C_{4}^{17}$$
-7 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{5}$$ | $$\cdot$$ | $$C_{5}$$ | $$\cdot$$ | $$C_{5}$$ | $$\cdot$$ | $$C_{5}$$ | $$\cdot$$
-2 | $$\cdot$$ | $$\mathbb{Z}$$ | $$C_{6}$$ | $$\cdot$$ | $$C_{6}$$ | $$\cdot$$ | $$C_{6}$$ | $$\cdot$$ | $$C_{6}$$ | $$\cdot$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{4}$$ | $$\mathbb{Z} \times C_{2}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-20 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{5}$$ | $$\mathbb{Z} \times C_{2}^{15}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-12 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{3}$$ | $$\mathbb{Z} \times C_{2}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-8605 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$\mathbb{Z} \times C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-952 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-25 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-30 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-279 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-129 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-30 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-75 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{2}$$ | $$\mathbb{Z}^{5} \times C_{2}^{9}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-378 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{3}$$ | $$\mathbb{Z} \times C_{3}^{2}$$ | $$\mathbb{Z} \times C_{3}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{3}$$ | $$\mathbb{Z} \times C_{3}$$ | $$\mathbb{Z} \times C_{3}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-15 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{3}$$ | $$\mathbb{Z}^{2} \times C_{3}^{2}$$ | $$\mathbb{Z}^{3} \times C_{3}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{4}$$ | $$\mathbb{Z} \times C_{2} \times C_{4}$$ | $$\mathbb{Z} \times C_{2}^{3} \times C_{4}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-21 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{4}$$ | $$\mathbb{Z} \times C_{4}^{2}$$ | $$\mathbb{Z} \times C_{4}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{5}$$ | $$\mathbb{Z} \times C_{5}^{2}$$ | $$\mathbb{Z} \times C_{5}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}^{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{9}$$ | $$\mathbb{Z}^{8} \times C_{2}^{39}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{2} \times C_{2}^{4}$$ | $$\mathbb{Z}^{4} \times C_{2}^{11}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-238 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{4}$$ | $$\mathbb{Z}^{4} \times C_{2}^{13}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-6 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{4}$$ | $$\mathbb{Z}^{4} \times C_{2}^{14}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-5 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{4}$$ | $$\mathbb{Z}^{5} \times C_{2}^{13}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{4}$$ | $$\mathbb{Z}^{6} \times C_{2}^{13}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-29 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{3} \times C_{2}^{3}$$ | $$\mathbb{Z}^{4} \times C_{2}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1242 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{4}$$ | $$\mathbb{Z}^{8} \times C_{2}^{15}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-202 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{3}$$ | $$\mathbb{Z}^{8} \times C_{2}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-11 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{4} \times C_{2}^{2}$$ | $$\mathbb{Z}^{8} \times C_{2}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-46 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{5} \times C_{2}^{4}$$ | $$\mathbb{Z}^{12} \times C_{2}^{17}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$\mathbb{Z}^{5} \times C_{2}^{2}$$ | $$\mathbb{Z}^{12} \times C_{2}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-9 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{3}$$ | $$\mathbb{Z}^{3} \times C_{3}^{4}$$ | $$\mathbb{Z}^{4} \times C_{3}^{13}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-55 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{3}$$ | $$\mathbb{Z}^{4} \times C_{3}^{4}$$ | $$\mathbb{Z}^{8} \times C_{3}^{15}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2} \times C_{4}$$ | $$\mathbb{Z}^{4} \times C_{4}^{4}$$ | $$\mathbb{Z}^{8} \times C_{4}^{15}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-128 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3} \times C_{2}$$ | $$\mathbb{Z}^{8} \times C_{2}^{6}$$ | $$\mathbb{Z}^{21} \times C_{2}^{29}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-17 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3} \times C_{2}$$ | $$\mathbb{Z}^{9} \times C_{2}^{5}$$ | $$\mathbb{Z}^{27} \times C_{2}^{24}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-110 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3} \times C_{2}$$ | $$\mathbb{Z}^{9} \times C_{2}^{6}$$ | $$\mathbb{Z}^{27} \times C_{2}^{31}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-4 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3} \times C_{3}$$ | $$\mathbb{Z}^{9} \times C_{3}^{6}$$ | $$\mathbb{Z}^{27} \times C_{3}^{31}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-8 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{4} \times C_{2}$$ | $$\mathbb{Z}^{16} \times C_{2}^{8}$$ | $$\mathbb{Z}^{64} \times C_{2}^{53}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-560313 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-34 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{10}$$ | $$\mathbb{Z}^{32}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-809 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{10}$$ | $$\mathbb{Z}^{33}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-16 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{11}$$ | $$\mathbb{Z}^{36}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1885 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-11897 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-26420 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-12931 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{9}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-4 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-74150 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{8}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-16195 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-731 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-305 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{6}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-99 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-24 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$
-38 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{5}$$ | $$\mathbb{Z}^{10}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1644 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{5}$$ | $$\mathbb{Z}^{11}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-150 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{5}$$ | $$\mathbb{Z}^{12} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3685 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{5}$$ | $$\mathbb{Z}^{12}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1069 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{5}$$ | $$\mathbb{Z}^{13}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-21 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{13}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{14}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1238 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{16}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-3 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{8}$$ | $$\mathbb{Z}^{16}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-5 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$\mathbb{Z} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-559 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{4}$$ | $$\mathbb{Z}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-712 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-312 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-72 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{5} \times C_{2}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-5101 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1724 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}^{7}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-62 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-386 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-27 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3} \times C_{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-96 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-4500 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{4}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-22349 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{3}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-1641 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-85 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{3}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{5}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{9}$$
-801 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$\mathbb{Z}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-37 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z} \times C_{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-2227 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-36 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{2}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-303144 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-360 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{5}$$ | $$\mathbb{Z}^{9}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-209474 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{5}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
-16 | $$\cdot$$ | $$\mathbb{Z}$$ | $$\mathbb{Z}^{6}$$ | $$\mathbb{Z}^{36}$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$ | $$?$$
+3141549 | · | · | · | · | · | · | ? | ? | ? | ?
+19 | · | · | · | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | ·
+1659 | · | · | · | · | ℤ | · | · | · | · | ·
+484 | · | · | · | · | ℤ | ℤ | ℤ | ℤ | ℤ | ℤ
+137 | · | · | · | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂²
+209 | · | · | · | 𝐶₂ | · | 𝐶₂² | · | 𝐶₂³ | · | 𝐶₂⁴
+16 | · | · | · | 𝐶₂ | · | 𝐶₂² | 𝐶₂ | 𝐶₂⁴ | 𝐶₂⁴ | 𝐶₂⁹
+433 | · | · | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂
+16 | · | · | · | 𝐶₂ | · | 𝐶₂ | 𝐶₂ | 𝐶₂² | 𝐶₂² | 𝐶₂⁴
+8 | · | · | · | 𝐶₂ | 𝐶₂ | 𝐶₂³ | ? | ? | ? | ?
+501 | · | · | · | 𝐶₂ | 𝐶₂ | 𝐶₂² | ? | ? | ? | ?
+6 | · | · | · | ℤ×𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂
+178 | · | · | · | ℤ⁴ | · | · | · | · | · | ·
+304 | · | · | · | ℤ³ | · | · | · | · | · | ·
+2511 | · | · | · | ℤ² | · | · | · | · | · | ·
+827 | · | · | · | ℤ² | · | · | ℤ⁴ | ? | ? | ?
+847 | · | · | · | ℤ² | · | ℤ⁴ | ? | ? | ? | ?
+931 | · | · | · | ℤ² | · | ℤ² | ? | ? | ? | ?
+238 | · | · | · | ℤ² | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | ·
+2676 | · | · | · | ℤ² | ℤ² | ℤ² | ℤ² | ℤ² | ℤ² | ℤ²
+25829 | · | · | · | ℤ | · | · | · | · | · | ·
+627 | · | · | · | ℤ | · | · | ℤ² | · | · | ℤ⁴
+3062 | · | · | · | ℤ | · | · | ℤ | · | · | ℤ
+4 | · | · | · | ℤ | · | 𝐶₂ | ? | ? | ? | ?
+2233 | · | · | · | ℤ | · | ℤ² | ? | ? | ? | ?
+8466 | · | · | · | ℤ | · | ℤ | ? | ? | ? | ?
+33 | · | · | · | ℤ | 𝐶₂² | 𝐶₂ | 𝐶₂³ | 𝐶₂² | 𝐶₂⁴ | 𝐶₂³
+5 | · | · | · | ℤ | 𝐶₂ | · | 𝐶₂² | 𝐶₂ | 𝐶₂³ | 𝐶₂³
+982 | · | · | · | ℤ | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | ·
+285 | · | · | · | ℤ | 𝐶₂ | · | ℤ×𝐶₂ | 𝐶₂² | 𝐶₂² | ℤ×𝐶₂³
+6 | · | · | · | ℤ | 𝐶₂ | 𝐶₂ | ? | ? | ? | ?
+592 | · | · | · | ℤ | 𝐶₂ | ℤ | ? | ? | ? | ?
+60 | · | · | · | ℤ | 𝐶₃ | · | 𝐶₃ | · | 𝐶₃ | ·
+204 | · | · | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂² | ? | ? | ? | ?
+797 | · | · | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂ | ? | ? | ? | ?
+2157 | · | · | · | ℤ | ℤ² | ℤ⁴ | ? | ? | ? | ?
+2721 | · | · | · | ℤ | ℤ² | ℤ³ | ? | ? | ? | ?
+6808 | · | · | · | ℤ | ℤ | ℤ² | ? | ? | ? | ?
+13222 | · | · | · | ℤ | ℤ | ℤ | ? | ? | ? | ?
+3 | · | · | 𝐶₂⁴ | · | 𝐶₂⁴ | · | 𝐶₂⁴ | · | 𝐶₂⁴ | ·
+14 | · | · | 𝐶₂³ | · | 𝐶₂³ | · | 𝐶₂³ | · | 𝐶₂³ | ·
+18 | · | · | 𝐶₂³ | 𝐶₂³ | 𝐶₂⁶ | 𝐶₂⁶ | ? | ? | ? | ?
+312 | · | · | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | ·
+6 | · | · | 𝐶₂² | · | 𝐶₂⁶ | · | ? | ? | ? | ?
+70 | · | · | 𝐶₂² | 𝐶₂⁴ | 𝐶₂¹⁰ | 𝐶₂²⁰ | ? | ? | ? | ?
+124 | · | · | 𝐶₂² | 𝐶₂² | 𝐶₂⁴ | 𝐶₂⁴ | ? | ? | ? | ?
+42 | · | · | 𝐶₂² | 𝐶₂ | 𝐶₂³ | 𝐶₂² | ? | ? | ? | ?
+8 | · | · | 𝐶₂ | · | · | · | · | · | · | ·
+6 | · | · | 𝐶₂ | · | 𝐶₂³ | 𝐶₂² | ? | ? | ? | ?
+220 | · | · | 𝐶₂ | · | 𝐶₂² | · | ? | ? | ? | ?
+89 | · | · | 𝐶₂ | · | 𝐶₂² | 𝐶₂ | ? | ? | ? | ?
+4581 | · | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | ·
+10 | · | · | 𝐶₂ | · | 𝐶₂ | 𝐶₂ | 𝐶₂² | 𝐶₂² | 𝐶₂⁴ | 𝐶₂⁵
+4 | · | · | 𝐶₂ | · | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂² | 𝐶₂² | 𝐶₂³
+5 | · | · | 𝐶₂ | · | ℤ | ℤ | ℤ | ℤ | ℤ | ℤ
+120 | · | · | 𝐶₂ | 𝐶₂³ | 𝐶₂¹⁰ | 𝐶₂³⁰ | ? | ? | ? | ?
+194 | · | · | 𝐶₂ | 𝐶₂² | 𝐶₂⁴ | 𝐶₂⁶ | ? | ? | ? | ?
+380 | · | · | 𝐶₂ | 𝐶₂² | 𝐶₂⁵ | 𝐶₂¹⁰ | ? | ? | ? | ?
+6 | · | · | 𝐶₂ | 𝐶₂² | 𝐶₂⁷ | 𝐶₂²⁰ | ? | ? | ? | ?
+10 | · | · | 𝐶₂ | 𝐶₂ | 𝐶₂⁴ | 𝐶₂⁸ | ? | ? | ? | ?
+30 | · | · | 𝐶₂ | 𝐶₂ | 𝐶₂³ | 𝐶₂⁴ | ? | ? | ? | ?
+222 | · | · | 𝐶₂ | 𝐶₂ | 𝐶₂³ | 𝐶₂⁵ | ? | ? | ? | ?
+1823 | · | · | 𝐶₂ | 𝐶₂ | 𝐶₂² | 𝐶₂² | 𝐶₂³ | 𝐶₂³ | ? | ?
+139 | · | · | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂
+5 | · | · | 𝐶₂ | ℤ | · | · | · | · | · | ·
+6 | · | · | 𝐶₂ | ℤ | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | ·
+2 | · | · | 𝐶₂ | ℤ | ℤ×𝐶₂² | ℤ×𝐶₂ | ? | ? | ? | ?
+1 | · | · | 𝐶₃ | · | 𝐶₃ | · | 𝐶₃ | · | 𝐶₃ | ·
+5 | · | · | ℤ×𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | ·
+2 | · | · | ℤ×𝐶₂ | · | · | · | · | · | · | ·
+23 | · | · | ℤ×𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | ·
+40 | · | · | ℤ×𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂
+4 | · | · | ℤ×𝐶₂ | 𝐶₂ | ℤ×𝐶₂⁴ | 𝐶₂⁶ | ? | ? | ? | ?
+3 | · | · | ℤ×𝐶₂ | ℤ×𝐶₂² | ℤ×𝐶₂³ | ℤ×𝐶₂⁴ | ? | ? | ? | ?
+6 | · | · | ℤ×𝐶₂ | ℤ×𝐶₂² | ℤ×𝐶₂⁵ | ℤ×𝐶₂¹⁰ | ? | ? | ? | ?
+28 | · | · | ℤ×𝐶₂ | ℤ×𝐶₂ | ℤ×𝐶₂² | ℤ×𝐶₂² | ? | ? | ? | ?
+2 | · | · | ℤ²×𝐶₂ | 𝐶₂² | 𝐶₂ | 𝐶₂² | 𝐶₂ | 𝐶₂² | 𝐶₂ | 𝐶₂²
+85 | · | · | ℤ⁴ | · | · | · | · | · | · | ·
+33 | · | · | ℤ⁴ | · | ℤ¹⁶ | · | ? | ? | ? | ?
+3 | · | · | ℤ⁴ | 𝐶₂⁴ | · | 𝐶₂⁴ | · | 𝐶₂⁴ | · | 𝐶₂⁴
+94 | · | · | ℤ⁴ | ℤ⁴ | ℤ⁴ | ℤ⁴ | ℤ⁴ | ℤ⁴ | ℤ⁴ | ℤ⁴
+1602 | · | · | ℤ³ | · | · | · | · | · | · | ·
+62 | · | · | ℤ³ | · | ℤ¹⁸ | · | ? | ? | ? | ?
+401 | · | · | ℤ³ | · | ℤ⁶ | · | ? | ? | ? | ?
+250 | · | · | ℤ³ | · | ℤ⁹ | · | ? | ? | ? | ?
+30 | · | · | ℤ³ | 𝐶₂³ | · | 𝐶₂³ | · | 𝐶₂³ | · | 𝐶₂³
+8 | · | · | ℤ³ | 𝐶₂³ | ℤ⁹ | 𝐶₂²¹ | ? | ? | ? | ?
+5 | · | · | ℤ³ | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂²
+2 | · | · | ℤ³ | 𝐶₃³ | · | 𝐶₃³ | · | 𝐶₃³ | · | 𝐶₃³
+18 | · | · | ℤ³ | ℤ³×𝐶₂³ | ℤ³×𝐶₂³ | ℤ³×𝐶₂⁶ | ? | ? | ? | ?
+10 | · | · | ℤ³ | ℤ³×𝐶₂³ | ℤ³×𝐶₂⁶ | ℤ³×𝐶₂¹⁵ | ? | ? | ? | ?
+738 | · | · | ℤ³ | ℤ³ | ℤ³ | ℤ³ | ℤ³ | ℤ³ | ℤ³ | ℤ³
+326 | · | · | ℤ³ | ℤ³ | ℤ¹² | ℤ²¹ | ? | ? | ? | ?
+260 | · | · | ℤ³ | ℤ² | ℤ² | ℤ² | ℤ² | ℤ² | ℤ² | ℤ²
+219 | · | · | ℤ³ | ℤ⁶ | ℤ¹² | ? | ? | ? | ? | ?
+170 | · | · | ℤ³ | ℤ⁶ | ℤ⁹ | ℤ¹² | ? | ? | ? | ?
+18799 | · | · | ℤ² | · | · | · | · | · | · | ·
+398 | · | · | ℤ² | · | · | ℤ⁴ | · | · | ℤ⁸ | ·
+4467 | · | · | ℤ² | · | ℤ⁴ | · | ? | ? | ? | ?
+2158 | · | · | ℤ² | · | ℤ² | · | ℤ² | · | ℤ² | ·
+84 | · | · | ℤ² | · | ℤ¹² | · | ? | ? | ? | ?
+1364 | · | · | ℤ² | · | ℤ⁶ | · | ? | ? | ? | ?
+436 | · | · | ℤ² | · | ℤ⁸ | · | ? | ? | ? | ?
+8 | · | · | ℤ² | 𝐶₂⁴ | 𝐶₂² | 𝐶₂⁶ | ? | ? | ? | ?
+688 | · | · | ℤ² | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂²
+2 | · | · | ℤ² | 𝐶₂² | 𝐶₂⁴ | 𝐶₂⁶ | ? | ? | ? | ?
+90 | · | · | ℤ² | 𝐶₂² | ℤ⁴ | 𝐶₂¹⁰ | ? | ? | ? | ?
+8 | · | · | ℤ² | 𝐶₂² | ℤ⁴ | 𝐶₂⁶ | ? | ? | ? | ?
+60 | · | · | ℤ² | 𝐶₂² | ℤ² | 𝐶₂⁶ | ? | ? | ? | ?
+12 | · | · | ℤ² | 𝐶₂² | ℤ² | 𝐶₂⁸ | ? | ? | ? | ?
+16 | · | · | ℤ² | 𝐶₂² | ℤ⁸ | 𝐶₂¹⁸ | ? | ? | ? | ?
+38 | · | · | ℤ² | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂
+12 | · | · | ℤ² | 𝐶₂ | ℤ⁴ | 𝐶₂⁵ | ? | ? | ? | ?
+22 | · | · | ℤ² | 𝐶₃² | · | 𝐶₃² | · | 𝐶₃² | · | 𝐶₃²
+6 | · | · | ℤ² | 𝐶₃² | ℤ⁴ | 𝐶₃¹⁰ | ? | ? | ? | ?
+2 | · | · | ℤ² | 𝐶₄² | · | 𝐶₄² | · | 𝐶₄² | · | 𝐶₄²
+13 | · | · | ℤ² | ℤ×𝐶₂² | ℤ×𝐶₂³ | ℤ×𝐶₂⁸ | ? | ? | ? | ?
+42 | · | · | ℤ² | ℤ×𝐶₂² | ℤ×𝐶₂ | ℤ×𝐶₂³ | ? | ? | ? | ?
+102 | · | · | ℤ² | ℤ²×𝐶₂² | ℤ²×𝐶₂⁴ | ℤ²×𝐶₂¹⁰ | ? | ? | ? | ?
+190 | · | · | ℤ² | ℤ²×𝐶₂² | ℤ²×𝐶₂² | ℤ²×𝐶₂⁴ | ? | ? | ? | ?
+36 | · | · | ℤ² | ℤ²×𝐶₂² | ℤ⁶×𝐶₂⁴ | ℤ¹⁰×𝐶₂¹⁸ | ? | ? | ? | ?
+62 | · | · | ℤ² | ℤ²×𝐶₂² | ℤ⁶×𝐶₂² | ℤ¹⁰×𝐶₂¹² | ? | ? | ? | ?
+12 | · | · | ℤ² | ℤ²×𝐶₂ | ℤ²×𝐶₂³ | ℤ²×𝐶₂⁷ | ? | ? | ? | ?
+28 | · | · | ℤ² | ℤ²×𝐶₂ | ℤ²×𝐶₂ | ℤ²×𝐶₂² | ? | ? | ? | ?
+6 | · | · | ℤ² | ℤ²×𝐶₃² | ℤ²×𝐶₃⁴ | ℤ²×𝐶₃¹⁰ | ? | ? | ? | ?
+14 | · | · | ℤ² | ℤ²×𝐶₃² | ℤ²×𝐶₃² | ℤ²×𝐶₃⁴ | ? | ? | ? | ?
+57 | · | · | ℤ² | ℤ⁴×𝐶₂² | ℤ⁶×𝐶₂⁶ | ℤ⁸×𝐶₂¹⁶ | ? | ? | ? | ?
+70 | · | · | ℤ² | ℤ⁴×𝐶₂² | ℤ⁸×𝐶₂⁴ | ? | ? | ? | ? | ?
+13 | · | · | ℤ² | ℤ⁴×𝐶₂² | ℤ⁸×𝐶₂⁸ | ℤ¹⁶×𝐶₂³⁰ | ? | ? | ? | ?
+615 | · | · | ℤ² | ℤ⁴ | ℤ¹⁰ | ? | ? | ? | ? | ?
+727 | · | · | ℤ² | ℤ⁴ | ℤ¹² | ? | ? | ? | ? | ?
+1827 | · | · | ℤ² | ℤ⁴ | ℤ⁶ | ℤ⁸ | ? | ? | ? | ?
+1605 | · | · | ℤ² | ℤ⁴ | ℤ⁸ | ℤ¹⁶ | ? | ? | ? | ?
+758 | · | · | ℤ² | ℤ³ | ℤ⁴ | ℤ⁵ | ? | ? | ? | ?
+1187 | · | · | ℤ² | ℤ³ | ℤ⁶ | ℤ¹² | ? | ? | ? | ?
+824 | · | · | ℤ² | ℤ² | ℤ⁴ | ℤ⁶ | ? | ? | ? | ?
+994 | · | · | ℤ² | ℤ² | ℤ⁴ | ℤ⁸ | ? | ? | ? | ?
+11152 | · | · | ℤ² | ℤ² | ℤ² | ℤ² | ℤ² | ℤ² | ℤ² | ℤ²
+604 | · | · | ℤ² | ℤ² | ℤ¹⁰ | ? | ? | ? | ? | ?
+2300 | · | · | ℤ² | ℤ² | ℤ⁶ | ℤ¹⁰ | ? | ? | ? | ?
+213 | · | · | ℤ² | ℤ² | ℤ⁶ | ℤ⁶ | ? | ? | ? | ?
+566 | · | · | ℤ² | ℤ | · | · | · | · | · | ·
+77 | · | · | ℤ² | ℤ | ℤ | ℤ³ | ℤ⁴ | ℤ⁵ | ℤ⁸ | ℤ¹²
+132 | · | · | ℤ² | ℤ | ℤ | ℤ² | ℤ | ℤ | ℤ² | ℤ
+963 | · | · | ℤ² | ℤ | ℤ | ℤ | ℤ | ℤ | ℤ | ℤ
+467 | · | · | ℤ² | ℤ | ℤ⁵ | ℤ⁵ | ? | ? | ? | ?
+537 | · | · | ℤ² | ℤ⁶ | ℤ¹⁴ | ? | ? | ? | ? | ?
+331 | · | · | ℤ² | ℤ⁶ | ℤ¹⁸ | ? | ? | ? | ? | ?
+197785 | · | · | ℤ | · | · | · | · | · | · | ·
+5 | · | · | ℤ | · | · | 𝐶₂ | · | 𝐶₂ | 𝐶₂ | 𝐶₂²
+977 | · | · | ℤ | · | · | ℤ² | · | · | ℤ⁴ | ·
+3191 | · | · | ℤ | · | · | ℤ | · | · | ℤ | ·
+83 | · | · | ℤ | · | · | ℤ | 𝐶₂ | · | ℤ×𝐶₂ | 𝐶₂²
+1027 | · | · | ℤ | · | · | ℤ | ℤ | ℤ | ℤ² | ℤ³
+20 | · | · | ℤ | · | 𝐶₂ | · | 𝐶₂² | 𝐶₂ | 𝐶₂⁴ | 𝐶₂⁴
+8 | · | · | ℤ | · | 𝐶₂ | · | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂²
+89 | · | · | ℤ | · | ℤ⁴ | · | ? | ? | ? | ?
+513 | · | · | ℤ | · | ℤ³ | · | ? | ? | ? | ?
+12499 | · | · | ℤ | · | ℤ² | · | ? | ? | ? | ?
+627 | · | · | ℤ | · | ℤ | · | · | · | · | ·
+53566 | · | · | ℤ | · | ℤ | · | ℤ | · | ℤ | ·
+173 | · | · | ℤ | · | ℤ | 𝐶₂ | ℤ | 𝐶₂³ | ℤ×𝐶₂ | 𝐶₂⁷
+2156 | · | · | ℤ | · | ℤ | ℤ | ℤ² | ℤ³ | ℤ⁵ | ℤ⁸
+3430 | · | · | ℤ | · | ℤ | ℤ | ℤ | ℤ² | ℤ² | ℤ³
+36 | · | · | ℤ | · | ℤ | ℤ | ℤ | ℤ | ℤ² | ℤ²
+6 | · | · | ℤ | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂²
+5 | · | · | ℤ | 𝐶₂² | 𝐶₂² | 𝐶₂⁴ | 𝐶₂⁴ | 𝐶₂⁶ | 𝐶₂⁶ | 𝐶₂⁸
+141 | · | · | ℤ | 𝐶₂² | 𝐶₂ | 𝐶₂³ | 𝐶₂² | 𝐶₂⁴ | 𝐶₂³ | 𝐶₂⁵
+20 | · | · | ℤ | 𝐶₂² | ℤ×𝐶₂ | 𝐶₂⁷ | ? | ? | ? | ?
+70 | · | · | ℤ | 𝐶₂ | · | 𝐶₂² | 𝐶₂ | 𝐶₂³ | 𝐶₂³ | 𝐶₂⁶
+9385 | · | · | ℤ | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂
+194 | · | · | ℤ | 𝐶₂ | · | ℤ×𝐶₂ | 𝐶₂² | 𝐶₂² | ℤ×𝐶₂³ | 𝐶₂⁶
+49 | · | · | ℤ | 𝐶₂ | 𝐶₂ | 𝐶₂³ | ? | ? | ? | ?
+76 | · | · | ℤ | 𝐶₂ | 𝐶₂ | 𝐶₂² | ? | ? | ? | ?
+4 | · | · | ℤ | 𝐶₂ | ℤ×𝐶₂ | 𝐶₂⁴ | ? | ? | ? | ?
+15 | · | · | ℤ | 𝐶₂ | ℤ×𝐶₂ | 𝐶₂⁵ | ? | ? | ? | ?
+20 | · | · | ℤ | 𝐶₂ | ℤ³ | 𝐶₂⁷ | ? | ? | ? | ?
+20 | · | · | ℤ | 𝐶₂ | ℤ² | 𝐶₂⁴ | ? | ? | ? | ?
+154 | · | · | ℤ | 𝐶₂ | ℤ² | 𝐶₂⁵ | ? | ? | ? | ?
+22 | · | · | ℤ | 𝐶₂ | ℤ | 𝐶₂⁴ | ? | ? | ? | ?
+2223 | · | · | ℤ | 𝐶₂ | ℤ | 𝐶₂³ | ? | ? | ? | ?
+310 | · | · | ℤ | 𝐶₂ | ℤ | 𝐶₂² | ? | ? | ? | ?
+4 | · | · | ℤ | 𝐶₃ | · | 𝐶₃² | 𝐶₃ | 𝐶₃³ | 𝐶₃³ | 𝐶₃⁶
+400 | · | · | ℤ | 𝐶₃ | · | 𝐶₃ | · | 𝐶₃ | · | 𝐶₃
+3 | · | · | ℤ | 𝐶₃ | 𝐶₃ | 𝐶₃³ | 𝐶₃⁵ | 𝐶₃¹¹ | 𝐶₃²¹ | 𝐶₃⁴³
+10 | · | · | ℤ | 𝐶₃ | ℤ² | 𝐶₃⁵ | ? | ? | ? | ?
+56 | · | · | ℤ | 𝐶₃ | ℤ | 𝐶₃³ | ℤ×𝐶₃ | 𝐶₃⁷ | ℤ×𝐶₃⁵ | 𝐶₃¹⁶
+13 | · | · | ℤ | 𝐶₄ | · | 𝐶₄ | · | 𝐶₄ | · | 𝐶₄
+4 | · | · | ℤ | 𝐶₄ | ℤ | 𝐶₄³ | ℤ×𝐶₄ | 𝐶₄⁷ | ℤ×𝐶₄⁵ | 𝐶₄¹⁶
+1 | · | · | ℤ | 𝐶₅ | · | 𝐶₅ | · | 𝐶₅ | · | 𝐶₅
+4 | · | · | ℤ | 𝐶₆ | · | 𝐶₆ | · | 𝐶₆ | · | 𝐶₆
+24 | · | · | ℤ | ℤ×𝐶₂² | ℤ×𝐶₂⁴ | ℤ×𝐶₂¹⁰ | ? | ? | ? | ?
+8 | · | · | ℤ | ℤ×𝐶₂² | ℤ×𝐶₂³ | ℤ×𝐶₂⁶ | ? | ? | ? | ?
+3 | · | · | ℤ | ℤ×𝐶₂² | ℤ×𝐶₂⁵ | ℤ×𝐶₂¹⁵ | ? | ? | ? | ?
+206 | · | · | ℤ | ℤ×𝐶₂ | 𝐶₂ | 𝐶₂ | ? | ? | ? | ?
+6 | · | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂³ | ℤ×𝐶₂⁸ | ? | ? | ? | ?
+3 | · | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂² | ℤ×𝐶₂³ | ? | ? | ? | ?
+1725 | · | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂² | ℤ×𝐶₂⁵ | ? | ? | ? | ?
+18 | · | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂² | ℤ²×𝐶₂⁶ | ? | ? | ? | ?
+50 | · | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂ | ℤ×𝐶₂³ | ? | ? | ? | ?
+3014 | · | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂ | ℤ×𝐶₂² | ? | ? | ? | ?
+110 | · | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂ | ℤ²×𝐶₂² | ? | ? | ? | ?
+13 | · | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂³ | ℤ⁴×𝐶₂¹¹ | ? | ? | ? | ?
+18 | · | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂² | ℤ²×𝐶₂⁷ | ? | ? | ? | ?
+21 | · | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂² | ℤ³×𝐶₂⁶ | ? | ? | ? | ?
+289 | · | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂² | ℤ³×𝐶₂⁷ | ? | ? | ? | ?
+50 | · | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂ | ℤ²×𝐶₂⁴ | ? | ? | ? | ?
+529 | · | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂ | ℤ³×𝐶₂⁴ | ? | ? | ? | ?
+46 | · | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂ | ℤ³×𝐶₂³ | ? | ? | ? | ?
+139 | · | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂ | ℤ⁴×𝐶₂³ | ? | ? | ? | ?
+63 | · | · | ℤ | ℤ×𝐶₂ | ℤ³×𝐶₂² | ℤ⁵×𝐶₂⁹ | ? | ? | ? | ?
+104 | · | · | ℤ | ℤ×𝐶₂ | ℤ³×𝐶₂ | ℤ⁵×𝐶₂⁶ | ? | ? | ? | ?
+48 | · | · | ℤ | ℤ×𝐶₃ | ℤ×𝐶₃² | ℤ×𝐶₃⁵ | ? | ? | ? | ?
+97 | · | · | ℤ | ℤ×𝐶₃ | ℤ×𝐶₃ | ℤ×𝐶₃² | ℤ×𝐶₃² | ℤ×𝐶₃³ | ℤ×𝐶₃³ | ℤ×𝐶₃⁴
+18 | · | · | ℤ | ℤ×𝐶₃ | ℤ²×𝐶₃² | ℤ³×𝐶₃⁷ | ? | ? | ? | ?
+38 | · | · | ℤ | ℤ×𝐶₃ | ℤ²×𝐶₃ | ℤ³×𝐶₃⁴ | ? | ? | ? | ?
+3 | · | · | ℤ | ℤ×𝐶₄ | ℤ×𝐶₄² | ℤ×𝐶₄⁵ | ? | ? | ? | ?
+9 | · | · | ℤ | ℤ×𝐶₄ | ℤ×𝐶₄ | ℤ×𝐶₄² | ℤ×𝐶₄² | ℤ×𝐶₄³ | ℤ×𝐶₄³ | ℤ×𝐶₄⁴
+43 | · | · | ℤ | ℤ²×𝐶₂ | ℤ³×𝐶₂⁴ | ℤ⁴×𝐶₂¹³ | ? | ? | ? | ?
+394 | · | · | ℤ | ℤ²×𝐶₂ | ℤ³×𝐶₂³ | ℤ⁴×𝐶₂⁸ | ? | ? | ? | ?
+239 | · | · | ℤ | ℤ²×𝐶₂ | ℤ³×𝐶₂² | ℤ⁴×𝐶₂⁴ | ? | ? | ? | ?
+115 | · | · | ℤ | ℤ²×𝐶₂ | ℤ⁴×𝐶₂⁴ | ℤ⁸×𝐶₂¹⁵ | ? | ? | ? | ?
+200 | · | · | ℤ | ℤ²×𝐶₂ | ℤ⁴×𝐶₂³ | ℤ⁸×𝐶₂¹⁰ | ? | ? | ? | ?
+494 | · | · | ℤ | ℤ²×𝐶₂ | ℤ⁴×𝐶₂² | ℤ⁸×𝐶₂⁵ | ? | ? | ? | ?
+36 | · | · | ℤ | ℤ²×𝐶₂ | ℤ⁵×𝐶₂⁴ | ℤ¹²×𝐶₂¹⁷ | ? | ? | ? | ?
+200 | · | · | ℤ | ℤ²×𝐶₂ | ℤ⁵×𝐶₂² | ℤ¹²×𝐶₂⁷ | ? | ? | ? | ?
+26 | · | · | ℤ | ℤ²×𝐶₃ | ℤ³×𝐶₃³ | ℤ⁴×𝐶₃⁸ | ? | ? | ? | ?
+5 | · | · | ℤ | ℤ²×𝐶₃ | ℤ⁴×𝐶₃⁴ | ℤ⁸×𝐶₃¹⁵ | ? | ? | ? | ?
+37 | · | · | ℤ | ℤ²×𝐶₃ | ℤ⁴×𝐶₃² | ℤ⁸×𝐶₃⁵ | ? | ? | ? | ?
+126 | · | · | ℤ | ℤ³×𝐶₂ | ℤ⁷×𝐶₂⁴ | ℤ¹⁵×𝐶₂¹³ | ? | ? | ? | ?
+46 | · | · | ℤ | ℤ³×𝐶₂ | ℤ⁷×𝐶₂⁵ | ℤ¹⁵×𝐶₂²⁰ | ? | ? | ? | ?
+120 | · | · | ℤ | ℤ³×𝐶₂ | ℤ⁹×𝐶₂³ | ℤ²⁷×𝐶₂¹⁰ | ? | ? | ? | ?
+7 | · | · | ℤ | ℤ³×𝐶₂ | ℤ⁹×𝐶₂⁶ | ℤ²⁷×𝐶₂³¹ | ? | ? | ? | ?
+231 | · | · | ℤ | ℤ⁴ | ℤ¹² | ℤ³² | ? | ? | ? | ?
+458 | · | · | ℤ | ℤ⁴ | ℤ¹³ | ℤ⁴⁰ | ? | ? | ? | ?
+270 | · | · | ℤ | ℤ⁴ | ℤ¹⁶ | ? | ? | ? | ? | ?
+860 | · | · | ℤ | ℤ³ | ℤ¹⁰ | ? | ? | ? | ? | ?
+1092 | · | · | ℤ | ℤ³ | ℤ⁶ | ℤ¹⁰ | ? | ? | ? | ?
+2873 | · | · | ℤ | ℤ³ | ℤ⁷ | ℤ¹⁵ | ? | ? | ? | ?
+7442 | · | · | ℤ | ℤ³ | ℤ⁸ | ? | ? | ? | ? | ?
+1844 | · | · | ℤ | ℤ³ | ℤ⁹ | ? | ? | ? | ? | ?
+965 | · | · | ℤ | ℤ² | · | · | · | · | · | ·
+4 | · | · | ℤ | ℤ² | ℤ²×𝐶₂² | ? | ? | ? | ? | ?
+33 | · | · | ℤ | ℤ² | ℤ³×𝐶₂ | ? | ? | ? | ? | ?
+7 | · | · | ℤ | ℤ² | ℤ⁴×𝐶₂² | ? | ? | ? | ? | ?
+26571 | · | · | ℤ | ℤ² | ℤ⁴ | ? | ? | ? | ? | ?
+15194 | · | · | ℤ | ℤ² | ℤ³ | ? | ? | ? | ? | ?
+2591 | · | · | ℤ | ℤ² | ℤ² | ? | ? | ? | ? | ?
+6066 | · | · | ℤ | ℤ² | ℤ⁵ | ? | ? | ? | ? | ?
+1952 | · | · | ℤ | ℤ² | ℤ⁶ | ? | ? | ? | ? | ?
+2999 | · | · | ℤ | ℤ | · | · | · | · | · | ·
+203 | · | · | ℤ | ℤ | · | · | ℤ | ℤ | · | ·
+87 | · | · | ℤ | ℤ | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | ·
+56 | · | · | ℤ | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂² | ℤ×𝐶₂⁵ | ℤ×𝐶₂¹⁰ | ℤ×𝐶₂²¹ | ℤ×𝐶₂⁴²
+13 | · | · | ℤ | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂ | ℤ×𝐶₂² | ℤ×𝐶₂² | ℤ×𝐶₂³ | ℤ×𝐶₂³
+24 | · | · | ℤ | ℤ | ℤ²×𝐶₂ | ? | ? | ? | ? | ?
+713 | · | · | ℤ | ℤ | ℤ⁴ | ? | ? | ? | ? | ?
+5159 | · | · | ℤ | ℤ | ℤ³ | ? | ? | ? | ? | ?
+39807 | · | · | ℤ | ℤ | ℤ² | ? | ? | ? | ? | ?
+106176 | · | · | ℤ | ℤ | ℤ | ? | ? | ? | ? | ?
+12 | · | · | ℤ⁵ | · | · | · | · | · | · | ·
+10 | · | 𝐶₂ | · | 𝐶₂³ | · | ? | ? | ? | ? | ?
+24 | · | 𝐶₂ | · | 𝐶₂² | · | 𝐶₂³ | · | 𝐶₂⁴ | · | 𝐶₂⁵
+3 | · | 𝐶₂ | · | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂² | · | 𝐶₂²
+26 | · | 𝐶₂ | · | 𝐶₂² | 𝐶₂ | ? | ? | ? | ? | ?
+21309 | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂
+4 | · | 𝐶₂ | · | ℤ×𝐶₂ | · | ℤ²×𝐶₂ | · | ℤ⁴×𝐶₂ | · | ℤ⁸×𝐶₂
+3 | · | 𝐶₂ | 𝐶₂² | 𝐶₂⁵ | 𝐶₂¹⁰ | ? | ? | ? | ? | ?
+1 | · | 𝐶₂ | 𝐶₂ | 𝐶₂³ | 𝐶₂⁵ | ? | ? | ? | ? | ?
+330 | · | 𝐶₂ | 𝐶₂ | 𝐶₂² | 𝐶₂² | 𝐶₂³ | 𝐶₂³ | ? | ? | ?
+1 | · | 𝐶₂ | 𝐶₃ | 𝐶₂ | · | 𝐶₂ | 𝐶₃ | 𝐶₂ | · | 𝐶₂
+1 | · | 𝐶₂ | ℤ | ℤ²×𝐶₂ | ℤ⁴ | ? | ? | ? | ? | ?
+879239 | · | ℤ | · | · | · | · | · | · | · | ·
+46 | · | ℤ | · | · | 𝐶₂ | · | 𝐶₂ | 𝐶₂ | 𝐶₂² | 𝐶₂²
+3 | · | ℤ | · | · | 𝐶₃ | · | 𝐶₃ | 𝐶₃ | 𝐶₃² | 𝐶₃²
+20 | · | ℤ | · | · | ℤ×𝐶₂ | ? | ? | ? | ? | ?
+1788 | · | ℤ | · | · | ℤ² | ? | ? | ? | ? | ?
+445 | · | ℤ | · | · | ℤ | · | · | · | · | ·
+3259 | · | ℤ | · | · | ℤ | · | · | ℤ | ? | ?
+6 | · | ℤ | · | · | ℤ | · | 𝐶₂ | · | ? | ?
+1079 | · | ℤ | · | · | ℤ | · | ℤ | ℤ | ? | ?
+175 | · | ℤ | · | · | ℤ | 𝐶₂ | · | ℤ×𝐶₂ | ? | ?
+205 | · | ℤ | · | · | ℤ | ℤ | · | · | ? | ?
+2958 | · | ℤ | · | · | ℤ | ℤ | ℤ | ℤ² | ? | ?
+4 | · | ℤ | · | 𝐶₂² | · | ? | ? | ? | ? | ?
+44 | · | ℤ | · | 𝐶₂ | · | 𝐶₂² | ? | ? | ? | ?
+2 | · | ℤ | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂
+3 | · | ℤ | · | 𝐶₂ | · | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂² | 𝐶₂²
+5 | · | ℤ | · | 𝐶₂ | 𝐶₂ | ? | ? | ? | ? | ?
+4 | · | ℤ | · | ℤ×𝐶₂ | 𝐶₂ | ? | ? | ? | ? | ?
+1679 | · | ℤ | · | ℤ⁴ | · | ? | ? | ? | ? | ?
+6 | · | ℤ | · | ℤ⁴ | 𝐶₂⁴ | ? | ? | ? | ? | ?
+325 | · | ℤ | · | ℤ⁴ | ℤ⁴ | ? | ? | ? | ? | ?
+2118 | · | ℤ | · | ℤ³ | · | ? | ? | ? | ? | ?
+8 | · | ℤ | · | ℤ³ | 𝐶₂³ | ? | ? | ? | ? | ?
+480 | · | ℤ | · | ℤ³ | ℤ³ | ? | ? | ? | ? | ?
+175 | · | ℤ | · | ℤ² | · | · | · | · | · | ·
+13205 | · | ℤ | · | ℤ² | · | ℤ⁴ | ? | ? | ? | ?
+1759 | · | ℤ | · | ℤ² | · | ℤ² | ? | ? | ? | ?
+192 | · | ℤ | · | ℤ² | 𝐶₂² | ? | ? | ? | ? | ?
+12 | · | ℤ | · | ℤ² | 𝐶₂ | ? | ? | ? | ? | ?
+6 | · | ℤ | · | ℤ² | 𝐶₃² | ? | ? | ? | ? | ?
+40 | · | ℤ | · | ℤ² | ℤ²×𝐶₂² | ? | ? | ? | ? | ?
+694 | · | ℤ | · | ℤ² | ℤ⁴ | ? | ? | ? | ? | ?
+3902 | · | ℤ | · | ℤ² | ℤ² | ? | ? | ? | ? | ?
+483 | · | ℤ | · | ℤ² | ℤ | ? | ? | ? | ? | ?
+3683 | · | ℤ | · | ℤ | · | · | · | · | · | ·
+18 | · | ℤ | · | ℤ | · | 𝐶₂ | · | 𝐶₂² | 𝐶₂ | 𝐶₂⁴
+1139 | · | ℤ | · | ℤ | · | ℤ² | · | ℤ⁴ | · | ℤ⁸
+50357 | · | ℤ | · | ℤ | · | ℤ | · | ℤ | · | ℤ
+89 | · | ℤ | · | ℤ | · | ℤ | ℤ | ℤ² | ℤ³ | ℤ⁵
+44 | · | ℤ | · | ℤ | · | ℤ | ℤ | ℤ | ℤ | ℤ²
+15 | · | ℤ | · | ℤ | 𝐶₂² | ? | ? | ? | ? | ?
+85 | · | ℤ | · | ℤ | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | ·
+12 | · | ℤ | · | ℤ | 𝐶₂ | ℤ×𝐶₂ | ? | ? | ? | ?
+888 | · | ℤ | · | ℤ | 𝐶₂ | ℤ | ? | ? | ? | ?
+10 | · | ℤ | · | ℤ | 𝐶₃ | · | 𝐶₃ | · | 𝐶₃ | ·
+32 | · | ℤ | · | ℤ | 𝐶₃ | ℤ | 𝐶₃³ | ℤ×𝐶₃ | 𝐶₃⁷ | ℤ×𝐶₃⁵
+3 | · | ℤ | · | ℤ | 𝐶₄ | ℤ | 𝐶₄³ | ℤ×𝐶₄ | 𝐶₄⁷ | ℤ×𝐶₄⁵
+173 | · | ℤ | · | ℤ | ℤ×𝐶₂ | ? | ? | ? | ? | ?
+10 | · | ℤ | · | ℤ | ℤ×𝐶₃ | ? | ? | ? | ? | ?
+13 | · | ℤ | · | ℤ | ℤ²×𝐶₂ | ? | ? | ? | ? | ?
+287 | · | ℤ | · | ℤ | ℤ³ | ? | ? | ? | ? | ?
+4118 | · | ℤ | · | ℤ | ℤ² | ? | ? | ? | ? | ?
+17984 | · | ℤ | · | ℤ | ℤ | ? | ? | ? | ? | ?
+159 | · | ℤ | · | ℤ⁶ | · | ? | ? | ? | ? | ?
+153 | · | ℤ | 𝐶₂² | 𝐶₂ | 𝐶₂³ | 𝐶₂² | 𝐶₂⁴ | ? | ? | ?
+3 | · | ℤ | 𝐶₂² | ℤ×𝐶₂ | 𝐶₂⁷ | ? | ? | ? | ? | ?
+10 | · | ℤ | 𝐶₂ | · | 𝐶₂² | 𝐶₂ | 𝐶₂³ | 𝐶₂³ | 𝐶₂⁶ | 𝐶₂⁷
+41435 | · | ℤ | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | · | 𝐶₂ | ·
+2 | · | ℤ | 𝐶₂ | · | 𝐶₆ | · | 𝐶₂ | · | 𝐶₆ | ·
+170 | · | ℤ | 𝐶₂ | · | ℤ×𝐶₂ | ? | ? | ? | ? | ?
+3 | · | ℤ | 𝐶₂ | 𝐶₂² | 𝐶₂³ | ? | ? | ? | ? | ?
+4 | · | ℤ | 𝐶₂ | 𝐶₂ | 𝐶₂³ | ? | ? | ? | ? | ?
+83 | · | ℤ | 𝐶₂ | 𝐶₂ | 𝐶₂² | ? | ? | ? | ? | ?
+2 | · | ℤ | 𝐶₂ | 𝐶₂ | 𝐶₂ | 𝐶₂² | 𝐶₂ | 𝐶₂³ | 𝐶₂ | 𝐶₂⁴
+4 | · | ℤ | 𝐶₂ | ℤ×𝐶₂ | 𝐶₂⁴ | ? | ? | ? | ? | ?
+17 | · | ℤ | 𝐶₂ | ℤ⁴ | 𝐶₂⁹ | ? | ? | ? | ? | ?
+20 | · | ℤ | 𝐶₂ | ℤ³ | 𝐶₂⁷ | ? | ? | ? | ? | ?
+20 | · | ℤ | 𝐶₂ | ℤ² | 𝐶₂⁴ | ? | ? | ? | ? | ?
+14 | · | ℤ | 𝐶₂ | ℤ² | 𝐶₂³ | ? | ? | ? | ? | ?
+187 | · | ℤ | 𝐶₂ | ℤ² | 𝐶₂⁵ | ? | ? | ? | ? | ?
+90 | · | ℤ | 𝐶₂ | ℤ² | ℤ²×𝐶₂⁵ | ? | ? | ? | ? | ?
+18 | · | ℤ | 𝐶₂ | ℤ | 𝐶₂⁴ | ? | ? | ? | ? | ?
+1399 | · | ℤ | 𝐶₂ | ℤ | 𝐶₂³ | ? | ? | ? | ? | ?
+82 | · | ℤ | 𝐶₂ | ℤ | 𝐶₂² | ? | ? | ? | ? | ?
+6 | · | ℤ | 𝐶₂ | ℤ | 𝐶₂ | ℤ² | 𝐶₂ | ℤ⁴ | 𝐶₂ | ℤ⁸
+332 | · | ℤ | 𝐶₂ | ℤ | ℤ×𝐶₂³ | ? | ? | ? | ? | ?
+40 | · | ℤ | 𝐶₂ | ℤ | ℤ×𝐶₂² | ? | ? | ? | ? | ?
+91 | · | ℤ | 𝐶₂ | ℤ | ℤ²×𝐶₂³ | ? | ? | ? | ? | ?
+1530 | · | ℤ | 𝐶₃ | · | 𝐶₃ | · | 𝐶₃ | · | 𝐶₃ | ·
+10 | · | ℤ | 𝐶₃ | ℤ² | 𝐶₃⁵ | ? | ? | ? | ? | ?
+45 | · | ℤ | 𝐶₃ | ℤ | 𝐶₃³ | ? | ? | ? | ? | ?
+21 | · | ℤ | 𝐶₃ | ℤ | ℤ×𝐶₃³ | ? | ? | ? | ? | ?
+163 | · | ℤ | 𝐶₄ | · | 𝐶₄ | · | 𝐶₄ | · | 𝐶₄ | ·
+3 | · | ℤ | 𝐶₄ | ℤ | 𝐶₄³ | ℤ×𝐶₄ | 𝐶₄⁷ | ℤ×𝐶₄⁵ | 𝐶₄¹⁶ | ℤ×𝐶₄¹⁷
+7 | · | ℤ | 𝐶₅ | · | 𝐶₅ | · | 𝐶₅ | · | 𝐶₅ | ·
+2 | · | ℤ | 𝐶₆ | · | 𝐶₆ | · | 𝐶₆ | · | 𝐶₆ | ·
+3 | · | ℤ | ℤ×𝐶₂² | ℤ×𝐶₂⁴ | ℤ×𝐶₂¹⁰ | ? | ? | ? | ? | ?
+20 | · | ℤ | ℤ×𝐶₂² | ℤ×𝐶₂⁵ | ℤ×𝐶₂¹⁵ | ? | ? | ? | ? | ?
+12 | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂³ | ℤ×𝐶₂⁸ | ? | ? | ? | ? | ?
+8605 | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂² | ℤ×𝐶₂⁵ | ? | ? | ? | ? | ?
+952 | · | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂ | ℤ×𝐶₂² | ? | ? | ? | ? | ?
+25 | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂² | ℤ²×𝐶₂⁷ | ? | ? | ? | ? | ?
+30 | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂² | ℤ³×𝐶₂⁶ | ? | ? | ? | ? | ?
+279 | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂² | ℤ³×𝐶₂⁷ | ? | ? | ? | ? | ?
+129 | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂² | ℤ⁴×𝐶₂⁷ | ? | ? | ? | ? | ?
+30 | · | ℤ | ℤ×𝐶₂ | ℤ²×𝐶₂ | ℤ³×𝐶₂⁴ | ? | ? | ? | ? | ?
+75 | · | ℤ | ℤ×𝐶₂ | ℤ³×𝐶₂² | ℤ⁵×𝐶₂⁹ | ? | ? | ? | ? | ?
+2 | · | ℤ | ℤ×𝐶₂ | ℤ² | ℤ⁴×𝐶₂ | ? | ? | ? | ? | ?
+378 | · | ℤ | ℤ×𝐶₃ | ℤ×𝐶₃² | ℤ×𝐶₃⁵ | ? | ? | ? | ? | ?
+3 | · | ℤ | ℤ×𝐶₃ | ℤ×𝐶₃ | ℤ×𝐶₃² | ? | ? | ? | ? | ?
+15 | · | ℤ | ℤ×𝐶₃ | ℤ²×𝐶₃² | ℤ³×𝐶₃⁷ | ? | ? | ? | ? | ?
+2 | · | ℤ | ℤ×𝐶₄ | ℤ×𝐶₂×𝐶₄ | ℤ×𝐶₂³×𝐶₄² | ? | ? | ? | ? | ?
+21 | · | ℤ | ℤ×𝐶₄ | ℤ×𝐶₄² | ℤ×𝐶₄⁵ | ? | ? | ? | ? | ?
+1 | · | ℤ | ℤ×𝐶₅ | ℤ×𝐶₅² | ℤ×𝐶₅⁵ | ? | ? | ? | ? | ?
+3 | · | ℤ | ℤ²×𝐶₂² | ℤ⁴×𝐶₂⁹ | ℤ⁸×𝐶₂³⁹ | ? | ? | ? | ? | ?
+1 | · | ℤ | ℤ²×𝐶₂ | ℤ²×𝐶₂⁴ | ℤ⁴×𝐶₂¹¹ | ? | ? | ? | ? | ?
+238 | · | ℤ | ℤ²×𝐶₂ | ℤ³×𝐶₂⁴ | ℤ⁴×𝐶₂¹³ | ? | ? | ? | ? | ?
+6 | · | ℤ | ℤ²×𝐶₂ | ℤ³×𝐶₂⁴ | ℤ⁴×𝐶₂¹⁴ | ? | ? | ? | ? | ?
+5 | · | ℤ | ℤ²×𝐶₂ | ℤ³×𝐶₂⁴ | ℤ⁵×𝐶₂¹³ | ? | ? | ? | ? | ?
+2 | · | ℤ | ℤ²×𝐶₂ | ℤ³×𝐶₂⁴ | ℤ⁶×𝐶₂¹³ | ? | ? | ? | ? | ?
+29 | · | ℤ | ℤ²×𝐶₂ | ℤ³×𝐶₂³ | ℤ⁴×𝐶₂⁸ | ? | ? | ? | ? | ?
+1242 | · | ℤ | ℤ²×𝐶₂ | ℤ⁴×𝐶₂⁴ | ℤ⁸×𝐶₂¹⁵ | ? | ? | ? | ? | ?
+202 | · | ℤ | ℤ²×𝐶₂ | ℤ⁴×𝐶₂³ | ℤ⁸×𝐶₂¹⁰ | ? | ? | ? | ? | ?
+11 | · | ℤ | ℤ²×𝐶₂ | ℤ⁴×𝐶₂² | ℤ⁸×𝐶₂⁵ | ? | ? | ? | ? | ?
+46 | · | ℤ | ℤ²×𝐶₂ | ℤ⁵×𝐶₂⁴ | ℤ¹²×𝐶₂¹⁷ | ? | ? | ? | ? | ?
+3 | · | ℤ | ℤ²×𝐶₂ | ℤ⁵×𝐶₂² | ℤ¹²×𝐶₂⁸ | ? | ? | ? | ? | ?
+9 | · | ℤ | ℤ²×𝐶₃ | ℤ³×𝐶₃⁴ | ℤ⁴×𝐶₃¹³ | ? | ? | ? | ? | ?
+55 | · | ℤ | ℤ²×𝐶₃ | ℤ⁴×𝐶₃⁴ | ℤ⁸×𝐶₃¹⁵ | ? | ? | ? | ? | ?
+3 | · | ℤ | ℤ²×𝐶₄ | ℤ⁴×𝐶₄⁴ | ℤ⁸×𝐶₄¹⁵ | ? | ? | ? | ? | ?
+128 | · | ℤ | ℤ³×𝐶₂ | ℤ⁸×𝐶₂⁶ | ℤ²¹×𝐶₂²⁹ | ? | ? | ? | ? | ?
+17 | · | ℤ | ℤ³×𝐶₂ | ℤ⁹×𝐶₂⁵ | ℤ²⁷×𝐶₂²⁴ | ? | ? | ? | ? | ?
+110 | · | ℤ | ℤ³×𝐶₂ | ℤ⁹×𝐶₂⁶ | ℤ²⁷×𝐶₂³¹ | ? | ? | ? | ? | ?
+4 | · | ℤ | ℤ³×𝐶₃ | ℤ⁹×𝐶₃⁶ | ℤ²⁷×𝐶₃³¹ | ? | ? | ? | ? | ?
+8 | · | ℤ | ℤ⁴×𝐶₂ | ℤ¹⁶×𝐶₂⁸ | ℤ⁶⁴×𝐶₂⁵³ | ? | ? | ? | ? | ?
+560313 | · | ℤ | ℤ⁴ | ? | ? | ? | ? | ? | ? | ?
+34 | · | ℤ | ℤ³ | ℤ¹⁰ | ℤ³² | ? | ? | ? | ? | ?
+809 | · | ℤ | ℤ³ | ℤ¹⁰ | ℤ³³ | ? | ? | ? | ? | ?
+16 | · | ℤ | ℤ³ | ℤ¹¹ | ℤ³⁶ | ? | ? | ? | ? | ?
+1885 | · | ℤ | ℤ³ | ℤ⁶ | ? | ? | ? | ? | ? | ?
+11897 | · | ℤ | ℤ³ | ℤ⁷ | ? | ? | ? | ? | ? | ?
+26420 | · | ℤ | ℤ³ | ℤ⁸ | ? | ? | ? | ? | ? | ?
+12931 | · | ℤ | ℤ³ | ℤ⁹ | ? | ? | ? | ? | ? | ?
+4 | · | ℤ | ℤ² | ℤ⁴ | ℤ⁷ | ? | ? | ? | ? | ?
+74150 | · | ℤ | ℤ² | ℤ⁴ | ℤ⁸ | ? | ? | ? | ? | ?
+16195 | · | ℤ | ℤ² | ℤ³ | ℤ⁴ | ? | ? | ? | ? | ?
+731 | · | ℤ | ℤ² | ℤ³ | ℤ⁵ | ? | ? | ? | ? | ?
+305 | · | ℤ | ℤ² | ℤ³ | ℤ⁶ | ? | ? | ? | ? | ?
+99 | · | ℤ | ℤ² | ℤ² | ℤ⁴ | ? | ? | ? | ? | ?
+24 | · | ℤ | ℤ² | ℤ² | ℤ² | ℤ² | ℤ² | ℤ² | ℤ² | ℤ²
+38 | · | ℤ | ℤ² | ℤ⁵ | ℤ¹⁰ | ? | ? | ? | ? | ?
+1644 | · | ℤ | ℤ² | ℤ⁵ | ℤ¹¹ | ? | ? | ? | ? | ?
+150 | · | ℤ | ℤ² | ℤ⁵ | ℤ¹²×𝐶₂ | ? | ? | ? | ? | ?
+3685 | · | ℤ | ℤ² | ℤ⁵ | ℤ¹² | ? | ? | ? | ? | ?
+1069 | · | ℤ | ℤ² | ℤ⁵ | ℤ¹³ | ? | ? | ? | ? | ?
+21 | · | ℤ | ℤ² | ℤ⁶ | ℤ¹³ | ? | ? | ? | ? | ?
+3 | · | ℤ | ℤ² | ℤ⁶ | ℤ¹⁴ | ? | ? | ? | ? | ?
+1238 | · | ℤ | ℤ² | ℤ⁶ | ℤ¹⁶ | ? | ? | ? | ? | ?
+3 | · | ℤ | ℤ² | ℤ⁸ | ℤ¹⁶ | ? | ? | ? | ? | ?
+5 | · | ℤ | ℤ | ℤ×𝐶₂ | ℤ×𝐶₂² | ? | ? | ? | ? | ?
+559 | · | ℤ | ℤ | ℤ⁴ | ℤ⁷ | ? | ? | ? | ? | ?
+712 | · | ℤ | ℤ | ℤ³ | ℤ⁴ | ? | ? | ? | ? | ?
+312 | · | ℤ | ℤ | ℤ³ | ℤ³ | ? | ? | ? | ? | ?
+72 | · | ℤ | ℤ | ℤ³ | ℤ⁵×𝐶₂² | ? | ? | ? | ? | ?
+5101 | · | ℤ | ℤ | ℤ³ | ℤ⁵ | ? | ? | ? | ? | ?
+1724 | · | ℤ | ℤ | ℤ³ | ℤ⁷ | ? | ? | ? | ? | ?
+62 | · | ℤ | ℤ | ℤ² | ℤ²×𝐶₂ | ? | ? | ? | ? | ?
+386 | · | ℤ | ℤ | ℤ² | ℤ³×𝐶₂ | ? | ? | ? | ? | ?
+27 | · | ℤ | ℤ | ℤ² | ℤ³×𝐶₃ | ? | ? | ? | ? | ?
+96 | · | ℤ | ℤ | ℤ² | ℤ⁴×𝐶₂ | ? | ? | ? | ? | ?
+4500 | · | ℤ | ℤ | ℤ² | ℤ⁴ | ? | ? | ? | ? | ?
+22349 | · | ℤ | ℤ | ℤ² | ℤ³ | ? | ? | ? | ? | ?
+1641 | · | ℤ | ℤ | ℤ² | ℤ² | ? | ? | ? | ? | ?
+85 | · | ℤ | ℤ | ℤ² | ℤ | ℤ³ | ℤ | ℤ⁵ | ℤ | ℤ⁹
+801 | · | ℤ | ℤ | ℤ² | ℤ⁵ | ? | ? | ? | ? | ?
+37 | · | ℤ | ℤ | ℤ | ℤ×𝐶₂ | ? | ? | ? | ? | ?
+2227 | · | ℤ | ℤ | ℤ | ℤ² | ? | ? | ? | ? | ?
+36 | · | ℤ | ℤ | ℤ | ℤ | ℤ² | ? | ? | ? | ?
+303144 | · | ℤ | ℤ | ℤ | ℤ | ℤ | ? | ? | ? | ?
+360 | · | ℤ | ℤ | ℤ⁵ | ℤ⁹ | ? | ? | ? | ? | ?
+209474 | · | ℤ | ℤ⁵ | ? | ? | ? | ? | ? | ? | ?
+16 | · | ℤ | ℤ⁶ | ℤ³⁶ | ? | ? | ? | ? | ? | ?
