@@ -116,11 +116,13 @@ def main_refine(n, min_ideal_name, homology_kind):
         it = tqdm.tqdm(it, smoothing=0.0, miniters=1, dynamic_ncols=True, total=len(ix_set))
         groupings = defaultdict(list)
         for ix, hl in it:
-            if VERBOSE:
-                print(ix, hl)
             if hl not in groupings:
                 print("New split:", hl)
             groupings[hl].append(ix)
+            if VERBOSE:
+                it.write(f"{ix} {hl}")
+                num_done = sum(map(len, groupings.values()))
+                it.write(f"{num_done=}")
 
         for arr in groupings.values():
             arr.sort()
@@ -139,6 +141,9 @@ def main_refine(n, min_ideal_name, homology_kind):
         
         old_file = subfolder / "groupings.txt"
         new_file = subfolder / "updated_groupings.txt"
+        import time
+        while new_file.exists():
+            time.sleep(2.0)
         with open(new_file, "w") as fout:
             with open(old_file) as fin:
                 found = False
@@ -184,6 +189,9 @@ def main_refine(n, min_ideal_name, homology_kind):
     print("done")
 
 def populate_readmes():
+    SUPER_DIGITS = "⁰¹²³⁴⁵⁶⁷⁸⁹"
+    SUB_DIGITS = "₀₁₂₃₄₅₆₇₈₉"
+
     for folder in PARENT_FOLDER.iterdir():
         if not folder.is_dir():
             continue
@@ -205,40 +213,41 @@ def populate_readmes():
             with open(subfolder / "README.md", "w") as f:
                 f.write(first_line)
                 f.write("\n\n")
-                print(*(["Count"] + [f"$$H_{{{i}}}$$" for i in range(1, 11)]), sep=" | ", file=f)
-                print(*(["--"] + ["--" for i in range(1, 11)]), sep=" | ", file=f)
+                print(*(["Count"] + [f"𝐻{SUB_DIGITS[i]}" for i in range(1, 10)] + ["𝐻₁₀"]), sep=" | ", file=f)
+                print(*(["--:"] + [":--:" for i in range(1, 11)]), sep=" | ", file=f)
                 for label, count in sorted(label_to_count.items()):
                     for simple in ["Z"] + [f"C{i}" for i in reversed(range(2, 20))]:
                         for copies in reversed(range(2, 20)):
                             label = label.replace(" x ".join([simple] * copies), f"{simple}^{copies}")
-                    tex_entries = []
+                    result_entries = []
                     for entry in label.strip("[]").split(", "):
                         if entry == "0":
-                            tex_entries.append("$$\cdot$$")
+                            result_entries.append("·")
                             continue
                         parts = []
                         for part in entry.split(" x "):
                             base = part.partition("^")[0]
                             if base.startswith("C"):
-                                base = f"C_{{{base[1:]}}}"
+                                base = "𝐶" + "".join(SUB_DIGITS[int(c)] for c in base[1:])
                             else:
                                 assert base == "Z", (base, part)
-                                base = "\\mathbb{Z}"
+                                base = "ℤ"
                             if "^" in part:
-                                parts.append(f"{base}^{{{part.partition('^')[2]}}}")
+                                parts.append(base + "".join(SUPER_DIGITS[int(c)] for c in part.split("^")[1]))
                             else:
                                 parts.append(base)
-                        tex_entries.append("$$" + " \\times ".join(parts) + "$$")
-                    while len(tex_entries) < 10:
-                        tex_entries.append("$$?$$")
-                    print(*([count] + tex_entries), sep=" | ", file=f)
+                        result_entries.append("×".join(parts))
+                    while len(result_entries) < 10:
+                        result_entries.append("?")
+                    print(*([count] + result_entries), sep=" | ", file=f)
             print(f"Wrote to {subfolder / 'README.md'}")
 
 
 
-MAXDIM = 5
-PEEKDIM = 3
-CORES = 12
+
+MAXDIM = 10
+PEEKDIM = 6
+CORES = 10
 VERBOSE = False
 # CHUNKSIZE=1
 
@@ -249,7 +258,7 @@ if __name__ == "__main__":
     import multiprocessing as mp
     import tqdm
     mp.set_start_method("spawn")
-    ORDER = 13
+    ORDER = 9
 
     # main_initialize()
     # quit()
@@ -263,23 +272,17 @@ if __name__ == "__main__":
     # quit()
 
     for min_ideal_name in [
-        # "min_2_2_1",
-        "min_2_2_C2_sandwich0",
+        "min_2_2_1",
+        # "min_2_2_C2_sandwich0",
         # "min_2_2_C2_sandwich1",
         # "min_2_3_1",
         # "min_2_4_1",
         # "min_2_5_1",
         # "min_3_3_1",
-        # "min_2_2_1",
     ]:
         avoid_for_now = [
-            "[C2, 0, C2 x C2 x C2]",
-            "[C2, 0, C2 x C2]",
-            "[C2, C2, C2]",
-            "[C2, 0, C2]",
-            "[C2, Z, Z x Z x Z x Z x C2]",
-            "[C2, Z, Z^5 x C2]",
-            "[C2, 0, C2 x C2 x C2 x C2, 0]",
+            # "[0, Z, Z x Z x Z, Z^9, Z^27"
+            # "[0, Z, Z x Z, Z x Z x Z x Z, Z^8"
         ]
 
         labels = []
@@ -295,6 +298,7 @@ if __name__ == "__main__":
         print("--- Still to do ---")
         for label in labels:
             print(label)
+
 
         for label in labels:
             if len(label.split(",")) >= MAXDIM:
