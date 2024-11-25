@@ -16,6 +16,9 @@ from monoid_homology.by_min_ideal import (
     one_op_from_size_and_min_name,
     get_count_from_size_and_min_name,
 )
+from monoid_homology.branched_resolution import (
+    find_good_branched_resolution
+)
 
 @lru_cache(maxsize=1)
 def data_from_gz(n, filename):
@@ -57,11 +60,10 @@ def subset_from_gz(n, filename, indexes):
 
 def get_homology(ix_op):
     ix, op = ix_op
-    res = find_good_resolution(maybe_adjoin_1(op), peek_dim=PEEKDIM, verbose=VERBOSE)
+    res = find_good_branched_resolution(maybe_adjoin_1(op), peek_dim=PEEKDIM, verbose=VERBOSE)
+    # res = find_good_resolution(maybe_adjoin_1(op), peek_dim=PEEKDIM, verbose=VERBOSE)
     return ix, str(res.homology_list(MAXDIM, verbose=VERBOSE))
 
-
-PARENT_FOLDER = Path("/mnt/c/Users/Owner/Desktop/monoid_homology/data_by_min_ideal/")
 
 
 def main_initialize():
@@ -122,15 +124,15 @@ def main_refine(n, min_ideal_name, homology_kind):
             if VERBOSE:
                 it.write(f"{ix} {hl}")
                 num_done = sum(map(len, groupings.values()))
-                it.write(f"{num_done=}")
+                it.write(f"{num_done=}/{len(ix_set)}")
 
         for arr in groupings.values():
             arr.sort()
         groupings = dict(sorted(groupings.items(), key=lambda k_v: k_v[0]))
         if len(groupings) > 1:
-            print("New splits:", label)
-            for label in groupings:
-                print("   ", label)
+            print(f"New splits for {label}:")
+            for label, arr in groupings.items():
+                print(f"   {label}: x{len(arr)}")
         else:
             for label in groupings:
                 print("extended to", label)
@@ -191,6 +193,8 @@ def main_refine(n, min_ideal_name, homology_kind):
 def populate_readmes():
     SUPER_DIGITS = "⁰¹²³⁴⁵⁶⁷⁸⁹"
     SUB_DIGITS = "₀₁₂₃₄₅₆₇₈₉"
+    SUB_INDICES = ["".join(SUB_DIGITS[int(c)] for c in str(i)) for i in range(101)]
+    maxdim = 10
 
     for folder in PARENT_FOLDER.iterdir():
         if not folder.is_dir():
@@ -213,8 +217,8 @@ def populate_readmes():
             with open(subfolder / "README.md", "w") as f:
                 f.write(first_line)
                 f.write("\n\n")
-                print(*(["Count"] + [f"𝐻{SUB_DIGITS[i]}" for i in range(1, 10)] + ["𝐻₁₀"]), sep=" | ", file=f)
-                print(*(["--:"] + [":--:" for i in range(1, 11)]), sep=" | ", file=f)
+                print(*(["Count"] + [f"𝐻{SUB_INDICES[i]}" for i in range(1, maxdim + 1)]), sep=" | ", file=f)
+                print(*(["--:"] + [":--:" for i in range(1, maxdim + 1)]), sep=" | ", file=f)
                 for label, count in sorted(label_to_count.items()):
                     for simple in ["Z"] + [f"C{i}" for i in reversed(range(2, 20))]:
                         for copies in reversed(range(2, 20)):
@@ -237,31 +241,37 @@ def populate_readmes():
                             else:
                                 parts.append(base)
                         result_entries.append("×".join(parts))
-                    while len(result_entries) < 10:
+                    while len(result_entries) < maxdim:
                         result_entries.append("?")
                     print(*([count] + result_entries), sep=" | ", file=f)
             print(f"Wrote to {subfolder / 'README.md'}")
 
 
 
+PARENT_FOLDER = Path("/mnt/c/Users/Owner/Desktop/monoid_homology/data_by_min_ideal/")
 
 MAXDIM = 10
-PEEKDIM = 6
+PEEKDIM = 4
 CORES = 10
 VERBOSE = False
 # CHUNKSIZE=1
 
 if __name__ == "__main__":
-    populate_readmes()
-    quit()
+    # populate_readmes()
+    # quit()
+
 
     import multiprocessing as mp
     import tqdm
     mp.set_start_method("spawn")
-    ORDER = 9
 
-    # main_initialize()
+    # for ORDER in (4,5,6,7,8,9,10,11):
+    #     print(f"order{ORDER}...")
+    #     main_initialize()
+    #     print(f"done with order{ORDER}")
     # quit()
+
+    ORDER = 10
 
     # [(ix, op)] = subset_from_gz(9, "/mnt/c/Users/cOwner/Desktop/monoid_homology/data_by_min_ideal/order9/min_2_2_1/tables.dat.gz", [128818])
     # print(";".join("".join(map(str, row)) for row in op))
@@ -272,21 +282,28 @@ if __name__ == "__main__":
     # quit()
 
     for min_ideal_name in [
-        "min_2_2_1",
         # "min_2_2_C2_sandwich0",
         # "min_2_2_C2_sandwich1",
-        # "min_2_3_1",
-        # "min_2_4_1",
         # "min_2_5_1",
         # "min_3_3_1",
+        # "min_2_4_1",
+        # "min_2_3_1",
+        "min_2_2_1",
+
+        # "min_2_5",
+        # "min_3_3",
+        # "min_2_4",
+        # "min_2_3",
+        # "min_2_2",
     ]:
         avoid_for_now = [
-            # "[0, Z, Z x Z x Z, Z^9, Z^27"
-            # "[0, Z, Z x Z, Z x Z x Z x Z, Z^8"
+            "[0, Z x Z, Z x Z x Z x Z, Z^6, Z^10, Z^18, Z^30]",
+            "[0, Z x Z, Z x Z x Z x Z, Z^6, Z^8, Z^10",
+            "[0, Z x Z, Z^6, Z^16, Z^42]",
         ]
 
         labels = []
-        with open(rf"/mnt/c/Users/Owner/Desktop/monoid_homology/data_by_min_ideal/order{ORDER}/{min_ideal_name}/groupings.txt") as f:
+        with open(PARENT_FOLDER / f"order{ORDER}" / min_ideal_name / "groupings.txt") as f:
             for line in f:
                 label = line[:line.index(" : ")]
                 # labels.append(label)
@@ -298,6 +315,11 @@ if __name__ == "__main__":
         print("--- Still to do ---")
         for label in labels:
             print(label)
+
+        # labels = [
+        #     "",
+        #     "",
+        # ]
 
 
         for label in labels:
