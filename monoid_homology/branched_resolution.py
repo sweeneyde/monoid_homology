@@ -48,7 +48,8 @@ def partial_smithify(A, num_cols, verbose=False):
         if b == 0:
             return
         elif a == 0:
-            Di1[:], Di2[:] = Di2[:], Di1[:]
+            D[i1], D[i2] = D[i2], D[i1]
+            # Di1[:], Di2[:] = Di2[:], Di1[:]
             # assert Di1[j] == b
             # assert Di2[j] == 0
         elif b % a == 0:
@@ -59,11 +60,15 @@ def partial_smithify(A, num_cols, verbose=False):
             # assert Di2[j] == 0
         elif a % b == 0:
             q = -(a // b)
-            Di1[:], Di2[:] = Di2[:], Di1[:]
+            # D[i1]
             for jj in range(j, n):
-                Di2[jj] += q*Di1[jj]
-            # assert Di1[j] == b
-            # assert Di2[j] == 0
+                Di1[jj] += q*Di2[jj]
+            D[i1], D[i2] = D[i2], D[i1]
+            # Di1[:], Di2[:] = Di2[:], Di1[:]
+            # for jj in range(j, n):
+            #     Di2[jj] += q*Di1[jj]
+            assert D[i1][j] == b
+            assert D[i2][j] == 0
         else:
             x, y, g = xgcd(a, b)
             mbg = -b // g
@@ -123,6 +128,68 @@ def partial_smithify(A, num_cols, verbose=False):
             # assert D[i][j1] == g
             # assert D[i][j2] == 0
 
+    def first_pass(k):
+
+        if not any(True for i in range(k+1, m) if D[i][k]):
+            if not any(True for j in range(k+1, n) if D[k][j]):
+                if verbose:
+                    print("pivot already good")
+                return
+        # Try to get a 1 in the pivot position as fast as possible.
+        col_sums = [sum(abs(D[i][j]).bit_length() for i in range(k, m)) for j in range(k, n)]
+        row_sums = [sum(abs(D[i][j]).bit_length() for j in range(k, n)) for i in range(k, m)]
+
+        best_i, best_j = k, k
+        best_nonzero = (D[k][k] == 0)
+        best_abs = abs(D[k][k])
+        best_sum = col_sums[0] + row_sums[0]
+
+        for i in range(k, m):
+            row_sum = row_sums[i-k]
+            for j in range(k, n):
+                Dij = D[i][j]
+                this_nonzero = (Dij == 0)
+                if not (this_nonzero <= best_nonzero):
+                    continue
+                this_abs = abs(Dij)
+                if this_nonzero == best_nonzero and not (this_abs <= best_abs):
+                    continue
+                this_sum = col_sums[j-k] + row_sum
+                if this_nonzero == best_nonzero and this_abs == best_abs and not (this_sum <= best_sum):
+                    continue
+                best_i, best_j = i, j
+                best_nonzero = this_nonzero
+                best_abs = this_abs
+                best_sum = this_sum
+
+        i, j = best_i, best_j
+        # i, j = min(((i, j) for i in range(k, m) for j in range(k, n)), key=keyfunc)
+
+        assert best_abs == abs(D[i][j]), (best_abs, D[i][j])
+
+        D[k], D[i] = D[i], D[k]
+        if j > k:
+            improve_with_col_ops(k, j, k)
+        
+        assert best_abs == abs(D[k][k]), (best_abs, D[k][k])
+
+        if verbose:
+            print(f"{abs(D[k][k])=}, {col_sums[j-k]=}, {row_sums[i-k]=}")
+
+        # best_i, best_j, best_key = k, k, keyfunc(k, k)
+        # for i in range(k, m):
+        #     for j in range(k, n):
+        # i, j = min(((i, j) for i in range(k, m) for j in range(k, n)), key=lambda i_j: (D[i_j[0]][i_j[1]] == 0, abs()))
+        # D[k+1:] = sorted(D[k+1:], key=lambda row: (row[k] == 0, abs(row[k]), max(map(abs, row))))
+        # if D[k][k] not in {-1, 1}:
+        #     for i in range(k, m):
+        #         for j in range(k, n):
+        #             if D[i][j] in {-1, 1}:
+        #                 D[k], D[i] = D[i], D[k]
+        #                 if j > k:
+        #                     improve_with_col_ops(k, j, k)
+        #                     return
+
     if verbose:
         from tqdm import tqdm
         range_mn = tqdm(range(min(m,n)), desc=f"SNF", dynamic_ncols=True, smoothing=0.0, ascii=True, miniters=0)
@@ -131,6 +198,7 @@ def partial_smithify(A, num_cols, verbose=False):
 
     # make diagonal
     for k in range_mn:
+        first_pass(k)
         while True:
             for i in range(k+1, m):
                 improve_with_row_ops(k, i, k)
