@@ -1,0 +1,3 @@
+[0, Z x Z, C2, 0, C2, 0, C2, 0, C2, 0] : 0,5,9
+[0, Z x Z, Z x Z x C2, Z x Z, Z x Z x C2, Z x Z, Z x Z x C2, Z x Z, Z x Z x C2, Z x Z] : 4,7,8,10
+[0, Z, C2, 0, C2, 0, C2, 0, C2, 0] : 1,2,3,6

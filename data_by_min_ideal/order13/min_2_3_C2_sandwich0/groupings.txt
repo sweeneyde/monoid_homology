@@ -1,0 +1,4 @@
+[C2, 0, C2, 0, C2, 0, C2, 0, C2, 0] : 1,5
+[C2, Z x Z, C2, 0, C2, 0, C2, 0, C2, 0] : 0,7
+[C2, Z x Z, Z x Z x C2, Z x Z, Z x Z x C2, Z x Z, Z x Z x C2, Z x Z, Z x Z x C2, Z x Z] : 6,9
+[C2, Z, C2, 0, C2, 0, C2, 0, C2, 0] : 2,3,4,8
