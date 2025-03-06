@@ -15,12 +15,23 @@ from .structure_utils import (
     get_kernel_height_width_G,
     restrict_to_subset,
     thin_equivalent,
+    equivalent_submonoid,
     op_has_ptorsion,
     swaps,
     is_regular,
+    canonicalize,
 )
 from .resolution import (
     FiniteMonoidRingProjectiveResolution,
     find_good_resolution,
 )
 from .knuth_bendix import kb_normalize
+
+from .branched_resolution import (
+    BranchedResolution,
+    find_good_branched_resolution,
+)
+
+from .by_min_ideal import (
+    subset_from_size_and_min_name,
+)

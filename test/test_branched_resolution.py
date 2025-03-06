@@ -24,7 +24,7 @@ def test_ResolutionNode_rect22_dimension1():
     ]
 
     node.make_kernel()
-    assert node.kernel_Z_basis == [
+    assert sorted(node.kernel_Z_basis, reverse=True) == [
         [1,0,0,0,0], [0,1,0,0,0], [0,0,1,0,0], [0,0,0,1,0]
     ]
 
@@ -45,7 +45,7 @@ def test_ResolutionNode_rect22_dimension1():
     assert child.input_index_pairs == [(0, 0), (0, 1), (1, 0), (1, 1)]
     assert child.output_index_pair_to_index == {(0,jj):jj for jj in range(5)}
     assert child.output_index_pairs == [(0,jj) for jj in range(5)]
-    assert child.outgoing_right_mul_matrix == [[ [(1, 0)], [(1, 1)] ]]
+    assert child.outgoing_right_mul_matrix == [[ [(1, 1)], [(1, 0)], ]]
 
 def test_ResolutionNode_rect22_dimension2():
     rect22mon = [[0,1,0,1,0],[0,1,0,1,1],[2,3,2,3,2],[2,3,2,3,3],[0,1,2,3,4]]

@@ -369,7 +369,7 @@ def test_FreeAbelianSubmodule_deletion():
                 deleted = FreeAbelianSubmodule(N)
                 deleted.add(removed)
                 deleted.add(complement)
-                
+
                 also_deleted = FreeAbelianSubmodule(N)
                 also_deleted.add(removed1)
                 also_deleted.add(removed2)
@@ -377,3 +377,22 @@ def test_FreeAbelianSubmodule_deletion():
                 assert also_deleted == deleted
                 assert deleted + mod1 == mod0
                 assert also_deleted + mod1 == mod0
+
+def test_FreeAbelianSubmodule_coefficients():
+    for N in [0,1,2,3,4,5,10,20]:
+        for _ in range(3):
+            vecs = [
+                [randrange(-10, 10) for _ in range(N)]
+                for _ in range(randrange(N + 2))
+            ]
+            mod = FreeAbelianSubmodule(N)
+            for vec in vecs:
+                mod.add(vec)
+
+            for _ in range(3):
+                coefficients = [randrange(-100, 100) for _ in range(len(mod.basis))]
+                element = [0] * N
+                for a, v in zip(coefficients, mod.basis):
+                    for i in range(N):
+                        element[i] += a * v[i]
+                assert mod.get_coefficients(element) == coefficients

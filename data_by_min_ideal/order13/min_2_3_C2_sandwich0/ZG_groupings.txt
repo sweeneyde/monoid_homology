@@ -1,0 +1,4 @@
+[0, 0, 0, 0, 0, 0, 0, 0, 0, 0] : 1,5
+[0, Z x Z x Z x Z, 0, 0, 0, 0, 0, 0, 0, 0] : 0,7
+[0, Z x Z x Z x Z, Z x Z x Z x Z, Z x Z x Z x Z, Z x Z x Z x Z, Z x Z x Z x Z, Z x Z x Z x Z, Z x Z x Z x Z, Z x Z x Z x Z, Z x Z x Z x Z] : 6,9
+[0, Z x Z, 0, 0, 0, 0, 0, 0, 0, 0] : 2,3,4,8

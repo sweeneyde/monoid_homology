@@ -297,7 +297,7 @@ class CompleteRewritingSystem:
                         raise AssertionError(str(seen))
 
     def multiplication_table(self, limit=1000):
-        from structure_utils import table_from_opfunc_and_set
+        from .structure_utils import table_from_opfunc_and_set
         return table_from_opfunc_and_set(self.op, self.elements(limit=limit))
 
     def _classify_internal(self, cell):

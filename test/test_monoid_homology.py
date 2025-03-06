@@ -22,13 +22,15 @@ from monoid_homology.knuth_bendix import (
 )
 
 from monoid_homology.structure_utils import (
-    normal_subgroup_generated_by,
+    # normal_subgroup_generated_by,
     group_identity_and_inverses,
-    group_quotient,
+    group_quotient_by_normal,
+    group_quotient_by_subset,
     product_op,
     table_from_opfunc_and_set,
     get_kernel_structure,
     group_completion,
+    normal_closure,
     # get_kernel_height_width_G,
     # restrict_to_subset,
     # thin_equivalent,
@@ -355,6 +357,11 @@ GROUPS = [
     A5
 ]
 
+def normal_subgroup_generated_by(op, G, subset):
+    e, inv = group_identity_and_inverses(op, G)
+    return normal_closure(G, op, e, inv, subset)
+
+
 def test_groups():
     assert normal_subgroup_generated_by([[0,1],[1,0]], [0,1], [1]) == {0, 1}
     assert normal_subgroup_generated_by([[0,1],[1,0]], [0,1], [0]) == {0}
@@ -384,7 +391,7 @@ def test_groups():
                 for g in rn:
                     assert op[op[g][Nelt]][inv[g]] in N
             # N is kernel
-            proj, result_op = group_quotient(op, rn, N)
+            proj, result_op = group_quotient_by_normal(op, rn, N)
             for x in rn:
                 for y in rn:
                     assert proj[op[x][y]] == result_op[proj[x]][proj[y]]
