@@ -1,5 +1,8 @@
 import operator
 from bisect import bisect
+from collections import deque
+
+iter_consume = deque(maxlen=0).extend
 
 def xgcd(a, b):
     # Maintain the invariants:
@@ -166,7 +169,7 @@ def get_kernel_basis(A, num_cols, verbose=False):
 
 class FreeAbelianSubmodule:
     """
-    A submodule of ZZ^n, with a basis stored as row-vectors is row-echelon form.
+    A submodule of ZZ^n, with a basis stored as row-vectors in row echelon form.
 
     Mutable, so we can relatively quickly add in the spans of new vectors.
     """
@@ -182,7 +185,7 @@ class FreeAbelianSubmodule:
         self.basis = []
 
     def assert_consistent(self):
-        """assert we're in in row_echelon form"""
+        """assert we're in in row echelon form"""
         basis = self.basis
         for i, j in enumerate(self.pivot_location_in_row):
             assert basis[i][j] != 0
@@ -201,7 +204,7 @@ class FreeAbelianSubmodule:
         N = self.N
         basis = self.basis
         for j in range(N):
-            if vec[j] != 0:
+            if vec[j]:
                 p = col_piv[j]
                 if p is None:
                     # can't zero this vec entry out
@@ -214,6 +217,7 @@ class FreeAbelianSubmodule:
                     return False
                 else:
                     if vec is vec0:
+                        # copy on write
                         vec = vec.copy()
                     q = b // a
                     row = basis[p]
@@ -230,7 +234,7 @@ class FreeAbelianSubmodule:
         assert len(vec) == N
         vec = vec.copy()
         for j in range(N):
-            if vec[j] != 0:
+            if vec[j]:
                 p = col_piv[j]
                 if p is None:
                     # This vector gets inserted so that its first entry is a pivot.
@@ -253,7 +257,7 @@ class FreeAbelianSubmodule:
                     for jj in range(j, N):
                         vec[jj] -= q * row[jj]
                 elif a % b == 0:
-                    row[:], vec[:] = vec[:], row[:]
+                    row[j:], vec[j:] = vec[j:], row[j:]
                     q = a // b
                     for jj in range(j, N):
                         vec[jj] -= q * row[jj]
@@ -271,6 +275,36 @@ class FreeAbelianSubmodule:
         # nothing more needs to be done.
         # assert not any(vec)
         # self.assert_consistent()
+
+    def get_coefficients(self, vec0):
+        vec = vec0
+        col_piv = self.pivot_location_in_column
+        N = self.N
+        basis = self.basis
+        coefficients = [0] * len(self.basis)
+        for j in range(N):
+            if vec[j]:
+                p = col_piv[j]
+                if p is None:
+                    # can't zero this vec entry out
+                    # without disrupting previous parts
+                    raise ValueError("vector not in subspace")
+                a = basis[p][j]
+                b = vec[j]
+                if b % a != 0:
+                    # This pivot can't zero this entry
+                    raise ValueError("vector not in subspace")
+                else:
+                    if vec is vec0:
+                        # copy on write
+                        vec = vec.copy()
+                    q = b // a
+                    coefficients[j] = q
+                    row = basis[p]
+                    # assert set(vec[:j]) <= {0}
+                    for jj in range(j, N):
+                        vec[jj] -= q * row[jj]
+        return coefficients
 
     def copy(self):
         new = object.__new__(type(self))
@@ -445,7 +479,11 @@ class FiniteMonoidRingProjectiveResolution:
             Z_matrix, width = self.right_mul_matrix_to_Z_matrix(last_gens, second_to_last_gens, self.right_mul_matrices[-1])
         kernel_basis = get_kernel_basis(Z_matrix, width, verbose=verbose)
         del Z_matrix
-        if len(kernel_basis) < 100:
+        kernel_basis.sort(key=lambda row: max(map(abs, row)))
+
+        if len(kernel_basis) < 50:
+            input_gens, right_mul_matrix = self.cover_slow(last_gens, kernel_basis, verbose=verbose)
+        if len(kernel_basis) < 200:
             input_gens, right_mul_matrix = self.cover(last_gens, kernel_basis, verbose=verbose)
         else:
             input_gens, right_mul_matrix = self.cover_fast(last_gens, kernel_basis, verbose=verbose)
@@ -485,16 +523,16 @@ class FiniteMonoidRingProjectiveResolution:
         Given a list `output_gens` of idempotents (e1, ..., en)
         and a list `kernel_basis` of vectors in
 
-            X := ZZ[S]e1 (+) ... (+) ZZ[S]en,
+            Y := ZZ[S]e1 (+) ... (+) ZZ[S]en,
 
         produce a new module
 
-            Y := ZZ[S]f1 (+) ... (+) ZZ[S]fm
+            X := ZZ[S]f1 (+) ... (+) ZZ[S]fm
 
         and a ZZ[S]-linear map d: X --> Y
         such that d(X) = the ZZ-span of `kernel_basis`.
 
-        This has the same API as cover(), but does no try very hard
+        This has the same API as cover(), but does not try very hard
         to make X as small as possible. In pseudo-code, cover_fast()
         just does:
 
@@ -588,10 +626,6 @@ class FiniteMonoidRingProjectiveResolution:
 
         and a ZZ[S]-linear map d: X --> Y
         such that d(X) = the ZZ-span of `kernel_basis`.
-
-        This has the same API as cover(), but does no try very hard
-        to make X as small as possible. In pseudo-code, cover_fast()
-        just does:
 
         This has the same API as cover_fast(), but tries harder
         to make a small module X.
@@ -767,6 +801,202 @@ class FiniteMonoidRingProjectiveResolution:
             print(f"done with dim{len(self.module_list)}")
         return input_gens, right_mul_matrix
 
+    def cover_slow(self, output_gens, kernel_basis, verbose=False):
+        """
+        Given a list `output_gens` of idempotents (e1, ..., en)
+        and a list `kernel_basis` of vectors in
+
+            X := ZZ[S]e1 (+) ... (+) ZZ[S]en,
+
+        produce a new module
+
+            Y := ZZ[S]f1 (+) ... (+) ZZ[S]fm
+
+        and a ZZ[S]-linear map d: X --> Y
+        such that d(X) = the ZZ-span of `kernel_basis`.
+
+        This has the same API as cover() and cover_fast(),
+        but tries *even harder* to make a small module X.
+        At each step, cover() finds which vector will pay off most to add,
+        and then we add it.
+        """
+        if verbose:
+            print("kernel:")
+            for k in kernel_basis:
+                print(k)
+        if len(kernel_basis) == 0:
+            input_gens = []
+            right_mul_matrix = [[] for _ in range(len(output_gens))]
+            return input_gens, right_mul_matrix
+
+        output_index_pairs = [(i, ii) for i, gen in enumerate(output_gens) for ii in range(len(self.e_to_Lclass[gen]))]
+        output_index_pair_to_index = {x: i for i, x in enumerate(output_index_pairs)}
+        N = len(output_index_pairs)
+
+        def left_multiply_index(s, index):
+            # Takes a one-hot Z-basis vector at index
+            # and multiplies it on the left by the semigroup element s
+            # to find the index of the result one-hot Z-basis vector
+            (i, ii) = output_index_pairs[index]
+            Lclass = self.e_to_Lclass[output_gens[i]]
+            x = Lclass[ii]
+            sx = self.op[s][x]
+            ii_new = Lclass.index(sx)
+            return output_index_pair_to_index[i, ii_new]
+
+        if verbose:
+            print("making table...")
+        left_multiply_index_table = [
+            [left_multiply_index(s, index) for index in range(N)]
+            for s in range(len(self.op))
+        ]
+
+        def left_multiply_vector(s, vec):
+            result = [0] * len(vec)
+            for out_index, x in zip(left_multiply_index_table[s], vec):
+                result[out_index] += x
+            return result
+
+        if verbose:
+            print("finding ZS spans...")
+        ZS_spans = []
+        for vec in kernel_basis:
+            sub = FreeAbelianSubmodule(N)
+            for s in range(len(self.op)):
+                sub.add(left_multiply_vector(s, vec))
+            ZS_spans.append(sub)
+
+        idempotents_by_size = sorted(self.e_to_Lclass.keys(), key=lambda e: len(self.e_to_Lclass[e]))
+
+        if verbose:
+            print("finding idempotents...")
+        kindex_to_e = []
+        for vec in kernel_basis:
+            best_e = None
+            for e in idempotents_by_size:
+                if left_multiply_vector(e, vec) == vec:
+                    best_e = e
+                    break
+            assert best_e is not None
+            kindex_to_e.append(best_e)
+
+        if verbose:
+            print("computing base inclusions...")
+        base_inclusions = []
+        for kindex1 in range(len(kernel_basis)):
+            span = ZS_spans[kindex1]
+            included = {kindex2 for kindex2, k in enumerate(kernel_basis)
+                        if kindex2 == kindex1 or k in span}
+            base_inclusions.append(included)
+        if verbose:
+            print(f"{base_inclusions=}")
+
+        kindexes_in_covering_order = sorted(
+            range(len(kernel_basis)),
+            key = lambda kindex: len(base_inclusions[kindex]),
+            reverse=True
+        )
+
+        already_covered_kindexes = set()
+        already_covered = FreeAbelianSubmodule(N)
+        input_gens = []
+        right_mul_columns = []
+
+        def add_summand(kindex):
+            if verbose:
+                print(f"Adding summand {kindex}")
+            already_covered_kindexes.update(inclusions[kindex])
+            nonlocal already_covered
+            already_covered += ZS_spans[kindex]
+            right_mul_column = [[] for _ in output_gens]
+            for index, coeff in enumerate(kernel_basis[kindex]):
+                if coeff:
+                    i, ii = output_index_pairs[index]
+                    Lclass = self.e_to_Lclass[output_gens[i]]
+                    m = Lclass[ii]
+                    right_mul_column[i].append((coeff, m))
+            input_gens.append(kindex_to_e[kindex])
+            right_mul_columns.append(right_mul_column)
+
+        while True:
+            if verbose:
+                print(f"{len(kernel_basis)-len(already_covered_kindexes)} remaining")
+            inclusions = {kindex: base_inclusions[kindex] | already_covered_kindexes
+                          for kindex in kindexes_in_covering_order
+                          if kindex not in already_covered_kindexes}
+            for kindex, to_be_included in inclusions.items():
+                in_question = [kindex2 for kindex2 in range(len(kernel_basis)) if kindex2 not in to_be_included]
+                if not in_question:
+                    continue
+                new_span = already_covered + ZS_spans[kindex]
+                for kindex2 in in_question:
+                    if kernel_basis[kindex2] in new_span:
+                        to_be_included.add(kindex2)
+            total_found = sum(
+                len(to_be_included - already_covered_kindexes - base_inclusions[kindex])
+                for kindex, to_be_included in inclusions.items()
+            )
+
+            kindex = max(
+                inclusions.keys(),
+                key=lambda kindex: len(inclusions[kindex])
+            )
+            num_added = len(self.e_to_Lclass[kindex_to_e[kindex]])
+            num_covered = len(inclusions[kindex]) - len(already_covered_kindexes)
+            efficiency = num_covered / num_added - 0.0001
+            if verbose:
+                print(f"found {total_found} new inclusions --> {efficiency=}")
+
+            add_summand(kindex)
+            if len(already_covered_kindexes) == len(kernel_basis):
+                # covered everything!
+                break
+
+            # for kindex, to_be_included in inclusions.items():
+            #     # Attempt at a "lower bound" on num_covered.
+            #     # Adding this kindex will result in at least `to_be_included`
+            #     # being covered. The uncertainty is that it could already
+            #     # have been covered by a previous addition, though then
+            #     # that previously-added vector's efficiency was greater than expected,
+            #     # so the average efficiency is still valid.
+            #     # On the other hand, interacting with the existing cover
+            #     # means that we could actually cover more, so it's probably a good thing to include.
+            #     if kindex in already_covered_kindexes:
+            #         continue
+            #     num_covered_approx = len(to_be_included - already_covered_kindexes)
+            #     num_added = len(self.e_to_Lclass[kindex_to_e[kindex]])
+            #     if num_covered_approx / num_added >= efficiency:
+            #         add_summand(kindex)
+
+            # Get already_covered_kindexes all the way up to date before starting again.
+            for kindex in range(len(kernel_basis)):
+                if kindex not in already_covered_kindexes:
+                    if kernel_basis[kindex] in already_covered:
+                        already_covered_kindexes.add(kindex)
+
+            if len(already_covered_kindexes) == len(kernel_basis):
+                # covered everything!
+                break
+
+        del ZS_spans
+        del already_covered
+
+        if verbose:
+            print("transposing...")
+        assert len(right_mul_columns) == len(input_gens)
+        for col in right_mul_columns:
+            assert len(col) == len(output_gens)
+        right_mul_matrix = [
+            [right_mul_columns[j][i] for j in range(len(input_gens))]
+            for i in range(len(output_gens))
+        ]
+        assert len(right_mul_matrix) == len(output_gens)
+
+        if verbose:
+            print(f"done with dim{len(self.module_list)}")
+        return input_gens, right_mul_matrix
+
+
 
 def find_good_resolution(op0, peek_dim=4, verbose=False):
     """Choose a few different versions of a monoid operation,
@@ -790,5 +1020,6 @@ def find_good_resolution(op0, peek_dim=4, verbose=False):
                 if verbose:
                     print("short circuit: finite resolution!")
                 return res
-    print([len(res.module_list[-1]) for res in resolutions])
+    if verbose:
+        print([len(res.module_list[-1]) for res in resolutions])
     return min(resolutions, key=lambda res: len(res.module_list[-1]))
